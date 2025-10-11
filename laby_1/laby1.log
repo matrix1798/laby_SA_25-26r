@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.8.1)  10 OCT 2025 19:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.8.1)  11 OCT 2025 13:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -968,7 +968,7 @@ Package rerunfilecheck Info: File `laby1.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  33377 strings out of 474486
- 774714 string characters out of 5744228
+ 774738 string characters out of 5744228
  1932542 words of memory out of 5000000
  55132 multiletter control sequences out of 15000+600000
  572365 words of font info for 74 fonts, out of 8000000 for 9000
@@ -991,7 +991,7 @@ rs/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
 <C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
 y10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
 s/cm/cmsy6.pfb>
-Output written on laby1.pdf (3 pages, 209883 bytes).
+Output written on laby1.pdf (3 pages, 210359 bytes).
 PDF statistics:
  395 PDF objects out of 1000 (max. 8388607)
  18 named destinations out of 1000 (max. 500000)
