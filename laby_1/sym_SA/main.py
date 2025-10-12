@@ -10,20 +10,20 @@ def main():
     PODMIEN_WYJSCIE_NA_SYMULACJE = True
 
     # Parametry symulacji podstawowej (używane, gdy flaga powyżej to True)
-    K_symulacji = 0.74
-    T_symulacji = 0.00079
+    K_symulacji = 0.871
+    T_symulacji = 0.00078
     szum_symulacji = 0.004
 
     # --- USTAWIENIA DODATKOWYCH SYGNAŁÓW DO PORÓWNANIA ---
     # Włącz/wyłącz rysowanie sygnału z modelu uzyskanego z charakterystyki częstotliwościowej
     RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY = True
-    K_czest = 0.72  # Wzmocnienie z analizy częstotliwościowej
-    T_czest = 0.0008  # Stała czasowa z analizy częstotliwościowej
+    K_czest = 0.842  # Wzmocnienie z analizy częstotliwościowej
+    T_czest = 0.000758  # Stała czasowa z analizy częstotliwościowej
 
     # Włącz/wyłącz rysowanie sygnału z modelu uzyskanego metodą optymalizacji
     RYSUJ_SYGNAL_OPTYMALIZACJI = True
-    K_opt = 0.75    # Wzmocnienie z optymalizacji
-    T_opt = 0.0007    # Stała czasowa z optymalizacji
+    K_opt = 0.8366    # Wzmocnienie z optymalizacji
+    T_opt = 0.00074    # Stała czasowa z optymalizacji
 
     # --- KROK 1: WCZYTYWANIE DANYCH Z PLIKU CSV ---
     filename = "fol_gabriel/NewFile1.csv"
@@ -119,18 +119,18 @@ def main():
     plt.figure(figsize=(12, 7))
     
     # Rysowanie sygnałów głównych
-    plt.plot(df["czas"], df["in"], label="Wejście (IN) z pliku", color='black', linewidth=2)
-    label_out = "Wyjście (z pliku CSV)" if not PODMIEN_WYJSCIE_NA_SYMULACJE else f"Wyjście (Symulacja bazowa K={K_symulacji}, T={T_symulacji})"
+    plt.plot(df["czas"], df["in"], label="Sygnał wejściowy", color='red', linewidth=1)
+    label_out = "Sygnał wyjściowy"
     plt.plot(df["czas"], df["out"], label=label_out, color='blue', linewidth=2.5)
 
     # Rysowanie sygnałów porównawczych
     if RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY:
-        plt.plot(df["czas"], df["out_czest"], label=f"Model (częstotliwościowy, K={K_czest}, T={T_czest}s)", linestyle='--', color='green')
+        plt.plot(df["czas"], df["out_czest"], label=f"Model na podstawie charakterystyki częstotliwościowej", color='green',linewidth=3)
 
     if RYSUJ_SYGNAL_OPTYMALIZACJI:
-        plt.plot(df["czas"], df["out_opt"], label=f"Model (optymalizacja, K={K_opt}, T={T_opt}s)", linestyle=':', color='red')
+        plt.plot(df["czas"], df["out_opt"], label=f"Model na podstawie optymalizacji",color='orange',linewidth=3)
 
-    plt.title("Porównanie odpowiedzi skokowej obiektu z modelami")
+    plt.title("Porównanie odpowiedzi skokowych układu inercyjnego 1 rzędu")
     plt.xlabel("Czas [s]")
     plt.ylabel("Amplituda [V]")
     plt.legend()
