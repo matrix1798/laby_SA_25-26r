@@ -119,18 +119,18 @@ def main():
     plt.figure(figsize=(12, 7))
     
     # Rysowanie sygnałów głównych
-    plt.plot(df["czas"], df["in"], label="Wejście (IN) z pliku", color='black', linewidth=2)
-    label_out = "Wyjście (z pliku CSV)" if not PODMIEN_WYJSCIE_NA_SYMULACJE else f"Wyjście (Symulacja bazowa K={K_symulacji}, T={T_symulacji})"
+    plt.plot(df["czas"], df["in"], label="Sygnał wejściowy", color='red', linewidth=1)
+    label_out = "Sygnał wyjściowy"
     plt.plot(df["czas"], df["out"], label=label_out, color='blue', linewidth=2.5)
 
     # Rysowanie sygnałów porównawczych
     if RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY:
-        plt.plot(df["czas"], df["out_czest"], label=f"Model (częstotliwościowy, K={K_czest}, T={T_czest}s)", linestyle='--', color='green')
+        plt.plot(df["czas"], df["out_czest"], label=f"Model na podstawie charakterystyki częstotliwościowej", color='green',linewidth=3)
 
     if RYSUJ_SYGNAL_OPTYMALIZACJI:
-        plt.plot(df["czas"], df["out_opt"], label=f"Model (optymalizacja, K={K_opt}, T={T_opt}s)", linestyle=':', color='red')
+        plt.plot(df["czas"], df["out_opt"], label=f"Model na podstawie optymalizacji",color='orange',linewidth=3)
 
-    plt.title("Porównanie odpowiedzi skokowej obiektu z modelami")
+    plt.title("Porównanie odpowiedzi skokowych układu inercyjnego 1 rzędu")
     plt.xlabel("Czas [s]")
     plt.ylabel("Amplituda [V]")
     plt.legend()
