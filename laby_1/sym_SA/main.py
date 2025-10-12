@@ -10,20 +10,20 @@ def main():
     PODMIEN_WYJSCIE_NA_SYMULACJE = True
 
     # Parametry symulacji podstawowej (używane, gdy flaga powyżej to True)
-    K_symulacji = 0.74
-    T_symulacji = 0.00079
+    K_symulacji = 0.871
+    T_symulacji = 0.00078
     szum_symulacji = 0.004
 
     # --- USTAWIENIA DODATKOWYCH SYGNAŁÓW DO PORÓWNANIA ---
     # Włącz/wyłącz rysowanie sygnału z modelu uzyskanego z charakterystyki częstotliwościowej
     RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY = True
-    K_czest = 0.72  # Wzmocnienie z analizy częstotliwościowej
-    T_czest = 0.0008  # Stała czasowa z analizy częstotliwościowej
+    K_czest = 0.842  # Wzmocnienie z analizy częstotliwościowej
+    T_czest = 0.000758  # Stała czasowa z analizy częstotliwościowej
 
     # Włącz/wyłącz rysowanie sygnału z modelu uzyskanego metodą optymalizacji
     RYSUJ_SYGNAL_OPTYMALIZACJI = True
-    K_opt = 0.75    # Wzmocnienie z optymalizacji
-    T_opt = 0.0007    # Stała czasowa z optymalizacji
+    K_opt = 0.8366    # Wzmocnienie z optymalizacji
+    T_opt = 0.00074    # Stała czasowa z optymalizacji
 
     # --- KROK 1: WCZYTYWANIE DANYCH Z PLIKU CSV ---
     filename = "fol_gabriel/NewFile1.csv"
