@@ -195,7 +195,7 @@
 	\end{figure}
 	
 	\noindent \textbf{Porównanie charakterystyk Bodego otrzymanych różnymi metodami:}
-		\begin{figure}[H]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{zdjecia/Body1.png}
 		\caption{Charakterystyki Bodego układu inercyjnego pierwszego rzędu}
@@ -211,8 +211,44 @@
 		G(s) = \frac{k_p}{1 + sT_p} e^{-sT_0}
 	\end{equation}
 		
-	\noindent \textbf{Parametry $k_p$ i $T_p$ przyjęto takie same jak dla układu inercyjnego pierwszego rzędu, 
-		ponieważ wprowadzenie opóźnienia transportowego $T_0$ nie wpływa na wzmocnienie ani stałą czasową, a jedynie powoduje dodatkowe przesunięcie fazowe.}
+	\noindent {Parametry $k_p$ i $T_p$ przyjęto takie same jak dla układu inercyjnego pierwszego rzędu, ponieważ wprowadzenie opóźnienia transportowego $T_0$ nie wpływa na wzmocnienie ani stałą czasową, a jedynie powoduje dodatkowe przesunięcie fazowe.}
+	
+	\noindent \textbf{Obliczenie opóźnienia transportowego $T_0$ na podstawie odpowiedzi skokowej:}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/odp_skok_z_opz.png}
+		\caption{Odpowiedź skokowa układu pierwszego rzędu z opóźnieniem transportowym}
+		\label{fig:odp_skok_z_opz}
+	\end{figure}
+		
+	\noindent \textbf{Obliczenie opóźnienia transportowego $T_0$ na podstawie charakterystyki częstotliwościowej:}
+	
+	Wartość opóźnienia $T_0$ obliczono na podstawie zależności:
+	
+	\begin{equation}
+		T_0 = -T_p \cdot \left( \phi(\omega_{3\text{dB}}) + \frac{\pi}{4} \right)
+	\end{equation}
+	
+	Do obliczeń przyjęto stałą czasową $T_p = 0{,}758~\text{ms}$ oraz przesunięcie fazowe 
+	$\phi = -71{,}88^{\circ}$ (odczytane dla częstotliwości $f = 210~\text{Hz}$, bliskiej $f_{3\text{dB}}$).
+	
+	\noindent{Konwersja fazy na radiany:}
+	
+	\[
+	\phi = -71{,}88^{\circ} = -1{,}2545~\text{rad}
+	\]
+	
+	\noindent{Podstawienie wartości do wzoru:}
+	
+	\begin{align*}
+		T_0 &= -0{,}000758~\text{s} \cdot \left( -1{,}2545 + \frac{\pi}{4} \right) \\
+		T_0 &= -0{,}000758~\text{s} \cdot \left( -1{,}2545 + 0{,}7854 \right) \\
+		T_0 &= -0{,}000758~\text{s} \cdot (-0{,}4691) \\
+		T_0 &\approx 0{,}000356~\text{s}
+	\end{align*}
+	
+	\noindent Ostatecznie wyznaczone opóźnienie transportowe wynosi:
+	\boxed{T_0 \approx 0{,}356~\text{ms}}
 	
 	\subsection{Układ całkujący}
 	Transmitancja obiektu jest postaci:
