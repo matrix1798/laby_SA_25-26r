@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  12 OCT 2025 15:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  12 OCT 2025 19:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -948,29 +948,34 @@ Overfull \hbox (23.99997pt too wide) in paragraph at lines 51--69
 [1
 
 {C:/Users/turbi/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<zdjecia/1.png, id=51, 597.432pt x 845.0772pt>
-File: zdjecia/1.png Graphic file (type png)
-<use zdjecia/1.png>
-Package pdftex.def Info: zdjecia/1.png  used on input line 98.
-(pdftex.def)             Requested size: 218.51521pt x 309.0889pt.
-<zdjecia/2.png, id=52, 597.432pt x 845.0772pt>
-File: zdjecia/2.png Graphic file (type png)
-<use zdjecia/2.png>
-Package pdftex.def Info: zdjecia/2.png  used on input line 105.
-(pdftex.def)             Requested size: 218.51521pt x 309.0889pt.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.113 	
-        [1 <./zdjecia/1.png> <./zdjecia/2.png>] [2]
-<zdjecia/OdpSkokowa1.png, id=81, 1003.75pt x 602.25pt>
+l.91 	\newpage
+               [1]
+<zdjecia/1.png, id=55, 597.432pt x 845.0772pt>
+File: zdjecia/1.png Graphic file (type png)
+<use zdjecia/1.png>
+Package pdftex.def Info: zdjecia/1.png  used on input line 99.
+(pdftex.def)             Requested size: 218.51521pt x 309.0889pt.
+<zdjecia/2.png, id=56, 597.432pt x 845.0772pt>
+File: zdjecia/2.png Graphic file (type png)
+<use zdjecia/2.png>
+Package pdftex.def Info: zdjecia/2.png  used on input line 106.
+(pdftex.def)             Requested size: 218.51521pt x 309.0889pt.
+ [2 <./zdjecia/1.png> <./zdjecia/2.png>] [3]
+<zdjecia/OdpSkokowa1.png, id=88, 1387.584pt x 698.8509pt>
 File: zdjecia/OdpSkokowa1.png Graphic file (type png)
 <use zdjecia/OdpSkokowa1.png>
-Package pdftex.def Info: zdjecia/OdpSkokowa1.png  used on input line 191.
-(pdftex.def)             Requested size: 455.24411pt x 273.15117pt.
- [3 <./zdjecia/OdpSkokowa1.png (PNG copy)>] [4] [5] [6] (laby1.aux)
+Package pdftex.def Info: zdjecia/OdpSkokowa1.png  used on input line 192.
+(pdftex.def)             Requested size: 455.24411pt x 229.2779pt.
+<zdjecia/Body1.png, id=90, 1387.584pt x 698.8509pt>
+File: zdjecia/Body1.png Graphic file (type png)
+<use zdjecia/Body1.png>
+Package pdftex.def Info: zdjecia/Body1.png  used on input line 200.
+(pdftex.def)             Requested size: 455.24411pt x 229.2779pt.
+ [4 <./zdjecia/OdpSkokowa1.png> <./zdjecia/Body1.png>] [5] [6] [7] (laby1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -979,13 +984,13 @@ Package rerunfilecheck Info: File `laby1.out' has not changed.
 (rerunfilecheck)             Checksum: 6C280393A9A31477CE6FCCDE8D70781F;1626.
  ) 
 Here is how much of TeX's memory you used:
- 33447 strings out of 474486
- 776455 string characters out of 5743754
- 1933542 words of memory out of 5000000
- 55184 multiletter control sequences out of 15000+600000
+ 33454 strings out of 474486
+ 776618 string characters out of 5743754
+ 1934542 words of memory out of 5000000
+ 55189 multiletter control sequences out of 15000+600000
  574165 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,14n,107p,724b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,14n,107p,872b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\turbi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm
 0800.pk> <C:\Users\turbi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
 0\tcrm1200.pk> <C:\Users\turbi\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
@@ -1007,9 +1012,9 @@ pe1/public/amsfonts/cm/cmr6.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/turbi/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/turbi/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on laby1.pdf (7 pages, 22740228 bytes).
+Output written on laby1.pdf (8 pages, 22903027 bytes).
 PDF statistics:
- 465 PDF objects out of 1000 (max. 8388607)
- 31 named destinations out of 1000 (max. 500000)
- 100 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 480 PDF objects out of 1000 (max. 8388607)
+ 33 named destinations out of 1000 (max. 500000)
+ 105 words of extra memory for PDF output out of 10000 (max. 10000000)
 

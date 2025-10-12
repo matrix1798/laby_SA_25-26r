@@ -77,17 +77,18 @@
 	%          CEL ĆWICZENIA
 	% =====================================
 	\section{Cel ćwiczenia}
-	Celem ćwiczenia było zapoznanie się z częstotliwościowymi i czasowymi metodami identyfikacji obiektów dynamicznych oraz wyznaczenie modelu matematycznego badanego układu na podstawie zebranych danych pomiarowych.
+	Celem ćwiczenia było zapoznanie się z czasowymi i częstotliwościowymi metodami identyfikacji obiektów dynamicznych oraz praktyczne wyznaczenie modeli matematycznych opisujących ich zachowanie. W ramach zajęć analizowano odpowiedzi różnych typów układów dynamicznych na wymuszenia skokowe i sygnały harmoniczne, co pozwoliło na określenie ich podstawowych parametrów, takich jak wzmocnienie, stała czasowa, opóźnienie transportowe, współczynnik tłumienia czy pulsacja naturalna.
 	
 	% =====================================
 	%          PRZEBIEG ĆWICZENIA
 	% =====================================
 	\section{Przebieg ćwiczenia}
-	Podczas laboratorium przeprowadzono dwa główne etapy identyfikacji badanego obiektu. W pierwszej kolejności zarejestrowano jego odpowiedź na wymuszenie skokowe. Następnie, w ramach analizy częstotliwościowej, zmierzono amplitudę sygnału wyjściowego oraz przesunięcie fazowe między sygnałem wejściowym a wyjściowym dla szeregu wybranych częstotliwości.
+	Podczas ćwiczenia przeprowadzono identyfikację kilku obiektów dynamicznych o znanych transmitancjach operatorowych: układu inercyjnego pierwszego rzędu, układu inercyjnego pierwszego rzędu z opóźnieniem transportowym, układu całkującego, układu drugiego rzędu oraz układu nieminimalnofazowego. Dla każdego z nich wykonano pomiary odpowiedzi czasowych oraz charakterystyk częstotliwościowych (amplitudowych i fazowych). W trakcie zajęć wykorzystano stanowisko pomiarowe zbudowane z zestawu analogowych modeli procesów przemysłowych (ZAMPP), generatora funkcji, częstościomierza oraz oscyloskopu dwukanałowego. Zarejestrowane dane zostały następnie przetworzone i poddane analizie w środowisku MATLAB, gdzie z użyciem odpowiednich skryptów dokonano numerycznej identyfikacji parametrów poszczególnych modeli.
 	
 	% =====================================
 	%          ANALIZA I WYNIKI
 	% =====================================
+	\newpage
 	\section{Pomiary i analiza wyników}
 	Poniżej przedstawiono zdjęcia z przeprowadzonych pomiarów w trakcie laboratorium.
 	
@@ -181,17 +182,27 @@
 		\item $T_p = 0{,}74$ ms
 	\end{itemize}
 	
-	Na rysunku~\ref{fig:OdpSkokowa1} przedstawiono odpowiedź skokową układu inercyjnego pierwszego rzędu. 
-	Z przebiegu widać, że sygnał wyjściowy rośnie wykładniczo, osiągając w stanie ustalonym wartość równą wzmocnieniu statycznemu $k_p$. 
-	Nachylenie krzywej w początkowym odcinku pozwala na wyznaczenie stałej czasowej $T_p$, 
-	która odpowiada czasowi, po którym odpowiedź osiąga około $63{,}2\%$ wartości końcowej.
-	
+	\noindent \textbf{Porównanie odpowiedzi skokowych modeli otrzymanych różnymi metodami:}
+	Dane wejściowe: \\
+	Vin = 2 [Vpp]\\
+	f = 10 [Hz]
+		
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{zdjecia/OdpSkokowa1.png}
-		\caption{Odpowiedź skokowa układu inercyjnego pierwszego rzędu}
+		\caption{Odpowiedzi skokowe układu inercyjnego pierwszego rzędu}
 		\label{fig:OdpSkokowa1}
 	\end{figure}
+	
+	\noindent \textbf{Porównanie charakterystyk Bodego otrzymanych różnymi metodami:}
+		\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/Body1.png}
+		\caption{Charakterystyki Bodego układu inercyjnego pierwszego rzędu}
+		\label{fig:Body1}
+	\end{figure}
+	
+	Porównanie parametrów uzyskanych za pomocą trzech różnych metod identyfikacji wykazało bardzo dużą zgodność, która jest potwierdzona wizualnie na wykresie odpowiedzi skokowych (Rysunek 2). Świadczy to o wiarygodności wykonanych pomiarów oraz poprawności przyjętego modelu matematycznego. Zarejestrowana odpowiedź skokowa, przedstawiona na Rysunku 2, nie wykazuje przeregulowania, co stanowi typową cechę tego typu systemów. Właściwości obiektu jako filtru dolnoprzepustowego przejawiają się w tłumieniu składowych o wysokich częstotliwościach oraz w przesunięciu fazowym, które dla dużych częstotliwości dąży do -90°.
 	
 	\subsection{Układ inercyjny pierwszego rzędu z opóźnieniem transportowym}
 	
