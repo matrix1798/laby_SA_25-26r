@@ -112,14 +112,20 @@
 	\textbf{W ramach ćwiczenia dokonano identyfikacji następujących obiektów dynamicznych.}
 	
 	\subsection{Układ inercyjny pierwszego rzędu}
-	Transmitancja obiektu jest postaci:
+	
+	Transmitancja obiektu ma postać:
 	\begin{equation}
 		G(s) = \frac{k_p}{1 + sT_p}
 	\end{equation}
 	
-	W celu identyfikacji obiektu inercyjnego pierwszego rzędu, na jego wejście podano sygnał prostokątny o amplitudzie międzyszczytowej równej 2V. Odpowiedź skokowa systemu została zarejestrowana przy użyciu oscyloskopu cyfrowego, a dane pomiarowe zapisano w formacie CSV. Na podstawie zarejestrowanego przebiegu, wzmocnienie statyczne $k_p$ wyznaczono jako stosunek ustalonej wartości napięcia wyjściowego do amplitudy skoku na wejściu. Z kolei stałą czasową $T_p$ określono jako czas, po którym sygnał wyjściowy osiągnął 63,2\% swojej wartości końcowej.
-
-	Odpowiedź skokowa obiektu inercyjnego pierwszego rzędu opisana jest wzorem:
+	W celu identyfikacji obiektu inercyjnego pierwszego rzędu na jego wejście podano sygnał prostokątny o amplitudzie międzyszczytowej równej \(2\,\text{V}\). Odpowiedź skokowa systemu została zarejestrowana przy użyciu oscyloskopu cyfrowego, a dane pomiarowe zapisano w formacie CSV. Na podstawie zarejestrowanego przebiegu wyznaczono parametry układu za pomocą poniższych zależności.
+	
+	Wzmocnienie statyczne \(k_p\):
+	\begin{equation}
+		h(t)\big|_{t \to \infty} = k_p
+	\end{equation}
+	
+	Stała czasowa \(T_p\):
 	\begin{equation}
 		h(t) = k_p(1-e^{-t/T_p})
 	\end{equation}
@@ -135,8 +141,8 @@
 	
 	\noindent \textbf{Wyznaczone wartości parametrów układu są następujące:}
 	\begin{itemize}
-		\item $k_p = 0{,}00$ 
-		\item $T_p = 0{,}00$ s
+		\item $k_p = 0{,}871$ 
+		\item $T_p = 0{,}78$ ms
 	\end{itemize}
 	
 	\noindent \textbf{Parametry obliczone z charakterystyk częstotliwościowych:}
@@ -145,54 +151,57 @@
 	\end{itemize}
 	
 	\begin{equation}
-		M(\omega_{3dB}) = \frac{A_{wy}}{A_{we}} = \frac{1{,}47}{2} = 0{,}735
+		M(f)=\frac{A_{wy}}{A_{we}}
 	\end{equation}
 	
+	Z pomiaru przy najniższej częstotliwości (10 Hz) mamy
 	\begin{equation}
-		k_p = M(\omega_{3dB}) \cdot \sqrt{2} = 0{,}735 \cdot 1{,}414 = 1{,}04 \approx 1{,}0
+		k_p \approx M(10\ \text{Hz}) = \frac{1{,}71}{2{,}03} = 0{,}842.
 	\end{equation}
 	
-	\begin{itemize}
-		\item Stałą czasową $T_p$ wyznaczono z częstotliwości granicznej $\omega_{3dB}$:
-	\end{itemize}
-	
+	Wartość modułu przy częstotliwości granicznej spełnia
 	\begin{equation}
-		T_p = \frac{1}{\omega_{3dB}} = \frac{1}{2\pi f_{3dB}} = \frac{1}{2\pi \cdot 159} \approx 9{,}95\ \text{ms}
+		M(\omega_{3\text{dB}})=\frac{k_p}{\sqrt{2}} \approx \frac{0{,}842}{\sqrt{2}} = 0{,}595.
+	\end{equation}
+	
+	Z tabeli widzimy, że częstotliwość wynosi:
+	\[
+	f_{3\text{dB}} \approx 210\ \text{Hz}.
+	\]
+	
+	Stąd stała czasowa:
+	\begin{equation}
+		T_p = \frac{1}{\omega_{3\text{dB}}} = \frac{1}{2\pi f_{3\text{dB}}}
+		\approx \frac{1}{2\pi\cdot 210} = 0{,}758\ \text{ms}.
 	\end{equation}
 	
 	\noindent \textbf{Parametry wyznaczone za pomocą skryptów MATLABowych:}
 	\begin{itemize}
-		\item $k_p = 1{,}01$ % <-- Tutaj wstaw wartości z Matlaba
-		\item $T_p = 0{,}082$ s % <-- Tutaj wstaw wartości z Matlaba
+		\item $k_p = 0{,}8366$ 
+		\item $T_p = 0{,}74$ ms
 	\end{itemize}
 	
+	Na rysunku~\ref{fig:OdpSkokowa1} przedstawiono odpowiedź skokową układu inercyjnego pierwszego rzędu. 
+	Z przebiegu widać, że sygnał wyjściowy rośnie wykładniczo, osiągając w stanie ustalonym wartość równą wzmocnieniu statycznemu $k_p$. 
+	Nachylenie krzywej w początkowym odcinku pozwala na wyznaczenie stałej czasowej $T_p$, 
+	która odpowiada czasowi, po którym odpowiedź osiąga około $63{,}2\%$ wartości końcowej.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/OdpSkokowa1.png}
+		\caption{Odpowiedź skokowa układu inercyjnego pierwszego rzędu}
+		\label{fig:OdpSkokowa1}
+	\end{figure}
+	
 	\subsection{Układ inercyjny pierwszego rzędu z opóźnieniem transportowym}
-	Transmitancja obiektu jest postaci:
+	
+	Transmitancja obiektu ma postać:
 	\begin{equation}
 		G(s) = \frac{k_p}{1 + sT_p} e^{-sT_0}
 	\end{equation}
-	
-	\noindent \textbf{Parametry zmierzone na uczelni:}
-	\begin{itemize}
-		\item $k_p = 1{,}0$ % <-- Tutaj wstaw swoje zmierzone wartości
-		\item $T_p = 0{,}16$ s % <-- Tutaj wstaw swoje zmierzone wartości
-		\item $T_0 = 0{,}04$ s % <-- Tutaj wstaw swoje zmierzone wartości
-	\end{itemize}
-	
-	\noindent \textbf{Parametry obliczone z charakterystyk częstotliwościowych:}
-	\begin{itemize}
-		\item Parametry $k_p$ i $T_p$ wyznaczono jak w punkcie 3.1.
-		\item Opóźnienie $T_0$ wyznaczono z przesunięcia fazowego dla $f = 20$ Hz:
-		$$\phi_{op} = \phi_{pomiar} - \phi_{inercja} = -108^{\circ} - (-84{,}3^{\circ}) = -23{,}7^{\circ}$$
-		$$T_0 = \frac{|\phi_{op}|}{ \omega } \frac{\pi}{180^{\circ}} = \frac{23{,}7}{40\pi} \frac{\pi}{180} \approx 0{,}0033 \text{ s}$$
-	\end{itemize}
-	
-	\noindent \textbf{Parametry wyznaczone za pomocą skryptów MATLABowych:}
-	\begin{itemize}
-		\item $k_p = 0{,}99$ % <-- Tutaj wstaw wartości z Matlaba
-		\item $T_p = 0{,}155$ s % <-- Tutaj wstaw wartości z Matlaba
-		\item $T_0 = 0{,}041$ s % <-- Tutaj wstaw wartości z Matlaba
-	\end{itemize}
+		
+	\noindent \textbf{Parametry $k_p$ i $T_p$ przyjęto takie same jak dla układu inercyjnego pierwszego rzędu, 
+		ponieważ wprowadzenie opóźnienia transportowego $T_0$ nie wpływa na wzmocnienie ani stałą czasową, a jedynie powoduje dodatkowe przesunięcie fazowe.}
 	
 	\subsection{Układ całkujący}
 	Transmitancja obiektu jest postaci:
