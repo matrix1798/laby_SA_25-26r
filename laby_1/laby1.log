@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  13 OCT 2025 20:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  13 OCT 2025 22:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -992,8 +992,25 @@ File: zdjecia/UkladCalk.png Graphic file (type png)
 <use zdjecia/UkladCalk.png>
 Package pdftex.def Info: zdjecia/UkladCalk.png  used on input line 255.
 (pdftex.def)             Requested size: 364.19667pt x 183.42445pt.
- [7 <./zdjecia/1rzad_z_opz.png>] [8 <./zdjecia/UkladCalk.png>] [9]
-(laby1.aux)
+ [7 <./zdjecia/1rzad_z_opz.png>] [8 <./zdjecia/UkladCalk.png>]
+<zdjecia/ukl2.png, id=130, 867.24pt x 505.89pt>
+File: zdjecia/ukl2.png Graphic file (type png)
+<use zdjecia/ukl2.png>
+Package pdftex.def Info: zdjecia/ukl2.png  used on input line 302.
+(pdftex.def)             Requested size: 455.24411pt x 265.55762pt.
+
+Overfull \hbox (38.83212pt too wide) detected at line 330
+[][][]\OML/cmm/m/it/12 ^^P \OT1/cmr/m/n/12 = [] = [] \OMS/cmsy/m/n/12 ^^Y [] ^^
+Y [] ^^Y \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ;\OT1/cmr/m/n/12 336
+ []
+
+[9 <./zdjecia/ukl2.png>]
+<zdjecia/bode2rzad.png, id=140, 722.7pt x 459.6372pt>
+File: zdjecia/bode2rzad.png Graphic file (type png)
+<use zdjecia/bode2rzad.png>
+Package pdftex.def Info: zdjecia/bode2rzad.png  used on input line 372.
+(pdftex.def)             Requested size: 455.24411pt x 289.5379pt.
+ [10] [11 <./zdjecia/bode2rzad.png>] (laby1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1002,10 +1019,10 @@ Package rerunfilecheck Info: File `laby1.out' has not changed.
 (rerunfilecheck)             Checksum: 6C280393A9A31477CE6FCCDE8D70781F;1626.
  ) 
 Here is how much of TeX's memory you used:
- 33495 strings out of 474486
- 777583 string characters out of 5743754
+ 33521 strings out of 474486
+ 778090 string characters out of 5743754
  1935542 words of memory out of 5000000
- 55222 multiletter control sequences out of 15000+600000
+ 55238 multiletter control sequences out of 15000+600000
  574165 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,107p,872b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1030,9 +1047,9 @@ pe1/public/amsfonts/cm/cmr6.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/turbi/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/turbi/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on laby1.pdf (10 pages, 23175942 bytes).
+Output written on laby1.pdf (12 pages, 23322491 bytes).
 PDF statistics:
- 513 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 120 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 537 PDF objects out of 1000 (max. 8388607)
+ 51 named destinations out of 1000 (max. 500000)
+ 130 words of extra memory for PDF output out of 10000 (max. 10000000)
 
