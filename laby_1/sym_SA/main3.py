@@ -123,14 +123,14 @@ def main():
     plt.plot(df["czas"], df["in"], label="Sygnał wejściowy", color='red', linewidth=1)
     label_out = "Sygnał wyjściowy (z pliku)"
     if PODMIEN_WYJSCIE_NA_SYMULACJE:
-        label_out = f"Sygnał wyjściowy (Symulacja NMP)"
+        label_out = f"Sygnał wyjściowy"
     plt.plot(df["czas"], df["out"], label=label_out, color='blue', linewidth=2.5)
 
     if RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY:
-        plt.plot(df["czas"], df["out_czest"], label=f"Model z ch. częstotliwościowej (NMP)", color='green',linewidth=3)
+        plt.plot(df["czas"], df["out_czest"], label=f"Model z ch. częstotliwościowej", color='green',linewidth=3)
 
     if RYSUJ_SYGNAL_OPTYMALIZACJI:
-        plt.plot(df["czas"], df["out_opt"], label=f"Model z optymalizacji (NMP)", color='orange',linewidth=3)
+        plt.plot(df["czas"], df["out_opt"], label=f"Model z optymalizacji", color='orange',linewidth=3)
 
     plt.title("Porównanie odpowiedzi skokowej układu niemnimalnofazowego")
     plt.xlabel("Czas [s]")
