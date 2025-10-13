@@ -29,7 +29,7 @@ def main():
     T_opt = 0.00074    # Stała czasowa z optymalizacji
 
     # --- KROK 1: WCZYTYWANIE DANYCH Z PLIKU CSV ---
-    filename = "fol_gabriel/NewFile7_1.csv"
+    filename = "fol_gabriel/NewFile4.csv"
     filepath = os.path.join(os.path.dirname(__file__), filename)
 
     if not os.path.exists(filepath):

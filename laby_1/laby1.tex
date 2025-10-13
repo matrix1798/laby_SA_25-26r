@@ -1,9 +1,6 @@
 % !TeX program = pdflatex
 \documentclass[12pt,a4paper]{article}
 
-% =====================================
-%         USTAWIENIA I PAKIETY
-% =====================================
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
@@ -16,33 +13,25 @@
 \usepackage{subcaption}
 \usepackage{pgfplots}
 \usepackage{hyperref}
-\usepackage{icomma} % Poprawne przecinki w trybie matematycznym
+\usepackage{icomma}
 
 \geometry{margin=2.5cm}
 \setlength{\parindent}{1.2cm}
 \setlength{\parskip}{0.5em}
 \linespread{1.2}
-
 \pgfplotsset{compat=1.18}
 
-% Ustawienia dla hyperref (opcjonalne, ale poprawia wygląd PDF)
 \hypersetup{
 	colorlinks=true,
 	linkcolor=black,
-	filecolor=black,      
+	filecolor=black,
 	urlcolor=blue,
 	pdftitle={Sprawozdanie SA - Cw 1},
 	pdfpagemode=FullScreen,
 }
 
-% =====================================
-%          DOKUMENT
-% =====================================
 \begin{document}
 	
-	% =====================================
-	%          STRONA TYTUŁOWA
-	% =====================================
 	\begin{titlepage}
 		\centering
 		\Huge \textbf{Sprawozdanie z ćwiczeń laboratoryjnych}\\[0.5cm]
@@ -50,22 +39,16 @@
 		
 		\begin{tabular}{|p{6cm}|p{10cm}|}
 			\hline
-			\textbf{Numer ćwiczenia:} & 1 \\
-			\hline
-			\textbf{Tytuł ćwiczenia:} & Identyfikacja obiektów dynamicznych \\
-			\hline
-			\textbf{Imię, nazwisko i numer albumu:} & 
+			\textbf{Numer ćwiczenia:} & 1 \\ \hline
+			\textbf{Tytuł ćwiczenia:} & Identyfikacja obiektów dynamicznych \\ \hline
+			\textbf{Imię, nazwisko i numer albumu:} &
 			\begin{tabular}[t]{@{}l@{}}
 				Mateusz Kuczerowski 197900\\
 				Kewin Kisiel 197866\\
-			\end{tabular} \\
-			\hline
-			\textbf{Data pomiarów:} & 9.10.2025 \\
-			\hline
-			\textbf{Data oddania:} & 15.10.2025 \\
-			\hline
-			\textbf{Ocena:} & \\
-			\hline
+			\end{tabular} \\ \hline
+			\textbf{Data pomiarów:} & 9.10.2025 \\ \hline
+			\textbf{Data oddania:} & 15.10.2025 \\ \hline
+			\textbf{Ocena:} & \\ \hline
 		\end{tabular}\\[2cm]
 		
 		\vfill
@@ -73,21 +56,12 @@
 		\textbf{Grupa laboratoryjna:} 1A\\[1cm]
 	\end{titlepage}
 	
-	% =====================================
-	%          CEL ĆWICZENIA
-	% =====================================
 	\section{Cel ćwiczenia}
 	Celem ćwiczenia było zapoznanie się z czasowymi i częstotliwościowymi metodami identyfikacji obiektów dynamicznych oraz praktyczne wyznaczenie modeli matematycznych opisujących ich zachowanie. W ramach zajęć analizowano odpowiedzi różnych typów układów dynamicznych na wymuszenia skokowe i sygnały harmoniczne, co pozwoliło na określenie ich podstawowych parametrów, takich jak wzmocnienie, stała czasowa, opóźnienie transportowe, współczynnik tłumienia czy pulsacja naturalna.
 	
-	% =====================================
-	%          PRZEBIEG ĆWICZENIA
-	% =====================================
 	\section{Przebieg ćwiczenia}
 	Podczas ćwiczenia przeprowadzono identyfikację kilku obiektów dynamicznych o znanych transmitancjach operatorowych: układu inercyjnego pierwszego rzędu, układu inercyjnego pierwszego rzędu z opóźnieniem transportowym, układu całkującego, układu drugiego rzędu oraz układu nieminimalnofazowego. Dla każdego z nich wykonano pomiary odpowiedzi czasowych oraz charakterystyk częstotliwościowych (amplitudowych i fazowych). W trakcie zajęć wykorzystano stanowisko pomiarowe zbudowane z zestawu analogowych modeli procesów przemysłowych (ZAMPP), generatora funkcji, częstościomierza oraz oscyloskopu dwukanałowego. Zarejestrowane dane zostały następnie przetworzone i poddane analizie w środowisku MATLAB, gdzie z użyciem odpowiednich skryptów dokonano numerycznej identyfikacji parametrów poszczególnych modeli.
 	
-	% =====================================
-	%          ANALIZA I WYNIKI
-	% =====================================
 	\newpage
 	\section{Pomiary i analiza wyników}
 	Poniżej przedstawiono zdjęcia z przeprowadzonych pomiarów w trakcie laboratorium.
@@ -110,46 +84,47 @@
 		\caption{Zdjęcia wykonane podczas laboratorium.}
 	\end{figure}
 	
-	\textbf{W ramach ćwiczenia dokonano identyfikacji następujących obiektów dynamicznych.}
+	\textbf {W ramach ćwiczenia dokonano identyfikacji następujących obiektów dynamicznych.}
 	
 	\subsection{Układ inercyjny pierwszego rzędu}
-	
 	Transmitancja obiektu ma postać:
 	\begin{equation}
 		G(s) = \frac{k_p}{1 + sT_p}
 	\end{equation}
+	gdzie: \(k_p\) – statyczne wzmocnienie układu, a \(T_p\) – stała czasowa obiektu.
 	
 	W celu identyfikacji obiektu inercyjnego pierwszego rzędu na jego wejście podano sygnał prostokątny o amplitudzie międzyszczytowej równej \(2\,\text{V}\). Odpowiedź skokowa systemu została zarejestrowana przy użyciu oscyloskopu cyfrowego, a dane pomiarowe zapisano w formacie CSV. Na podstawie zarejestrowanego przebiegu wyznaczono parametry układu za pomocą poniższych zależności.
 	
 	Wzmocnienie statyczne \(k_p\):
 	\begin{equation}
-		h(t)\big|_{t \to \infty} = k_p
+		h(t)\big|_{t \to \infty} = k_p = \frac{y(\infty) - y(0)}{\Delta V_{in}}
 	\end{equation}
 	
 	Stała czasowa \(T_p\):
 	\begin{equation}
 		h(t) = k_p(1-e^{-t/T_p})
 	\end{equation}
+	
 	Podstawiając czas $t$ równy stałej czasowej $T_p$, otrzymujemy:
 	\begin{equation}
 		h(T_p) = k_p(1-e^{-T_p/T_p}) = k_p(1-e^{-1})
 	\end{equation}
+	
 	Wartość $e^{-1}$ jest stałą i wynosi w przybliżeniu $0{,}368$, zatem:
 	\begin{equation}
 		h(T_p) \approx k_p(1-0{,}368) = 0{,}632 \cdot k_p
 	\end{equation}
+	
 	Oznacza to, że po czasie równym stałej czasowej $T_p$ odpowiedź obiektu osiąga 63,2\% swojej wartości ustalonej.
 	
-	\noindent \textbf{Wyznaczone wartości parametrów układu są następujące:}
+	\textbf{Wyznaczone wartości parametrów układu są następujące:}
 	\begin{itemize}
-		\item $k_p = 0{,}871$ 
+		\item $k_p = 0{,}871$
 		\item $T_p = 0{,}78$ ms
 	\end{itemize}
 	
-	\noindent \textbf{Parametry obliczone z charakterystyk częstotliwościowych:}
-	\begin{itemize}
-		\item Wzmocnienie $k_p$ obliczono ze wzoru:
-	\end{itemize}
+	\textbf{Parametry obliczone z charakterystyk częstotliwościowych:} \\
+	\indent Wzmocnienie $k_p$ obliczono ze wzoru:
 	
 	\begin{equation}
 		M(f)=\frac{A_{wy}}{A_{we}}
@@ -176,17 +151,21 @@
 		\approx \frac{1}{2\pi\cdot 210} = 0{,}758\ \text{ms}.
 	\end{equation}
 	
-	\noindent \textbf{Parametry wyznaczone za pomocą skryptów MATLABowych:}
+	Dla częstotliwości granicznej $\omega_{3\text{dB}}$ zachodzi zależność:
+	\begin{equation}
+		\omega_{3\text{dB}} = \frac{1}{T_p} \approx 1319{,}3~\frac{\text{rad}}{\text{s}}
+	\end{equation}
+	
+	\textbf{Parametry wyznaczone za pomocą skryptów MATLABowych:}
 	\begin{itemize}
-		\item $k_p = 0{,}8366$ 
+		\item $k_p = 0{,}8366$
 		\item $T_p = 0{,}74$ ms
 	\end{itemize}
 	
-	\noindent \textbf{Porównanie odpowiedzi skokowych modeli otrzymanych różnymi metodami:}
+	\textbf{Porównanie odpowiedzi skokowych modeli otrzymanych różnymi metodami:} \\
 	Dane wejściowe: \\
-	Vin = 2 [Vpp]\\
-	f = 10 [Hz]
-		
+	Vin = 2 [Vpp], f = 10 [Hz]
+	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{zdjecia/OdpSkokowa1.png}
@@ -194,7 +173,7 @@
 		\label{fig:OdpSkokowa1}
 	\end{figure}
 	
-	\noindent \textbf{Porównanie charakterystyk Bodego otrzymanych różnymi metodami:}
+	\textbf{Porównanie charakterystyk Bodego otrzymanych różnymi metodami:}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{zdjecia/Body1.png}
@@ -202,44 +181,45 @@
 		\label{fig:Body1}
 	\end{figure}
 	
-	Porównanie parametrów uzyskanych za pomocą trzech różnych metod identyfikacji wykazało bardzo dużą zgodność, która jest potwierdzona wizualnie na wykresie odpowiedzi skokowych (Rysunek 2). Świadczy to o wiarygodności wykonanych pomiarów oraz poprawności przyjętego modelu matematycznego. Zarejestrowana odpowiedź skokowa, przedstawiona na Rysunku 2, nie wykazuje przeregulowania, co stanowi typową cechę tego typu systemów. Właściwości obiektu jako filtru dolnoprzepustowego przejawiają się w tłumieniu składowych o wysokich częstotliwościach oraz w przesunięciu fazowym, które dla dużych częstotliwości dąży do -90°.
+	Porównanie parametrów uzyskanych za pomocą trzech różnych metod identyfikacji wykazało bardzo dużą zgodność, która jest potwierdzona wizualnie na wykresach (Rysunek 2 i Rysunek 3). Świadczy to o wiarygodności wykonanych pomiarów oraz poprawności przyjętego modelu matematycznego. Zarejestrowana odpowiedź skokowa, przedstawiona na Rysunku 2, nie wykazuje przeregulowania, co stanowi typową cechę tego typu systemów. Właściwości obiektu jako filtru dolnoprzepustowego przejawiają się w tłumieniu składowych o wysokich częstotliwościach oraz w przesunięciu fazowym, które dla dużych częstotliwości dąży do -90° (Rysunek 3).
 	
 	\subsection{Układ inercyjny pierwszego rzędu z opóźnieniem transportowym}
-	
 	Transmitancja obiektu ma postać:
 	\begin{equation}
 		G(s) = \frac{k_p}{1 + sT_p} e^{-sT_0}
 	\end{equation}
-		
-	\noindent {Parametry $k_p$ i $T_p$ przyjęto takie same jak dla układu inercyjnego pierwszego rzędu, ponieważ wprowadzenie opóźnienia transportowego $T_0$ nie wpływa na wzmocnienie ani stałą czasową, a jedynie powoduje dodatkowe przesunięcie fazowe.}
+	gdzie: \(k_p\) – statyczne wzmocnienie układu, \(T_p\) – stała czasowa obiektu, a \(T_0\) - opóźnienie transportowe.
 	
-	\noindent \textbf{Obliczenie opóźnienia transportowego $T_0$ na podstawie odpowiedzi skokowej:}
+	Parametry $k_p$ i $T_p$ przyjęto takie same jak dla układu inercyjnego pierwszego rzędu, ponieważ wprowadzenie opóźnienia transportowego $T_0$ nie wpływa na wzmocnienie ani stałą czasową, a jedynie powoduje dodatkowe przesunięcie fazowe.
+	
+	\textbf{Obliczenie opóźnienia transportowego $T_0$ na podstawie odpowiedzi skokowej:}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{zdjecia/odp_skok_z_opz.png}
 		\caption{Odpowiedź skokowa układu pierwszego rzędu z opóźnieniem transportowym}
 		\label{fig:odp_skok_z_opz}
 	\end{figure}
-		
-	\noindent \textbf{Obliczenie opóźnienia transportowego $T_0$ na podstawie charakterystyki częstotliwościowej:}
 	
-	Wartość opóźnienia $T_0$ obliczono na podstawie zależności:
+	\textbf{Wyznaczone wartości parametrów układu są następujące:}
+	\begin{itemize}
+		\item $k_p = 0{,}871$
+		\item $T_p = 0{,}78$ ms
+		\item $T_0 = 0{,}175$ ms
+	\end{itemize}
 	
+	\textbf{Obliczenie opóźnienia transportowego $T_0$ na podstawie charakterystyki częstotliwościowej:}
 	\begin{equation}
 		T_0 = -T_p \cdot \left( \phi(\omega_{3\text{dB}}) + \frac{\pi}{4} \right)
 	\end{equation}
 	
-	Do obliczeń przyjęto stałą czasową $T_p = 0{,}758~\text{ms}$ oraz przesunięcie fazowe 
-	$\phi = -71{,}88^{\circ}$ (odczytane dla częstotliwości $f = 210~\text{Hz}$, bliskiej $f_{3\text{dB}}$).
+	Do obliczeń przyjęto $T_p = 0{,}758~\text{ms}$ oraz przesunięcie fazowe $\phi = -71{,}88^{\circ}$ (odczytane dla częstotliwości $f = 210~\text{Hz}$, bliskiej $f_{3\text{dB}}$).
 	
-	\noindent{Konwersja fazy na radiany:}
-	
+	Konwersja fazy na radiany:
 	\[
 	\phi = -71{,}88^{\circ} = -1{,}2545~\text{rad}
 	\]
 	
-	\noindent{Podstawienie wartości do wzoru:}
-	
+	Podstawienie wartości do wzoru:
 	\begin{align*}
 		T_0 &= -0{,}000758~\text{s} \cdot \left( -1{,}2545 + \frac{\pi}{4} \right) \\
 		T_0 &= -0{,}000758~\text{s} \cdot \left( -1{,}2545 + 0{,}7854 \right) \\
@@ -247,87 +227,83 @@
 		T_0 &\approx 0{,}000356~\text{s}
 	\end{align*}
 	
-	\noindent Ostatecznie wyznaczone opóźnienie transportowe wynosi:
+	Ostatecznie wyznaczone opóźnienie transportowe wynosi:
+	\[
 	\boxed{T_0 \approx 0{,}356~\text{ms}}
+	\]
+	
+	\textbf{Porównanie charakterystyk Bodego otrzymanych różnymi metodami:}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/1rzad_z_opz.png}
+		\caption{Charakterystyki Bodego układu inercyjnego pierwszego rzędu z opóźnieniem transportowym.}
+		\label{fig:Body1_z_opz}
+	\end{figure}
+	
+	Charakterystyka amplitudowa potwierdza, że obiekt zachowuje się jak filtr dolnoprzepustowy, tłumiąc składowe o wysokich częstotliwościach. W odróżnieniu od układu inercyjnego bez opóźnienia, charakterystyka fazowa wykazuje znacznie większe przesunięcie ujemne, które systematycznie maleje wraz ze wzrostem częstotliwości. Jest to charakterystyczna cecha systemów z opóźnieniem transportowym, gdzie opóźnienie wprowadza dodatkowe, przesunięcie fazowe.
 	
 	\subsection{Układ całkujący}
 	Transmitancja obiektu jest postaci:
 	\begin{equation}
 		G(s) = \frac{1}{sT_i}
 	\end{equation}
+	gdzie: \(T_i\) – stała całkowania.
 	
-	\noindent \textbf{Parametry zmierzone na uczelni:}
+	\textbf{Porównanie sygnałów wyjściowych pobudzonych różnymi napięciami:}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\textwidth]{zdjecia/UkladCalk.png}
+		\caption{Odpowiedź układu całkującego na różne napięcia wejściowe.}
+		\label{fig:uklad_calk}
+	\end{figure}
+	
+	\textbf{Obliczenie stałej całkowania $T_i$ na podstawie danych pomiarowych:}
+	\[
+	T_i = \frac{\Delta U_{we} \cdot \Delta x}{\Delta y}
+	\]
 	\begin{itemize}
-		\item $T_i = 0{,}5$ s % <-- Tutaj wstaw swoje zmierzone wartości
+		\item $\Delta U_{we}$ - Zmiana amplitudy sygnału wejściowego [V]
+		\item $\Delta x$ - Różnica czasu [s]
+		\item $\Delta y$ - Różnica napięcia [V]
+		\item $T_i$ - Stała całkowania [s]
 	\end{itemize}
 	
-	\noindent \textbf{Parametry obliczone z charakterystyk częstotliwościowych:}
-	\begin{itemize}
-		\item Stałą $T_i$ wyznacza się z pulsacji $\omega_0$, dla której charakterystyka amplitudowa przecina oś 0 dB.
-		$$|G(j\omega_0)| = \frac{1}{\omega_0 T_i} = 1 \implies T_i = \frac{1}{\omega_0}$$
-		Dla przykładowego $\omega_0 = 2$ rad/s, $T_i=0,5$ s.
-	\end{itemize}
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$\Delta U_{we}$ [V] & $\Delta x$ [s] & $\Delta y$ [V] & $T_i$ [ms] \\
+			\hline
+			2 & 0,0092 & 14,5 & 1,27 \\
+			4 & 0,0069 & 21,6 & 1,28 \\
+			8 & 0,0036 & 21,6 & 1,33 \\
+			\hline
+		\end{tabular}
+	\end{table}
 	
-	\noindent \textbf{Parametry wyznaczone za pomocą skryptów MATLABowych:}
-	\begin{itemize}
-		\item $T_i = 0{,}412$ ms % <-- Tutaj wstaw wartości z Matlaba
-	\end{itemize}
+	\[
+	T_{i\,\text{średnie}} = \frac{1,27 + 1,28 + 1,33}{3} = 1,29\ \text{ms}
+	\]
+	
+	Dla różnych wartości napięcia wejściowego obserwowano liniowy wzrost napięcia wyjściowego w funkcji czasu, co wskazuje na proporcjonalność prędkości narastania sygnału do amplitudy wymuszenia. Wyznaczone wartości stałej całkowania Ti dla trzech pomiarów są do siebie bardzo zbliżone ($T_isrednie = 1,29 ms$), co potwierdza poprawność pomiarów i stabilność układu.
+	
 	
 	\subsection{Układ drugiego rzędu}
 	Transmitancja obiektu jest postaci:
 	\begin{equation}
-		G(s) = \frac{k}{1+s 2\zeta T + s^2 T^2}
+		G(s) = \frac{1}{1 + sa_1 + s^2a_2}
+		= \frac{1}{1+s 2\zeta \tau + s^2 \tau^2}
+		= \frac{w_n^2}{w_n^2 + s 2 \zeta w_n + s^2}
 	\end{equation}
-	
-	\noindent \textbf{Parametry zmierzone na uczelni:}
-	\begin{itemize}
-		\item $k = 1{,}0$ % <-- Tutaj wstaw swoje zmierzone wartości
-		\item $\zeta = 0{,}4$ % <-- Tutaj wstaw swoje zmierzone wartości
-		\item $T = 0{,}1$ s % <-- Tutaj wstaw swoje zmierzone wartości
-	\end{itemize}
-	
-	\noindent \textbf{Parametry obliczone z charakterystyk częstotliwościowych:}
-	\begin{itemize}
-		\item Parametry wyznacza się z pulsacji rezonansowej $\omega_r$ i wartości szczytu rezonansowego $M_r$.
-	\end{itemize}
-	
-	\noindent \textbf{Parametry wyznaczone za pomocą skryptów MATLABowych:}
-	\begin{itemize}
-		\item $k = 1{,}02$ % <-- Tutaj wstaw wartości z Matlaba
-		\item $\zeta = 0{,}42$ % <-- Tutaj wstaw wartości z Matlaba
-		\item $T = 0{,}09$ s % <-- Tutaj wstaw wartości z Matlaba
-	\end{itemize}
+	gdzie: \(\zeta\) – współczynnik tłumienia, \(w_n = \frac{1}{\tau}\) – pulsacja naturalna (drgań nietłumionych).
 	
 	\subsection{Układ nieminimalnofazowy}
-	Transmitancja przykładowego obiektu nieminimalnofazowego:
+	Transmitancja obiektu jest postaci:
 	\begin{equation}
-		G(s) = k \frac{1-sT_z}{1+sT_p}
+		G(s) = \frac{1-sT_x}{1+sT_y}
 	\end{equation}
+	gdzie: \(T_x\) – stała czasowa zera, \(T_y\) – stała czasowa bieguna.
 	
-	\noindent \textbf{Parametry zmierzone na uczelni:}
-	\begin{itemize}
-		\item $k = 1{,}0$ % <-- Tutaj wstaw swoje zmierzone wartości
-		\item $T_z = 0{,}05$ s % <-- Tutaj wstaw swoje zmierzone wartości
-		\item $T_p = 0{,}1$ s % <-- Tutaj wstaw swoje zmierzone wartości
-	\end{itemize}
-	
-	\noindent \textbf{Parametry obliczone z charakterystyk częstotliwościowych:}
-	\begin{itemize}
-		\item Obecność zera w prawej półpłaszczyźnie objawia się dodatkowym, narastającym opóźnieniem fazowym.
-	\end{itemize}
-	
-	\noindent \textbf{Parametry wyznaczone za pomocą skryptów MATLABowych:}
-	\begin{itemize}
-		\item $k = 1{,}0$ % <-- Tutaj wstaw wartości z Matlaba
-		\item $T_z = 0{,}051$ s % <-- Tutaj wstaw wartości z Matlaba
-		\item $T_p = 0{,}102$ s % <-- Tutaj wstaw wartości z Matlaba
-	\end{itemize}
-	
-	% =====================================
-	%          PODSUMOWANIE
-	% =====================================
 	\section{Wnioski}
-	% Wnioski do uzupełnienia po przeprowadzeniu pełnej analizy
-	Ćwiczenie pozwoliło na praktyczne zapoznanie się z metodami identyfikacji obiektów dynamicznych. Wyznaczono parametry modeli matematycznych na podstawie trzech różnych metod: pomiarów bezpośrednich, analizy charakterystyk częstotliwościowych oraz dopasowania z użyciem narzędzi numerycznych. Porównanie wyników pozwoli na ocenę dokładności i przydatności każdej z metod.
 	
 \end{document}
