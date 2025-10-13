@@ -7,7 +7,10 @@ import numpy as np
 def main():
     # --- USTAWIENIA GŁÓWNE ---
     # Ustaw na True, aby podmienić sygnał 'out' z pliku na podstawową symulację.
-    PODMIEN_WYJSCIE_NA_SYMULACJE = True
+
+    czy_wyswietlac = False
+
+    PODMIEN_WYJSCIE_NA_SYMULACJE = czy_wyswietlac
 
     # Parametry symulacji podstawowej (używane, gdy flaga powyżej to True)
     K_symulacji = 0.871
@@ -16,17 +19,17 @@ def main():
 
     # --- USTAWIENIA DODATKOWYCH SYGNAŁÓW DO PORÓWNANIA ---
     # Włącz/wyłącz rysowanie sygnału z modelu uzyskanego z charakterystyki częstotliwościowej
-    RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY = True
+    RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY = czy_wyswietlac
     K_czest = 0.842  # Wzmocnienie z analizy częstotliwościowej
     T_czest = 0.000758  # Stała czasowa z analizy częstotliwościowej
 
     # Włącz/wyłącz rysowanie sygnału z modelu uzyskanego metodą optymalizacji
-    RYSUJ_SYGNAL_OPTYMALIZACJI = True
+    RYSUJ_SYGNAL_OPTYMALIZACJI = czy_wyswietlac
     K_opt = 0.8366    # Wzmocnienie z optymalizacji
     T_opt = 0.00074    # Stała czasowa z optymalizacji
 
     # --- KROK 1: WCZYTYWANIE DANYCH Z PLIKU CSV ---
-    filename = "fol_gabriel/NewFile1.csv"
+    filename = "fol_gabriel/NewFile7_1.csv"
     filepath = os.path.join(os.path.dirname(__file__), filename)
 
     if not os.path.exists(filepath):
