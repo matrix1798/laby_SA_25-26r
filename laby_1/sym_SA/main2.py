@@ -40,7 +40,6 @@ def main():
     omega_n_symulacji = 2380  # Częstotliwość drgań nietłumionych [rad/s]
     szum_symulacji = 0.004   # Zerujemy szum dla precyzyjnych obliczeń przeregulowania
 
-
     # --- USTAWIENIA DODATKOWYCH SYGNAŁÓW ---
     RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY = czy_wyswietlac_modele
     K_czest, zeta_czest, omega_n_czest =1, 0.42, 2451

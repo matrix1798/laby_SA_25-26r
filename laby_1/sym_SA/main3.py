@@ -33,29 +33,29 @@ def generuj_odpowiedz_nmp(t, K, Tp, Tz, A):
 def main():
     # --- USTAWIENIA GŁÓWNE ---
     # Zmieniając tę jedną flagę, kontrolujesz wszystkie poniższe przełączniki.
-    czy_wyswietlac_modele =False
+    czy_wyswietlac_modele = True
 
     # Ustaw na True, aby podmienić sygnał 'out' z pliku na podstawową symulację.
     PODMIEN_WYJSCIE_NA_SYMULACJE = czy_wyswietlac_modele
 
     # Parametry symulacji podstawowej (używane, gdy flaga powyżej to True)
-    K_symulacji = 0.87
-    Tp_symulacji = 0.0008
-    Tz_symulacji = 0.0001  # Stała czasowa zera (powoduje efekt niemnimalnofazowy)
+    K_symulacji = 1
+    Tp_symulacji = 0.00012
+    Tz_symulacji = 0.00038 # Stała czasowa zera (powoduje efekt niemnimalnofazowy)
     szum_symulacji = 0.004
 
     # --- USTAWIENIA DODATKOWYCH SYGNAŁÓW DO PORÓWNANIA ---
     # Model z charakterystyki częstotliwościowej
     RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY = czy_wyswietlac_modele
-    K_czest = 0.84
-    Tp_czest = 0.00075
-    Tz_czest = 0.00015
+    K_czest = 1
+    Tp_czest = 0.00009
+    Tz_czest = 0.0003112
 
     # Model z metody optymalizacji
     RYSUJ_SYGNAL_OPTYMALIZACJI = czy_wyswietlac_modele
-    K_opt = 0.83
-    Tp_opt = 0.00074
-    Tz_opt = 0.00012
+    K_opt = 1
+    Tp_opt = 0.0001
+    Tz_opt = 0.0003334
 
     # --- KROK 1: WCZYTYWANIE DANYCH Z PLIKU CSV ---
     filename = "fol_gabriel/NewFile7.csv"
