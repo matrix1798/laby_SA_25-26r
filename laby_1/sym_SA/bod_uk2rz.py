@@ -14,18 +14,18 @@ def main():
     # zeta - współczynnik tłumienia
     
     params_zestaw1 = {
-        "K": 1, "omega_n": 5340, "zeta": 0.14,
-        "kolor": "blue", "styl": "-", "nazwa": "Model 1 (np. symulacyjny)"
+        "K": 1, "omega_n": 2380, "zeta": 0.4,
+        "kolor": "blue", "styl": "-", "nazwa": "Model z odp. skokowej"
     }
 
     params_zestaw2 = {
-        "K": 1, "omega_n": 5512, "zeta": 0.149,
-        "kolor": "green", "styl": "--", "nazwa": "Model 2 (np. z ch. częstotliwościowej)"
+        "K": 1, "omega_n": 2451, "zeta": 0.42,
+        "kolor": "green", "styl": "--", "nazwa": "Model z ch. częstotliwościowej"
     }
 
     params_zestaw3 = {
-        "K": 1, "omega_n": 5406, "zeta": 0.129,
-        "kolor": "red", "styl": ":", "nazwa": "Model 3 (np. z optymalizacji)"
+        "K": 1, "omega_n": 2330, "zeta": 0.37,
+        "kolor": "red", "styl": ":", "nazwa": "Model z optymalizacji"
     }
     
     zestawy_parametrow = [params_zestaw1, params_zestaw2, params_zestaw3]
@@ -36,9 +36,9 @@ def main():
     
     # Wklej tutaj swoje dane pomiarowe.
     punkty_pomiarowe = {
-        "czestotliwosc_hz": [10,35,126,450,1000,1600],
-        "amplituda_db": [0,-0.0852,0.0859,1.327,10.603,-12.517],# dla 10.601 Uout = 6.78V
-        "faza_stopnie": [-3.6,-5.6,-5.6,-4.42,-85,-153],
+        "czestotliwosc_hz": [100,235,262,450,1600],
+        "amplituda_db": [0,-0.0873,0.0864,1.327,-25.54],# dla 10.601 Uout = 6.78V
+        "faza_stopnie": [-10.6,-34.6,-37.8,-97,-167.3],
         "kolor": "black", "marker": "x", "nazwa": "Dane pomiarowe"
     }
 
@@ -63,7 +63,7 @@ def main():
         faza_stopnie = -np.arctan2(2 * zeta * omega_n * omega, omega_n**2 - omega**2) * 180 / np.pi
 
         # Rysowanie
-        label_modelu = f'{params["nazwa"]} (K={K}, ωn={omega_n}, ζ={zeta})'
+        label_modelu = f'{params["nazwa"]}'
         ax_amplituda.plot(omega, amplituda_db, label=label_modelu, color=params["kolor"], linestyle=params["styl"])
         ax_faza.plot(omega, faza_stopnie, label=label_modelu, color=params["kolor"], linestyle=params["styl"])
         
