@@ -296,28 +296,87 @@
 	\end{equation}
 	gdzie: \(\zeta\) – współczynnik tłumienia, \(w_n = \frac{1}{\tau}\) – pulsacja naturalna (drgań nietłumionych).
 	
-	\textbf {Obliczone parmatrey układu 2 rzędu na podstawie odpowiedzi skokowej}
+	\textbf{Porównanie odpowiedzi skokowych układu inercyjnego 2. rzędu}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/ukl2.png}
+		\caption{Porównanie odpowiedzi skokowych układu inercyjnego 2. rzędu.}
+		\label{fig:OdpSkokowa2}
+	\end{figure}
 	
-	DO ZMIANY JAK USTALIMY WARTOŚCI ODPOWIEDNIE
+	\textbf{Wartości parametrów z odpowiedzi skokowej:}
 	
+	Do identyfikacji na podstawie odpowiedzi skokowej wykorzystano parametry przeregulowania \(\kappa\) oraz czas jego wystąpienia \(T_{\kappa}\). Z wykresu odpowiedzi skokowej (Rysunek \ref{fig:OdpSkokowa2}) odczytano:
 	\begin{itemize}
-		\item $\kappa = 0.2544 $
-		\item $T_\kappa = 1,370 ms$
-		\item $\xi = 0,3995$
-		\item $\tau = 0,4 ms$
+		\item Maksymalna amplituda \(h_{max}\): $\approx 2,67 \text{ V}$
+		\item Wartość ustalona \(h(\infty)\): $\approx 2,05 \text{ V}$
+		\item Czas wystąpienia maksimum \(T_{\kappa}\): $\approx 1,37 \text{ ms}$
 	\end{itemize}
 	
-	\textbf{Wartości oparte o charakterystyke czestotliwościową}
+	Względne przeregulowanie \(\kappa\) obliczamy ze wzoru:
+	\begin{equation}
+		\kappa = \frac{h_{max} - h(\infty)}{h(\infty)}
+		\approx \frac{2,67 \text{ V} - 2,05 \text{ V}}{2,05 \text{ V}}
+		\approx 0,302
+	\end{equation}
 	
+	Następnie obliczamy współczynnik tłumienia \(\zeta\) oraz stałą czasową \(\tau\) z formuł (jak w Tabeli 1.1 oraz na załączonym zdjęciu):
+	\begin{equation}
+		\zeta = \frac{|\ln \kappa|}{\sqrt{\pi^2 + (\ln \kappa)^2}}
+		= \frac{|\ln (0,302)|}{\sqrt{\pi^2 + (\ln (0,302))^2}}
+		\approx \frac{1,197}{\sqrt{(3,1416)^2 + (1,197)^2}}
+		\approx \frac{1,197}{\sqrt{9,8696 + 1,4328}}
+		\approx 0,336
+	\end{equation}
+	
+	\begin{equation}
+		\tau = \frac{\zeta \cdot T_{\kappa}}{|\ln \kappa|}
+		= \frac{0,336 \cdot 1,37 \text{ ms}}{1,197}
+		\approx 0,385 \text{ ms}
+	\end{equation}
+	
+	\begin{equation}
+		\omega_n = \frac{1}{\tau} = \frac{1}{0,000385} \approx 2 597,4 \frac{rad}{s}
+	\end{equation}
+	
+	\textbf{ Identyfikacja na podstawie charakterystyk częstotliwościowych}
+	
+	Do identyfikacji wykorzystano punkt z danych pomiarowych, dla którego wartość pulsacji $\omega_{-\pi/2}$ oraz wzmocnienia $M(\omega_{-\pi/2})$ w tym punkcie wynosi:
 	\begin{itemize}
-		\item 
+		\item $\omega_{-\pi/2} \approx 2451 \text{ rad/s}$
+		\item $M(\omega_{-\pi/2}) \approx 1,19$
 	\end{itemize}
 	
-	\textbf{Wartość wyznaczone na podstawie optymalizacji}
+	Korzystamy ze wzorów:
+	\begin{equation}
+		\zeta = \frac{1}{2 M(\omega_{-\pi/2})}
+		= \frac{1}{2 \cdot 1,19}
+		\approx 0,42
+	\end{equation}
+	
+	\begin{equation}
+		\tau = \frac{1}{\omega_{-\pi/2}}
+		= \frac{1}{2451 \text{ rad/s}}
+		\approx 0,408 \text{ ms}
+	\end{equation}
+	
+	\textbf{Wartości z zadań optymalizacji:}
 	\begin{itemize}
-		\item $\xi = 0,129$
-		\item $\omega = 5406$
+		\item $K = 0,99$
+		\item $\zeta = 0,37$
+		\item $\omega_n = 2330 \text{ rad/s}$
 	\end{itemize}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/bode2rzad.png}
+		\caption{Charakterystyki Bodego dla układu inercyjnego 2. rzędu.}
+		\label{fig:Body2}
+	\end{figure}
+	
+	Porównanie odpowiedzi skokowych (Rysunek \ref{fig:OdpSkokowa2}) wykazało, że zidentyfikowane modele bardzo dobrze odwzorowują zachowanie rzeczywistego obiektu. Zarówno pomiary, jak i modele wykazują charakterystyczne przeregulowanie, typowe dla układu drugiego rzędu niedotłumionego (\(\zeta < 1\)).
+	
+	Analiza charakterystyk Bodego (Rysunek \ref{fig:Body2}) potwierdza, że układ ma rezonans amplitudowy, widoczny jako lokalne maksimum, co jest również cechą układu niedotłumionego. Modele przebiegają przez większość zebranych danych pomiarowych dążąc do przesunięcia fazowego $-180^\circ$ przy wysokich częstotliwościach.
 	
 	\subsection{Układ nieminimalnofazowy}
 	Transmitancja obiektu jest postaci:
@@ -325,8 +384,6 @@
 		G(s) = \frac{1-sT_x}{1+sT_y}
 	\end{equation}
 	gdzie: \(T_x\) – stała czasowa zera, \(T_y\) – stała czasowa bieguna.
-	
-	
 	
 	\begin{itemize}
 		\item 
