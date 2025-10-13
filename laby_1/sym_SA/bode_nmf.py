@@ -9,55 +9,76 @@ def main():
     
     # --- USTAWIENIA MODELI TEORETYCZNYCH ---
     # Wprowadź parametry dla każdego z trzech modeli.
-    # Tz - stała czasowa zera w prawej półpłaszczyźnie
-    # Tp - stała czasowa bieguna w lewej półpłaszczyźnie
-    
     params_zestaw1 = {
-        "Tz": 0.1, "Tp": 1.0,
-        "kolor": "blue", "styl": "-", "nazwa": "Model 1"
+        "Tz":  0.00038, "Tp":0.00012,
+        "kolor": "blue", "styl": "-", "nazwa": "Model z odp. skokowej"
     }
-
     params_zestaw2 = {
-        "Tz": 0.5, "Tp": 1.0,
-        "kolor": "green", "styl": "--", "nazwa": "Model 2 (większy wpływ zera)"
+        "Tz": 0.0003112, "Tp":  0.00009,
+        "kolor": "green", "styl": "--", "nazwa": "Model z char. częstotliwościowej"
     }
-
     params_zestaw3 = {
-        "Tz": 0.1, "Tp": 0.2,
-        "kolor": "red", "styl": ":", "nazwa": "Model 3 (szybszy biegun)"
+        "Tz": 0.0003334, "Tp": 0.0001,
+        "kolor": "orange", "styl": ":", "nazwa": "Model z optymalizacji"
     }
-    
     zestawy_parametrow = [params_zestaw1, params_zestaw2, params_zestaw3]
 
-    # --- GENEROWANIE DANYCH ---
-    # Definiujemy zakres pulsacji (rad/s) na skali logarytmicznej
-    omega = np.logspace(-2, 2, 1000) 
+    # --- USTAWIENIA POMIARÓW (NOWA SEKCJA) ---
+    # Włącz/wyłącz rysowanie punktów pomiarowych
+    RYSUJ_PUNKTY_POMIAROWE = True
+    
+    # Wklej tutaj swoje dane pomiarowe.
+    punkty_pomiarowe = {
+        "czestotliwosc_hz": [10, 100, 1000],
+        "amplituda_db": [0.214,-0.0868,6.59],
+        "faza_stopnie": [-6, -17.5, -87],
+        "kolor": "black",
+        "marker": "x",
+        "nazwa": "Dane pomiarowe"
+    }
 
+    # --- GENEROWANIE DANYCH ---
+    omega = np.logspace(1, 6, 1000) 
     fig, (ax_amplituda, ax_faza) = plt.subplots(2, 1, figsize=(10, 8), sharex=True)
     print("📊 Obliczanie charakterystyk Bodego dla modeli niemnimalnofazowych...")
 
     for params in zestawy_parametrow:
         Tz, Tp = params["Tz"], params["Tp"]
 
-        # 1. Charakterystyka amplitudowa
-        # Amplituda jest taka sama jak dla układu minimalnofazowego (1+Tz*s)/(1+Tp*s)
         licznik_amp = np.sqrt(1 + (omega * Tz)**2)
         mianownik_amp = np.sqrt(1 + (omega * Tp)**2)
         amplituda_db = 20 * np.log10(licznik_amp / mianownik_amp)
         
-        # 2. Charakterystyka fazowa
-        # Faza = faza z zera (1-jωTz) - faza z bieguna (1+jωTp)
-        # Faza = -arctan(ωTz) - arctan(ωTp)
         faza_zera_rad = -np.arctan(omega * Tz)
         faza_bieguna_rad = np.arctan(omega * Tp)
         faza_calkowita_stopnie = np.degrees(faza_zera_rad - faza_bieguna_rad)
 
-        # Rysowanie
-        label_modelu = f'{params["nazwa"]} (Tz={Tz}, Tp={Tp})'
+        label_modelu = f'{params["nazwa"]}'
         ax_amplituda.plot(omega, amplituda_db, label=label_modelu, color=params["kolor"], linestyle=params["styl"])
         ax_faza.plot(omega, faza_calkowita_stopnie, label=label_modelu, color=params["kolor"], linestyle=params["styl"])
-        
         print(f"  -> Narysowano model: Tz={Tz}s, Tp={Tp}s")
+
+    # --- NANOSZENIE PUNKTÓW POMIAROWYCH NA WYKRES (NOWA SEKCJA) ---
+    if RYSUJ_PUNKTY_POMIAROWE:
+        print("📍 Nanoszenie punktów pomiarowych na wykres...")
+        # Konwersja częstotliwości z Hz na pulsację w rad/s (ω = 2 * pi * f)
+        omega_pomiarowe = 2 * np.pi * np.array(punkty_pomiarowe["czestotliwosc_hz"])
+        
+        # Rysowanie punktów na wykresie amplitudowym
+        ax_amplituda.scatter(omega_pomiarowe, punkty_pomiarowe["amplituda_db"],
+                             color=punkty_pomiarowe["kolor"],
+                             marker=punkty_pomiarowe["marker"],
+                             label=punkty_pomiarowe["nazwa"],
+                             zorder=5) # zorder=5 sprawia, że punkty są na wierzchu
+
+        # Rysowanie punktów na wykresie fazowym
+        ax_faza.scatter(omega_pomiarowe, punkty_pomiarowe["faza_stopnie"],
+                        color=punkty_pomiarowe["kolor"],
+                        marker=punkty_pomiarowe["marker"],
+                        label=punkty_pomiarowe["nazwa"],
+                        zorder=5)
+        print("  -> Punkty pomiarowe zostały dodane.")
+
 
     # --- KONFIGURACJA WYKRESÓW ---
     ax_amplituda.set_ylabel("Amplituda [dB]")
@@ -69,7 +90,6 @@ def main():
     ax_faza.set_ylabel("Faza [°]")
     ax_faza.grid(which='both', linestyle='--')
     
-    # Ustawienie "ticków" na osi Y wykresu fazowego
     ax_faza.set_yticks(np.arange(0, -181, -45))
     
     plt.xscale('log')
