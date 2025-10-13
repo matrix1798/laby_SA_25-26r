@@ -36,16 +36,17 @@ def main():
 
     # Parametry symulacji podstawowej (musi być niedotłumiony, by wystąpiło przeregulowanie)
     K_symulacji = 1
-    zeta_symulacji = 0.3      # Współczynnik tłumienia (0 < zeta < 1)
-    omega_n_symulacji = 2019  # Częstotliwość drgań nietłumionych [rad/s]
+    zeta_symulacji = 0.4      # Współczynnik tłumienia (0 < zeta < 1)
+    omega_n_symulacji = 2380  # Częstotliwość drgań nietłumionych [rad/s]
     szum_symulacji = 0.004   # Zerujemy szum dla precyzyjnych obliczeń przeregulowania
+
 
     # --- USTAWIENIA DODATKOWYCH SYGNAŁÓW ---
     RYSUJ_SYGNAL_CZESTOTLIWOSCIOWY = czy_wyswietlac_modele
-    K_czest, zeta_czest, omega_n_czest =1, 0.149, 40398
+    K_czest, zeta_czest, omega_n_czest =1, 0.42, 2451
 
     RYSUJ_SYGNAL_OPTYMALIZACJI = czy_wyswietlac_modele
-    K_opt, zeta_opt, omega_n_opt = 0.99, 0.129, 5406
+    K_opt, zeta_opt, omega_n_opt = 0.99, 0.37, 2330
 
     # --- KROKI 1-4 (WCZYTYWANIE, CZYSZCZENIE, GENEROWANIE DANYCH) ---
     filename = "fol_gabriel/NewFile7_1.csv"
