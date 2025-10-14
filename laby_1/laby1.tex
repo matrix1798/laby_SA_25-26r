@@ -407,18 +407,62 @@
 		T_y = \frac{t_0}{ln(1-h(0))}
 	\end{equation}
 	
-	Na podstawie których możemy odpowiednio wyznaczyć:
+	\noindent Na podstawie których możemy odpowiednio wyznaczyć:
 	
-	\centering
-	$h(0) = -3,504$,
-	$t_0 = 0,17ms$
+	\[
+	h(0) = -3,504, \quad
+	t_0 = 0{,}17\,\text{ms}
+	\]
 	
-	$T_x = 0,396ms$,
-	$T_y = 0,113ms$
+	\[
+	T_x = 0{,}396\,\text{ms}, \quad
+	T_y = 0{,}113\,\text{ms}
+	\]
+	
 	
 	\textbf{Parametry na podstawie pomiarów char. częstotliwościowej}
 	
+	Żeby wyznaczyć paramtery korzystajac z pomiarów charakterystki częstotliwościowwej musimy wyznaczyć
+	wzmocnienie w stanie ustalonym ($M(\infty)$) oraz pulsacje dla ktorej przesunięcie fazowe jest równe 
+	$-\frac{\pi}{2}$. W naszym przypadku to odpowiednio:
+	
+	\[
+	M(\infty) = 3,357 \quad
+	\omega_{-pi/2} = 6280\frac{rad}{s}
+	\]
+	
+	\noindent Następnie korzystając z poniższych wzorów:
+	
+	\begin{equation}
+		T_x = \sqrt[]{\frac{M(\infty)}{\omega_{-pi/2}}}
+	\end{equation}
+	
+	\begin{equation}
+		M(\infty) = \frac{T_x}{T_y}
+	\end{equation}
+	
+ 	\noindent Otrzymujemy takie wyniki:
+	
+	\[
+	T_x = 0,311ms \quad T_y = 0,09 ms
+	\]
+	
 	\textbf{Parametry obliczone przez zadanie optymalizacji}
+	
+	\[
+	T_x = 0,342ms \quad T_y = 0,1ms
+	\]
+	
+	
+	Na podstawie wyznaczonych parametrów możemy narysować dla każdej pary wartości odpowiadające 
+	wykresy charakterystki Bodego.
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/bode_nmf.png}
+		\caption{Charakterystyka Bodego układu nieminimalnofazowego}
+		\label{fig:bode_nmf}
+	\end{figure}
 	
 	\section{Wnioski}
 

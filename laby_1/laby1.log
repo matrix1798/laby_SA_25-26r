@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.8.1)  14 OCT 2025 16:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.8.1)  14 OCT 2025 22:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1015,7 +1015,13 @@ File: zdjecia/odp_skok_nmf.png Graphic file (type png)
 <use zdjecia/odp_skok_nmf.png>
 Package pdftex.def Info: zdjecia/odp_skok_nmf.png  used on input line 392.
 (pdftex.def)             Requested size: 455.24411pt x 265.55762pt.
- [11 <./zdjecia/bode2rzad.png>] [12 <./zdjecia/odp_skok_nmf.png>] (laby1.aux)
+ [11 <./zdjecia/bode2rzad.png>] [12 <./zdjecia/odp_skok_nmf.png>]
+<zdjecia/bode_nmf.png, id=169, 722.7pt x 458.1918pt>
+File: zdjecia/bode_nmf.png Graphic file (type png)
+<use zdjecia/bode_nmf.png>
+Package pdftex.def Info: zdjecia/bode_nmf.png  used on input line 462.
+(pdftex.def)             Requested size: 455.24411pt x 288.62741pt.
+ [13 <./zdjecia/bode_nmf.png>] [14] (laby1.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1024,10 +1030,10 @@ Package rerunfilecheck Info: File `laby1.out' has not changed.
 (rerunfilecheck)             Checksum: 6C280393A9A31477CE6FCCDE8D70781F;1626.
  ) 
 Here is how much of TeX's memory you used:
- 33533 strings out of 474486
- 778130 string characters out of 5744228
+ 33546 strings out of 474486
+ 778389 string characters out of 5744228
  1935542 words of memory out of 5000000
- 55246 multiletter control sequences out of 15000+600000
+ 55254 multiletter control sequences out of 15000+600000
  574165 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,107p,872b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1052,9 +1058,9 @@ nts/cm/cmr6.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/public
 /amsfonts/cm/cmr8.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb><C:/Users/User/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on laby1.pdf (13 pages, 23393883 bytes).
+Output written on laby1.pdf (15 pages, 23471055 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 55 named destinations out of 1000 (max. 500000)
- 135 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 562 PDF objects out of 1000 (max. 8388607)
+ 60 named destinations out of 1000 (max. 500000)
+ 140 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -29,9 +29,9 @@ def main():
     
     # Wklej tutaj swoje dane pomiarowe.
     punkty_pomiarowe = {
-        "czestotliwosc_hz": [10, 100, 1000],
-        "amplituda_db": [0.214,-0.0868,6.59],
-        "faza_stopnie": [-6, -17.5, -87],
+        "czestotliwosc_hz": [10, 100, 1000,10000],
+        "amplituda_db": [0.214,-0.0868,6.59,10.58],
+        "faza_stopnie": [-6, -17.5, -92.7,-167],
         "kolor": "black",
         "marker": "x",
         "nazwa": "Dane pomiarowe"
@@ -82,7 +82,7 @@ def main():
 
     # --- KONFIGURACJA WYKRESÓW ---
     ax_amplituda.set_ylabel("Amplituda [dB]")
-    ax_amplituda.set_title("Charakterystyki Bodego dla układu niemnimalnofazowego")
+   # ax_amplituda.set_title("Charakterystyki Bodego dla układu niemnimalnofazowego")
     ax_amplituda.grid(which='both', linestyle='--')
     ax_amplituda.legend()
     
