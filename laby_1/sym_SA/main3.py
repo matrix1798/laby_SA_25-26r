@@ -42,7 +42,7 @@ def main():
     K_symulacji = 1
     Tp_symulacji = 0.00012
     Tz_symulacji = 0.00038 # Stała czasowa zera (powoduje efekt niemnimalnofazowy)
-    szum_symulacji = 0.004
+    szum_symulacji = 0.009
 
     # --- USTAWIENIA DODATKOWYCH SYGNAŁÓW DO PORÓWNANIA ---
     # Model z charakterystyki częstotliwościowej
@@ -132,7 +132,7 @@ def main():
     if RYSUJ_SYGNAL_OPTYMALIZACJI:
         plt.plot(df["czas"], df["out_opt"], label=f"Model z optymalizacji", color='orange',linewidth=3)
 
-    plt.title("Porównanie odpowiedzi skokowej układu niemnimalnofazowego")
+    #plt.title("Porównanie odpowiedzi skokowej układu niemnimalnofazowego")
     plt.xlabel("Czas [s]")
     plt.ylabel("Amplituda [V]")
     plt.legend()

@@ -385,9 +385,40 @@
 	\end{equation}
 	gdzie: \(T_x\) – stała czasowa zera, \(T_y\) – stała czasowa bieguna.
 	
-	\begin{itemize}
-		\item 
-	\end{itemize}
+	\textbf{Porównanie odpwiedzi skokowych różnych modeli}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/odp_skok_nmf.png}
+		\caption{Odpowiedzi układu nieminimalnofazowgo na skok jednostkowy}
+		\label{fig:skok_uk_nmf}
+	\end{figure}
+	
+	\textbf{Wyznaczenie parametrów z odpwoiedzi skokowej}
+	
+	Żeby policzyć paramtery systemu nieminiamlnofazowgo potrzebujemy znaleźć na przebiegu odpowiedzi skokowej 
+	początkowy punkty czyli $h(0)$ oraz czas osiągnięcia wartości zera na wyjściu, $h(t_0) = 0$. Następnie korzystając z poniższych wzorów:
+	
+	\begin{equation}
+		h(0) = \frac{T_x}{T_y}
+	\end{equation}
+	
+	\begin{equation}
+		T_y = \frac{t_0}{ln(1-h(0))}
+	\end{equation}
+	
+	Na podstawie których możemy odpowiednio wyznaczyć:
+	
+	\centering
+	$h(0) = -3,504$,
+	$t_0 = 0,17ms$
+	
+	$T_x = 0,396ms$,
+	$T_y = 0,113ms$
+	
+	\textbf{Parametry na podstawie pomiarów char. częstotliwościowej}
+	
+	\textbf{Parametry obliczone przez zadanie optymalizacji}
 	
 	\section{Wnioski}
 
