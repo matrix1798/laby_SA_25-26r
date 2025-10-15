@@ -204,7 +204,7 @@
 	\begin{itemize}
 		\item $k_p = 0{,}871$
 		\item $T_p = 0{,}78$ ms
-		\item $T_0 = 0{,}256$ ms
+		\item $T_0 = 0{,}1678$ ms
 	\end{itemize}
 	
 	\textbf{Obliczenie opóźnienia transportowego $T_0$ na podstawie charakterystyki częstotliwościowej:}
@@ -212,24 +212,24 @@
 		T_0 = -T_p \cdot \left( \phi(\omega_{3\text{dB}}) + \frac{\pi}{4} \right)
 	\end{equation}
 	
-	Do obliczeń przyjęto $T_p = 0{,}758~\text{ms}$ oraz przesunięcie fazowe $\phi = -66{,}54^{\circ}$ (odczytane dla częstotliwości $f = 210~\text{Hz}$, bliskiej $f_{3\text{dB}}$).
+	Do obliczeń przyjęto $T_p = 0{,}758~\text{ms}$ oraz przesunięcie fazowe $\phi = -58{,}5^{\circ}$ (odczytane dla częstotliwości, bliskiej $f_{3\text{dB}}$).
 	
 	Konwersja fazy na radiany:
 	\[
-	\phi = -66{,}54^{\circ} = -1{,}1614~\text{rad}
+	\phi = -58{,}5^{\circ} = -1{,}02023~\text{rad}
 	\]
 	
 	Podstawienie wartości do wzoru:
 	\begin{align*}
-		T_0 &= -0{,}000758~\text{s} \cdot \left( -1{,}1614 + \frac{\pi}{4} \right) \\
-		T_0 &= -0{,}000758~\text{s} \cdot \left( -1{,}1614 + 0{,}7854 \right) \\
-		T_0 &= -0{,}000758~\text{s} \cdot (-0{,}376) \\
-		T_0 &\approx 0{,}000285~\text{s}
+		T_0 &= -0{,}000758~\text{s} \cdot \left( -1{,}02023 + \frac{\pi}{4} \right) \\
+		T_0 &= -0{,}000758~\text{s} \cdot \left( -1{,}02023 + 0{,}7854 \right) \\
+		T_0 &= -0{,}000758~\text{s} \cdot (-0{,}23483) \\
+		T_0 &\approx 0{,}000178~\text{s}
 	\end{align*}
 	
 	Ostatecznie wyznaczone opóźnienie transportowe wynosi:
 	\[
-	\boxed{T_0 \approx 0{,}285~\text{ms}}
+	\boxed{T_0 \approx 0{,}178~\text{ms}}
 	\]
 	
 	\textbf{Porównanie charakterystyk Bodego otrzymanych różnymi metodami:}
@@ -274,18 +274,18 @@
 			\hline
 			$\Delta U_{we}$ [V] & $\Delta x$ [s] & $\Delta y$ [V] & $T_i$ [ms] \\
 			\hline
-			2 & 0,0092 & 14,5 & 1,27 \\
-			4 & 0,0069 & 21,6 & 1,28 \\
-			8 & 0,0036 & 21,6 & 1,33 \\
+			2 & 0,001668 & 24,8 & 1,35 \\
+			4 & 0,00896 & 27,5 & 1,30 \\
+			8 & 0,00456 & 27,5 & 1,33 \\
 			\hline
 		\end{tabular}
 	\end{table}
 	
 	\[
-	T_{i\,\text{średnie}} = \frac{1,27 + 1,28 + 1,33}{3} = 1,29\ \text{ms}
+	T_{i\,\text{średnie}} = \frac{1,35 + 1,30 + 1,33}{3} = 1,33\ \text{ms}
 	\]
 	
-	Dla różnych wartości napięcia wejściowego obserwowano liniowy wzrost napięcia wyjściowego w funkcji czasu, co wskazuje na proporcjonalność prędkości narastania sygnału do amplitudy wymuszenia. Wyznaczone wartości stałej całkowania Ti dla trzech pomiarów są do siebie bardzo zbliżone ($T_isrednie = 1,29 ms$), co potwierdza poprawność pomiarów i stabilność układu.
+	Dla różnych wartości napięcia wejściowego obserwowano liniowy wzrost napięcia wyjściowego w funkcji czasu, co wskazuje na proporcjonalność prędkości narastania sygnału do amplitudy wymuszenia. Wyznaczone wartości stałej całkowania Ti dla trzech pomiarów są do siebie bardzo zbliżone ($T_isrednie = 1,33 ms$), co potwierdza poprawność pomiarów i stabilność układu.
 	
 	\subsection{Układ drugiego rzędu}
 	Transmitancja obiektu jest postaci:
@@ -465,5 +465,14 @@
 	\end{figure}
 	
 	\section{Wnioski}
+	
+	W ramach ćwiczenia dokonano identyfikacji kilku typów obiektów dynamicznych, a uzyskane wyniki potwierdziły poprawność przyjętych modeli matematycznych. 
+	Dla układu inercyjnego pierwszego rzędu oraz jego wersji z opóźnieniem transportowym uzyskano bardzo dobrą zgodność parametrów \(T_p\) i \(T_0\) z wartościami teoretycznymi. 
+	
+	Dla układu całkującego średnia stała całkowania \(T_i = 1{,}33\,\text{ms}\) wykazała niewielkie odchylenia między pomiarami, co świadczy o stabilności i liniowym charakterze badanego obiektu. 
+	W przypadku układu drugiego rzędu i nieminimalnofazowego uzyskane wartości współczynników tłumienia, czasów i pulsacji naturalnych odpowiadały przewidywaniom teoretycznym oraz dobrze odwzorowywały rzeczywiste przebiegi.
+	
+	Ostatecznie potwierdzono, że wszystkie analizowane metody (czasowa i częstotliwościowa) prowadzą do spójnych wyników identyfikacji, a wyznaczone parametry wiernie opisują zachowanie badanych układów dynamicznych.
+	
 
 \end{document}
