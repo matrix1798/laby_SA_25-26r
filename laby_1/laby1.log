@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  15 OCT 2025 11:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  15 OCT 2025 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -952,54 +952,54 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.65 	\newpage
+l.66 	\newpage
                [1]
 <zdjecia/1.png, id=55, 597.432pt x 845.0772pt>
 File: zdjecia/1.png Graphic file (type png)
 <use zdjecia/1.png>
-Package pdftex.def Info: zdjecia/1.png  used on input line 73.
+Package pdftex.def Info: zdjecia/1.png  used on input line 74.
 (pdftex.def)             Requested size: 218.51521pt x 309.0889pt.
 <zdjecia/2.png, id=56, 597.432pt x 845.0772pt>
 File: zdjecia/2.png Graphic file (type png)
 <use zdjecia/2.png>
-Package pdftex.def Info: zdjecia/2.png  used on input line 80.
+Package pdftex.def Info: zdjecia/2.png  used on input line 81.
 (pdftex.def)             Requested size: 218.51521pt x 309.0889pt.
  [2 <./zdjecia/1.png> <./zdjecia/2.png>] [3]
 <zdjecia/OdpSkokowa1.png, id=88, 1387.584pt x 698.8509pt>
 File: zdjecia/OdpSkokowa1.png Graphic file (type png)
 <use zdjecia/OdpSkokowa1.png>
-Package pdftex.def Info: zdjecia/OdpSkokowa1.png  used on input line 171.
+Package pdftex.def Info: zdjecia/OdpSkokowa1.png  used on input line 172.
 (pdftex.def)             Requested size: 455.24411pt x 229.2779pt.
 <zdjecia/Body1.png, id=90, 1387.584pt x 698.8509pt>
 File: zdjecia/Body1.png Graphic file (type png)
 <use zdjecia/Body1.png>
-Package pdftex.def Info: zdjecia/Body1.png  used on input line 179.
+Package pdftex.def Info: zdjecia/Body1.png  used on input line 180.
 (pdftex.def)             Requested size: 455.24411pt x 229.2779pt.
  [4 <./zdjecia/OdpSkokowa1.png>]
 <zdjecia/odp_skok_z_opz.png, id=98, 1204.5pt x 702.625pt>
 File: zdjecia/odp_skok_z_opz.png Graphic file (type png)
 <use zdjecia/odp_skok_z_opz.png>
-Package pdftex.def Info: zdjecia/odp_skok_z_opz.png  used on input line 198.
+Package pdftex.def Info: zdjecia/odp_skok_z_opz.png  used on input line 199.
 (pdftex.def)             Requested size: 455.24411pt x 265.56363pt.
  [5 <./zdjecia/Body1.png>] [6 <./zdjecia/odp_skok_z_opz.png (PNG copy)>]
 <zdjecia/1rzad_z_opz.png, id=114, 722.7pt x 473.3685pt>
 File: zdjecia/1rzad_z_opz.png Graphic file (type png)
 <use zdjecia/1rzad_z_opz.png>
-Package pdftex.def Info: zdjecia/1rzad_z_opz.png  used on input line 238.
+Package pdftex.def Info: zdjecia/1rzad_z_opz.png  used on input line 239.
 (pdftex.def)             Requested size: 455.24411pt x 298.1876pt.
 <zdjecia/UkladCalk.png, id=115, 1387.584pt x 698.8509pt>
 File: zdjecia/UkladCalk.png Graphic file (type png)
 <use zdjecia/UkladCalk.png>
-Package pdftex.def Info: zdjecia/UkladCalk.png  used on input line 255.
+Package pdftex.def Info: zdjecia/UkladCalk.png  used on input line 256.
 (pdftex.def)             Requested size: 364.19667pt x 183.42445pt.
  [7 <./zdjecia/1rzad_z_opz.png>] [8 <./zdjecia/UkladCalk.png>]
 <zdjecia/ukl2.png, id=130, 867.24pt x 505.89pt>
 File: zdjecia/ukl2.png Graphic file (type png)
 <use zdjecia/ukl2.png>
-Package pdftex.def Info: zdjecia/ukl2.png  used on input line 302.
+Package pdftex.def Info: zdjecia/ukl2.png  used on input line 303.
 (pdftex.def)             Requested size: 455.24411pt x 265.55762pt.
 
-Overfull \hbox (38.83212pt too wide) detected at line 330
+Overfull \hbox (38.83212pt too wide) detected at line 331
 [][][]\OML/cmm/m/it/12 ^^P \OT1/cmr/m/n/12 = [] = [] \OMS/cmsy/m/n/12 ^^Y [] ^^
 Y [] ^^Y \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ;\OT1/cmr/m/n/12 336
  []
@@ -1008,19 +1008,19 @@ Y [] ^^Y \OT1/cmr/m/n/12 0\OML/cmm/m/it/12 ;\OT1/cmr/m/n/12 336
 <zdjecia/bode2rzad.png, id=140, 722.7pt x 459.6372pt>
 File: zdjecia/bode2rzad.png Graphic file (type png)
 <use zdjecia/bode2rzad.png>
-Package pdftex.def Info: zdjecia/bode2rzad.png  used on input line 372.
+Package pdftex.def Info: zdjecia/bode2rzad.png  used on input line 373.
 (pdftex.def)             Requested size: 455.24411pt x 289.5379pt.
  [10]
 <zdjecia/odp_skok_nmf.png, id=152, 867.24pt x 505.89pt>
 File: zdjecia/odp_skok_nmf.png Graphic file (type png)
 <use zdjecia/odp_skok_nmf.png>
-Package pdftex.def Info: zdjecia/odp_skok_nmf.png  used on input line 392.
+Package pdftex.def Info: zdjecia/odp_skok_nmf.png  used on input line 393.
 (pdftex.def)             Requested size: 455.24411pt x 265.55762pt.
  [11 <./zdjecia/bode2rzad.png>] [12 <./zdjecia/odp_skok_nmf.png>]
 <zdjecia/bode_nmf.png, id=169, 722.7pt x 458.1918pt>
 File: zdjecia/bode_nmf.png Graphic file (type png)
 <use zdjecia/bode_nmf.png>
-Package pdftex.def Info: zdjecia/bode_nmf.png  used on input line 462.
+Package pdftex.def Info: zdjecia/bode_nmf.png  used on input line 463.
 (pdftex.def)             Requested size: 455.24411pt x 288.62741pt.
  [13 <./zdjecia/bode_nmf.png>] [14] (laby1.aux)
  ***********
@@ -1033,7 +1033,7 @@ Package rerunfilecheck Info: File `laby1.out' has not changed.
 Here is how much of TeX's memory you used:
  33546 strings out of 474486
  778632 string characters out of 5743754
- 1935542 words of memory out of 5000000
+ 1934542 words of memory out of 5000000
  55254 multiletter control sequences out of 15000+600000
  574165 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1059,7 +1059,7 @@ pe1/public/amsfonts/cm/cmr6.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/f
 onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/turbi/AppData/Local/Programs/M
 iKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/turbi/AppData/Local/P
 rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on laby1.pdf (15 pages, 23472087 bytes).
+Output written on laby1.pdf (15 pages, 23472135 bytes).
 PDF statistics:
  562 PDF objects out of 1000 (max. 8388607)
  60 named destinations out of 1000 (max. 500000)
