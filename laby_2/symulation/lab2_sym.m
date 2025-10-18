@@ -16,30 +16,34 @@ system = Gc * Go * G_p; %uklad otwarty
 object_closed = feedback(system,1); %feedback(G,H) : G/(1 + GH)
 
 %odpowiedz ukladu
-if true
-t = 0:0.001:0.1;
-
-u = zeros(size(t));
-u(t>=0) = 1 ; %definicja skoku
-
-[Y,T] = lsim(object_closed,u,t);
-
-figure;
-plot(T,Y);
-grid on;
-title('Odpwoeidz na skok');
-xlabel('Time (s)');
-ylabel('Output Response');
-legend('Sygnal wyjsciowy');
+if false
+    t = 0:0.001:0.1;
+    
+    u = zeros(size(t));
+    u(t>=0) = 1 ; %definicja skoku
+    
+    [Y,T] = lsim(object_closed,u,t);
+    
+    figure;
+    plot(T,Y);
+    grid on;
+    title('Odpwoeidz na skok');
+    xlabel('Time (s)');
+    ylabel('Output Response');
+    legend('Sygnal wyjsciowy');
 end
 
 % Linie pierwiastkowe:
-if false
+if true
     figure;
     rlocus(Go*Gc);
-    [k_graniczne, bieguny] = rlocfind(Gc*Go);
-    disp(k_graniczne);
-    title('Linie pieriwastkowe ukladu 2 rzedu')
+    title('Linie pieriwastkowe ukladu 2 rzedu');
+    
+    [r,k] = rlocus(Go*Gc);
+    crosscut = find(real(r(:,1)) >= 0, 1,'first');
+    disp(crosscut);
+
+   
 end
 
 % Char. Bodego:

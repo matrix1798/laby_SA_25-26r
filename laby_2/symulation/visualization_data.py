@@ -14,7 +14,7 @@ def load_data(file_path):
     dane_df.columns = ['CH1_offset','CH2_offset']
 
     number_of_points = len(dane_df)
-    time = np.arange(start,start+ number_of_points * increment, increment)
+    time = np.arange(start,start+ number_of_points * increment , increment)
 
     dane_df['Time'] = time
     dane_df = dane_df[['Time','CH1_offset','CH2_offset']]
@@ -22,7 +22,7 @@ def load_data(file_path):
     return dane_df
 
 # load data
-file_path = ['../data/NewFile.csv','../data/NewFile3.csv','../data/NewFile4.csv']
+file_path = ['../data/NewFile2.csv','../data/NewFile3.csv','../data/NewFile4.csv']
 
 try:
     df1 = load_data(file_path[0])
@@ -57,10 +57,18 @@ df3['CH2'] = df3['CH2_offset'] - offset
 
 plt.figure(figsize=(12,7))
 
+# range
+chart_width = 0.5
+range_time = int(df1['Time'].count() * chart_width)
+start_time = df1['Time'].iloc[0]
+end_time = df1['Time'].iloc[range_time-1]
+
 plt.plot(signal['Time'],signal['input'],label='Input', color='blue')
 plt.plot(df1['Time'],df1['CH2'],label='Sygnal 1',color = 'green')
 plt.plot(df2['Time'],df2['CH2'],label='Sygnal 2',color = 'orange')
 plt.plot(df3['Time'],df3['CH2'],label='Sygnal 3',color='red')
+
+plt.xlim(start_time,end_time)
 
 plt.title('Poronanie sygnalow',fontsize=16)
 plt.xlabel('czas(s)')
