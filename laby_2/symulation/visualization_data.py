@@ -1,0 +1,71 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+
+def load_data(file_path):
+
+    column_name = pd.read_csv(file_path,nrows=0).columns
+    metadane_df = pd.read_csv(file_path,skiprows=1,nrows=1,header=None,names=column_name)
+
+    start = metadane_df['Start'].iloc[0]
+    increment = metadane_df['Increment'].iloc[0]
+
+    dane_df = pd.read_csv(file_path, skiprows=2, header =None, usecols = [0,1])
+    dane_df.columns = ['CH1_offset','CH2_offset']
+
+    number_of_points = len(dane_df)
+    time = np.arange(start,start+ number_of_points * increment, increment)
+
+    dane_df['Time'] = time
+    dane_df = dane_df[['Time','CH1_offset','CH2_offset']]
+
+    return dane_df
+
+# load data
+file_path = ['../data/NewFile.csv','../data/NewFile3.csv','../data/NewFile4.csv']
+
+try:
+    df1 = load_data(file_path[0])
+    df2 = load_data(file_path[1])
+    df3 = load_data(file_path[2])
+
+except FileNotFoundError as e:
+    # 'e' to obiekt błędu, który zawiera informacje, np. nazwę brakującego pliku
+    print(f"Sprawdź, czy plik '{e.filename}' na pewno istnieje i czy ścieżka jest poprawna.")
+    # Zakończ program, ponieważ bez danych dalsze operacje nie mają sensu
+    exit()
+except Exception as e:
+    # Dobra praktyka to łapanie też innych, nieprzewidzianych błędów
+    print(f"Wystąpił nieoczekiwany błąd: {e}")
+    exit()
+
+print('Wczytanie plikow')
+
+# Shift the offset
+
+offset = df1['CH1_offset'].iloc[0]
+
+signal = df1[['Time','CH1_offset']].copy()
+signal['CH1_offset'] = signal['CH1_offset'] - offset
+signal.rename(columns={'CH1_offset':'input'},inplace=True)
+
+df1['CH2'] = df1['CH2_offset'] - offset
+df2['CH2'] = df2['CH2_offset'] - offset
+df3['CH2'] = df3['CH2_offset'] - offset
+
+# visualization data
+
+plt.figure(figsize=(12,7))
+
+plt.plot(signal['Time'],signal['input'],label='Input', color='blue')
+plt.plot(df1['Time'],df1['CH2'],label='Sygnal 1',color = 'green')
+plt.plot(df2['Time'],df2['CH2'],label='Sygnal 2',color = 'orange')
+plt.plot(df3['Time'],df3['CH2'],label='Sygnal 3',color='red')
+
+plt.title('Poronanie sygnalow',fontsize=16)
+plt.xlabel('czas(s)')
+plt.ylabel('napiecie (V)')
+plt.legend()
+plt.grid(True)
+
+plt.show()
