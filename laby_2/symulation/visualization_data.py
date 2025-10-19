@@ -63,16 +63,15 @@ range_time = int(df1['Time'].count() * chart_width)
 start_time = df1['Time'].iloc[0]
 end_time = df1['Time'].iloc[range_time-1]
 
-plt.plot(signal['Time'],signal['input'],label='Input', color='blue')
-plt.plot(df1['Time'],df1['CH2'],label='Sygnal 1',color = 'green')
-plt.plot(df2['Time'],df2['CH2'],label='Sygnal 2',color = 'orange')
-plt.plot(df3['Time'],df3['CH2'],label='Sygnal 3',color='red')
+plt.plot(signal['Time'],signal['input'],label='Sygnał wejściowy', color='blue',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
+plt.plot(df1['Time'],df1['CH2'],label='Sygnał wyjściowy k1 = ...',color = 'green',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
+plt.plot(df2['Time'],df2['CH2'],label='Sygnał wyjściowy k2 = ...',color = 'orange',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
+plt.plot(df3['Time'],df3['CH2'],label='Sygnał wyjściowy k3 = ...',color='red',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
 
 plt.xlim(start_time,end_time)
 
-plt.title('Poronanie sygnalow',fontsize=16)
-plt.xlabel('czas(s)')
-plt.ylabel('napiecie (V)')
+plt.xlabel('Czas (s)')
+plt.ylabel('Napięcie (V)')
 plt.legend()
 plt.grid(True)
 

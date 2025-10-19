@@ -3,7 +3,7 @@
 close all
 clear all
 
-K_p = 1.12;
+K_p = 1.67 ;
 G_p = tf(K_p); %regulator P
 
 T_i = 0.0013;
@@ -11,16 +11,16 @@ Gc = tf(1,[T_i 0]); %czlon calkujacy
 
 k = 1;
 T = 0.000385; % w = 2*pi/T
-w0 = 2560;
+w0 = 2330;
 zeta = 0.37;
 %Go = tf(k,[T^2,2*zeta*T,1]); %uklad 2 rzedu
-Go = tf(w0^2,[1 2*zeta*w0 w0^2]);
+Go = tf(w0^2,[1 2*zeta*w0 w0^2])
 system = Gc * Go * G_p; %uklad otwarty
 
 object_closed = feedback(system,1); %feedback(G,H) : G/(1 + GH)
 
 %odpowiedz ukladu
-if false
+if true
     t = 0:0.0001:0.01;
     
     u = zeros(size(t));
@@ -38,14 +38,14 @@ if false
 end
 
 % Linie pierwiastkowe:
-if true
+if false
     figure;
     rlocus(Go*Gc);
     title('Linie pieriwastkowe ukladu 2 rzedu');
     
     [r,k] = rlocus(Go*Gc);
-   % crosscut = find(real(r(:,1)) >= 0, 1,'first');
-   % disp(crosscut);
+    crosscut = find(real(r(:,1)) >= 0, 1,'first');
+    disp(crosscut);
 end
 
 % Char. Bodego:
