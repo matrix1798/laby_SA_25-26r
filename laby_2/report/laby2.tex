@@ -33,7 +33,6 @@
 }
 
 \begin{document}
-	
 		\begin{titlepage}
 		\centering
 		\Huge \textbf{Sprawozdanie z ćwiczeń laboratoryjnych}\\[0.5cm]
@@ -59,12 +58,49 @@
 	\end{titlepage}
 	
 	\section{Cel ćwiczenia}
+	W ramach zajęć analizowano odpowiedzi skokowe oraz charakterystyki częstotliwościowe (Bodego) dla różnych wartości wzmocnienia. Pozwoliło to na ocenę, jak zmiana $k_c$ wpływa na parametry odpowiedzi, takie jak przeregulowanie, czas ustalania, pasmo przenoszenia oraz dokładność sterowania (uchyb ustalony).
 	
-	\section{Pomiary przeprowadzone w trakcie labolatorium}
+	\section{Przebieg ćwiczenia}
+	Podczas ćwiczenia przeprowadzono badanie trzech różnych układów zamkniętych (Układ A, B, D), wskazanych przez prowadzącego. Układy te były sterowane za pomocą sterownika proporcjonalnego (P).
+	Dla każdego z badanych układów zarejestrowano łącznie 9 odpowiedzi skokowych – po trzy dla każdej z trzech różnych wartości wzmocnienia sterownika $k_c$. W trakcie zajęć wykorzystano stanowisko pomiarowe składające się z zestawu analogowych modeli procesów przemysłowych (ZAMPP), generatora funkcji oraz oscyloskopu dwukanałowego. Zarejestrowane na oscyloskopie przebiegi (dane pomiarowe) zostały następnie wykorzystane do porównania z wynikami symulacji teoretycznych. Opracowanie wyników wymagało również przygotowania wykresów Nyquista oraz linii pierwiastkowych dla badanych układów.
+	
+	\newpage
+	\section{Pomiary i analiza wyników}
+	Poniżej przedstawiono zdjęcia z przeprowadzonych pomiarów w trakcie laboratorium.
+	
+	\begin{figure}[H]
+		\centering
+		\begin{subfigure}[b]{0.46\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{zdjecia/1.png}
+			\caption{Zdjęcie pomiarów 1.}
+			\label{fig:pomiar1}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.46\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{zdjecia/2.png}
+			\caption{Zdjęcie pomiarów 2.}
+			\label{fig:pomiar2}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.46\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{zdjecia/3.png}
+			\caption{Zdjęcie pomiarów 3.}
+			\label{fig:pomiar3}
+		\end{subfigure}
+		\hfill
+		\begin{subfigure}[b]{0.46\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{zdjecia/4.png}
+			\caption{Zdjęcie pomiarów 4.}
+			\label{fig:pomiar4}
+		\end{subfigure}
+	\end{figure}
 	
 	\section{Układy pomiarowe}
 	
-	Układ a):
+	Układ A):
 	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}[
@@ -103,8 +139,7 @@
 		\caption{Schemat układu pomiarowego (a).}
 	\end{figure}
 	
-	Układ b):
-	
+	\noindent Układ B):
 	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}[
@@ -140,7 +175,7 @@
 		\caption{Schemat układu pomiarowego (b).}
 	\end{figure}
 	
-	\noindent Układ d):
+	\noindent Układ D):
 	\begin{figure}[H]
 		\centering
 		\begin{tikzpicture}[
@@ -177,32 +212,208 @@
 		\caption{Schemat blokowy układu regulacji z zakłóceniem.}
 	\end{figure}
 	
+	\newpage
 	\subsection{Układ A}
-		
-		\begin{figure}[H]
-			\centering
-		%	\includegraphics[width=1\linewidth]{zdjecia/odp_skok_2.png}
-		%	\capcion{Odpowiedź na skok układu (b) prz różnych wartościach wzmocnienia $k_c$.}
-			\label{fig:odp_skok_2}
-		\end{figure}
+	
+	Pierwszy badany układ składa się ze sterownika proporcjonalnego (P) oraz obiektu sterowanego w pętli ujemnego sprzężenia zwrotnego. Obiekt sterowany jest szeregowym połączeniem członu całkującego i członu inercyjnego drugiego rzędu. 
+	
+	Na podstawie identyfikacji przeprowadzonej w ćwiczeniu 1, przyjęto następujące parametry modeli:
+	\begin{itemize}
+		\item Człon całkujący: $G(s) = \frac{1}{sT_i}$, gdzie $T_i = 1,33 \text{ ms}$.
+		\item Człon 2 rzędu: $G(s) = \frac{1}{1 + sa_1 + s^2a_2} = \frac{1}{1+s 2\zeta \tau + s^2 \tau^2} = \frac{w_n^2}{w_n^2 + s 2 \zeta w_n + s^2}$, gdzie wyznaczone parametry to $\zeta = 0,37$ i $\omega_n = 2330 \text{ rad/s}$.
+	\end{itemize}
+	
+	Badania przeprowadzono dla trzech różnych wartości wzmocnienia \(k_c\), obliczonych ze wzoru \(k_c = 0,47 + n/2\):
+	\begin{itemize}
+		\item Dla \(n_1 = 0,1\): $k_{c1} = 0,47 + 0,1 / 2 = 0,47 + 0,05 = \textbf{0,52}$
+		\item Dla \(n_2 = 1,3\): $k_{c2} = 0,47 + 1,3 / 2 = 0,47 + 0,65 = \textbf{1,12}$
+		\item Dla \(n_3 = 2,4\): $k_{c3} = 0,47 + 2,4 / 2 = 0,47 + 1,20 = \textbf{1,67}$
+	\end{itemize}
+	
+	\subsubsection{Odpowiedzi skokowe}
+	Na poniższym wykresie przedstawiono zarejestrowane odpowiedzi skokowe układu (A) dla trzech wyznaczonych wzmocnień \(k_c\).
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{zdjecia/OdpSkokA.png}
+		\caption{Odpowiedź skokowa układu (A) przy różnych wartościach wzmocnienia \(k_c\).}
+		\label{fig:OdpSkokA}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ - np:
+	% Z wykresu widać, że... Wzrost wzmocnienia kc powoduje...
+	
+	\subsubsection{Linie pierwiastkowe}
+	Wykres linii pierwiastkowych dla układu otwartego \(G_o(s) = k_c \cdot \frac{1}{sT_i} \cdot \frac{w_n^2}{w_n^2 + s 2 \zeta w_n + s^2}\) przedstawiono poniżej. Zaznaczono na nim położenie biegunów układu zamkniętego dla badanych wzmocnień \(k_{c1}\), \(k_{c2}\) i \(k_{c3}\).
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=0.8\linewidth]{zdjecia/rlocus_A.png}
+		\caption{Linie pierwiastkowe układu otwartego (A).}
+		\label{fig:rlocus_A}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ - np:
+	% Linie pierwiastkowe pokazują, że... Dla wzmocnienia k=... układ staje się niestabilny. 
+	
+	\subsubsection{Charakterystyki Bodego}
+	Poniższy wykres przedstawia charakterystyki Bodego układu zamkniętego dla badanych wartości \(k_c\).
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=1\linewidth]{zdjecia/bode_A.png}
+		\caption{Charakterystyki Bodego układu zamkniętego (A).}
+		\label{fig:bode_A}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ - np:
+	% Wraz ze wzrostem wzmocnienia... pasmo przenoszenia...
+	
+	\subsubsection{Charakterystyki Nyquista}
+	Na wykresie Nyquista układu otwartego można zbadać stabilność układu zamkniętego.
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=0.8\linewidth]{zdjecia/nyquist_A.png}
+		\caption{Charakterystyka Nyquista układu otwartego (A).}
+		\label{fig:nyquist_A}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ - np:
+	% Wykres...
+	
+	\newpage % Wymuszenie nowej strony dla następnego układu
 	
 	\subsection{Układ B}
 	
-		\begin{figure}[H]
-		\centering
-		%	\includegraphics[width=1\linewidth]{zdjecia/odp_skok_3.png}
-		%	\capcion{Odpowiedź na skok układu (d) prz różnych wartościach wzmocnienia $k_c$.}
-		\label{fig:odp_skok_3}
+	Drugi badany układ składa się ze sterownika proporcjonalnego (P) oraz obiektu będącego szeregowym połączeniem członu całkującego i członu nieminimalnofazowego.
+	
+	Na podstawie identyfikacji przeprowadzonej w ćwiczeniu 1, przyjęto następujące parametry modeli:
+	\begin{itemize}
+		\item Człon całkujący: $G(s) = \frac{1}{sT_i}$, gdzie $T_i = 1,33 \text{ ms}$.
+		\item Człon nieminimalnofazowy: $G(s) = \frac{1-sT_x}{1+sT_y}$, gdzie: $T_x = 0,396 \text{ ms}$ i $T_y = 0,113 \text{ ms}$.
+	\end{itemize}
+	
+	Badania przeprowadzono dla trzech wartości wzmocnienia \(k_c\), obliczonych ze wzoru \(k_c = 0,47 + n/2\):
+	\begin{itemize}
+		\item Dla \(n_1 = 0,5\): $k_{c1} = 0,47 + 0,5 / 2 = 0,47 + 0,25 = \textbf{0,72}$
+		\item Dla \(n_2 = 1,5\): $k_{c2} = 0,47 + 1,5 / 2 = 0,47 + 0,75 = \textbf{1,22}$
+		\item Dla \(n_3 = 2,8\): $k_{c3} = 0,47 + 2,8 / 2 = 0,47 + 1,40 = \textbf{1,87}$
+	\end{itemize}
+	
+	\subsubsection{Odpowiedzi skokowe}
+	Na poniższym wykresie przedstawiono zarejestrowane odpowiedzi skokowe układu (B) dla trzech wyznaczonych wzmocnień \(k_c\).
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{zdjecia/OdpSkokB.png}
+	\caption{Odpowiedź skokowa układu (B) przy różnych wartościach wzmocnienia \(k_c\).}
+	\label{fig:OdpSkokB}
 	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ - np:
+	% Charakterystyczne dla układu nieminimalnofazowego jest...
+	
+	\subsubsection{Linie pierwiastkowe}
+	Wykres linii pierwiastkowych dla układu otwartego \(G_o(s) = k_c \cdot \frac{1}{sT_i} \cdot
+	\frac{1-sT_x}{1+sT_y}\) przedstawiono poniżej. Zaznaczono na nim położenie biegunów układu zamkniętego dla badanych wzmocnień \(k_{c1}\), \(k_{c2}\) i \(k_{c3}\).
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=0.8\linewidth]{zdjecia/rlocus_B.png}
+		\caption{Linie pierwiastkowe układu otwartego (B).}
+		\label{fig:rlocus_B}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ...
+	
+	\subsubsection{Charakterystyki Bodego}
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=1\linewidth]{zdjecia/bode_B.png}
+		\caption{Charakterystyki Bodego układu zamkniętego (B).}
+		\label{fig:bode_B}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ...
+	
+	\subsubsection{Charakterystyki Nyquista}
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=0.8\linewidth]{zdjecia/nyquist_B.png}
+		\caption{Charakterystyka Nyquista układu otwartego (B).}
+		\label{fig:nyquist_B}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ...
+	
+	\newpage % Wymuszenie nowej strony dla następnego układu
 	
 	\subsection{Układ D}
 	
-		\begin{figure}[H]
-		\centering
-		%	\includegraphics[width=1\linewidth]{zdjecia/odp_skok_1.png}
-		%	\capcion{Odpowiedź na skok układu (a) prz różnych wartościach wzmocnienia $k_c$.}
-		\label{fig:odp_skok_1}
+	Ostatni badany układ to układ regulacji z zakłóceniem, składający się ze sterownika proporcjonalnego (P) i obiektu inercyjnego pierwszego rzędu.
+	
+	Na podstawie identyfikacji przeprowadzonej w ćwiczeniu 1, przyjęto następujące parametry modeli:
+	\begin{itemize}
+		\item Człon inercyjny 1 rzędu: $G(s) = \frac{k_p}{1+sT_p}$, gdzie $k_p = 0,871$ i $T_p = 0,78 \text{ ms}$.
+	\end{itemize}
+	
+	Badania przeprowadzono dla trzech wartości wzmocnienia \(k_c\), obliczonych ze wzoru \(k_c = 0,47 + n/2\):
+	\begin{itemize}
+		\item Dla \(n_1 = 1,1\): $k_{c1} = 0,47 + 1,1 / 2 = 0,47 + 0,55 = \textbf{1,02}$
+		\item Dla \(n_2 = 4,0\): $k_{c2} = 0,47 + 4,0 / 2 = 0,47 + 2,00 = \textbf{2,47}$
+		\item Dla \(n_3 = 8,0\): $k_{c3} = 0,47 + 8,0 / 2 = 0,47 + 4,00 = \textbf{4,47}$
+	\end{itemize}
+	
+	\subsubsection{Odpowiedzi skokowe}
+	Na poniższym wykresie przedstawiono zarejestrowane odpowiedzi skokowe układu (D) dla trzech wyznaczonych wzmocnień \(k_c\).
+	
+	\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\linewidth]{zdjecia/OdpSkokD.png}
+	\caption{Odpowiedź skokowa układu (D) przy różnych wartościach wzmocnienia \(k_c\).}
+	\label{fig:OdpSkokD}
 	\end{figure}
 	
+	% TUTAJ WPISZ ANALIZĘ - np:
+	% Układ jest astatyczny rzędu zero... Uchyb ustalony...
+	
+	\subsubsection{Linie pierwiastkowe}
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=0.8\linewidth]{zdjecia/rlocus_D.png}
+		\caption{Linie pierwiastkowe układu otwartego (D).}
+		\label{fig:rlocus_D}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ...
+	
+	\subsubsection{Charakterystyki Bodego}
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=1\linewidth]{zdjecia/bode_D.png}
+		\caption{Charakterystyki Bodego układu zamkniętego (D).}
+		\label{fig:bode_D}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ...
+	
+	\subsubsection{Charakterystyki Nyquista}
+	
+	\begin{figure}[H]
+		\centering
+		% \includegraphics[width=0.8\linewidth]{zdjecia/nyquist_D.png}
+		\caption{Charakterystyka Nyquista układu otwartego (D).}
+		\label{fig:nyquist_D}
+	\end{figure}
+	
+	% TUTAJ WPISZ ANALIZĘ...
+	
+	\section{Wnioski}
+	Tutaj wnioski
 	
 \end{document}
