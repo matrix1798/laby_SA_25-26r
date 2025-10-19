@@ -1,0 +1,208 @@
+% !TeX program = pdflatex
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath, amssymb}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{icomma}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows.meta, positioning, calc}
+
+\geometry{margin=2.5cm}
+\setlength{\parindent}{1.2cm}
+\setlength{\parskip}{0.5em}
+\linespread{1.2}
+\pgfplotsset{compat=1.18}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=black,
+	urlcolor=blue,
+	pdftitle={Sprawozdanie SA - Cw 1},
+	pdfpagemode=FullScreen,
+}
+
+\begin{document}
+	
+		\begin{titlepage}
+		\centering
+		\Huge \textbf{Sprawozdanie z ćwiczeń laboratoryjnych}\\[0.5cm]
+		\Large z przedmiotu: \textit{Sterowanie Analogowe}\\[2cm]
+		
+		\begin{tabular}{|p{6cm}|p{10cm}|}
+			\hline
+			\textbf{Numer ćwiczenia:} & 2 \\ \hline
+			\textbf{Tytuł ćwiczenia:} & Badanie jakości i dokładności sterowania \\ \hline
+			\textbf{Imię, nazwisko i numer albumu:} &
+			\begin{tabular}[t]{@{}l@{}}
+				Mateusz Kuczerowski 197900\\
+				Kewin Kisiel 197866\\
+			\end{tabular} \\ \hline
+			\textbf{Data pomiarów:} & 16.10.2025 \\ \hline
+			\textbf{Data oddania:} & 22.10.2025 \\ \hline
+			\textbf{Ocena:} & \\ \hline
+		\end{tabular}\\[2cm]
+		
+		\vfill
+		\textbf{Prowadzący:} dr inż. Piotr Fiertek\\[0.2cm]
+		\textbf{Grupa laboratoryjna:} 1A\\[1cm]
+	\end{titlepage}
+	
+	\section{Cel ćwiczenia}
+	
+	\section{Pomiary przeprowadzone w trakcie labolatorium}
+	
+	\section{Układy pomiarowe}
+	
+	Układ a):
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[
+			auto,
+			node distance=2.5cm,
+			>=Latex,
+			block/.style={draw, rectangle, minimum height=1cm, minimum width=2cm},
+			sum/.style={draw, circle, node distance=1.5cm},
+			gain/.style={draw, regular polygon, regular polygon sides=3, shape border rotate=-90, minimum size=1.2cm, inner sep=0pt}
+			]
+			% --- Definicja węzłów (elementów schematu) ---
+			\node[coordinate] (input) {}; % Punkt startowy dla wejścia
+			\node[sum, right=1.5cm of input] (sum) {}; % Węzeł sumacyjny
+			\node[gain, right=1.5cm of sum] (gain) {$k_c$}; % Wzmacniacz
+			\node[block, right=1.5cm of gain] (integrator) {$\frac{1}{sT_i}$}; % Blok całkujący
+			\node[block, right=2cm of integrator] (system) {$\frac{1}{s^2 a_2 + s a_1 + 1}$}; % Blok główny
+			\node[coordinate, right=1.5cm of system] (output) {}; % Punkt końcowy dla wyjścia
+			
+			% --- Rysowanie strzałek i sygnałów ---
+			\draw[->] (input) -- node[pos=0.2, above] {$r(t)$} (sum);
+			\draw[->] (sum) -- node[above] {$e(t)$} (gain);
+			\draw[->] (gain) -- node[above] {$u(t)$} (integrator);
+			\draw[->] (integrator) -- (system);
+			
+			% --- Pętla sprzężenia zwrotnego ---
+			% Najpierw rysujemy linię od bloku do punktu rozgałęzienia i dalej do wyjścia
+			\draw[-] (system.east) -- ++(0.75,0) coordinate (branch_point);
+			\draw[->] (branch_point) -- node[pos=0.5, above] {$c(t)$} (output);
+			% Teraz rysujemy pętlę zwrotną od punktu rozgałęzienia do węzła sumacyjnego
+			\draw[->] (branch_point) |- ++(0,-2cm) -| node[pos=0.95, right] {$-$} (sum.south);
+			
+			% --- Etykieta (a) ---
+			\node at (output.east) [right=0.5cm] {(a)};
+			
+		\end{tikzpicture}
+		\caption{Schemat układu pomiarowego (a).}
+	\end{figure}
+	
+	Układ b):
+	
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[
+			auto,
+			node distance=2.5cm,
+			>=Latex,
+			block/.style={draw, rectangle, minimum height=1cm, minimum width=2.5cm, align=center},
+			sum/.style={draw, circle, node distance=1.5cm},
+			gain/.style={draw, regular polygon, regular polygon sides=3, shape border rotate=-90, minimum size=1.2cm, inner sep=0pt}
+			]
+			% --- Definicja węzłów (elementów schematu) ---
+			\node[coordinate] (input) {}; % Punkt startowy dla wejścia
+			\node[sum, right=1.5cm of input] (sum) {}; % Węzeł sumacyjny
+			\node[gain, right=1.5cm of sum] (gain) {$k_c$}; % Wzmacniacz
+			\node[block, right=1.5cm of gain] (integrator) {$\frac{1}{sT_i}$}; % Blok całkujący
+			\node[block, right=2.2cm of integrator] (system) {$\frac{1-sT_x}{1+sT_y}$}; % Blok główny
+			\node[coordinate, right=1.5cm of system] (output) {}; % Punkt końcowy dla wyjścia
+			
+			% --- Rysowanie strzałek i sygnałów ---
+			\draw[->] (input) -- node[pos=0.2, above] {$r(t)$} (sum);
+			\draw[->] (sum) -- node[above] {$e(t)$} (gain);
+			\draw[->] (gain) -- node[above] {$u(t)$} (integrator);
+			\draw[->] (integrator) -- (system);
+			
+			% --- Pętla sprzężenia zwrotnego ---
+			% Rysowanie linii od bloku do punktu rozgałęzienia i dalej do wyjścia
+			\draw[-] (system.east) -- ++(0.75,0) coordinate (branch_point);
+			\draw[->] (branch_point) -- node[pos=0.5, above] {$c(t)$} (output);
+			% Rysowanie pętli zwrotnej
+			\draw[->] (branch_point) |- ++(0,-2cm) -| node[pos=0.95, right] {$-$} (sum.south);
+			
+		\end{tikzpicture}
+		\caption{Schemat układu pomiarowego (b).}
+	\end{figure}
+	
+	\noindent Układ d):
+	\begin{figure}[H]
+		\centering
+		\begin{tikzpicture}[
+			auto,
+			node distance=2.5cm,
+			>=Latex,
+			block/.style={draw, rectangle, minimum height=1cm, minimum width=2.5cm, align=center},
+			sum/.style={draw, circle, node distance=1.5cm},
+			gain/.style={draw, regular polygon, regular polygon sides=3, shape border rotate=-90, minimum size=1.2cm, inner sep=0pt}
+			]
+			% --- Definicja węzłów (elementów schematu) ---
+			\node[coordinate] (input) {};
+			\node[sum, right=1.5cm of input] (sum1) {};
+			\node[gain, right=1.5cm of sum1] (gain) {$k_c$};
+			\node[sum, right=1.5cm of gain] (sum2) {};
+			\node[block, right=1.5cm of sum2] (system) {$\frac{k_p}{sT_p+1}$};
+			\node[coordinate, right=1.5cm of system] (output) {};
+			
+			% --- Rysowanie strzałek i sygnałów (ścieżka główna) ---
+			\draw[->] (input) -- node[pos=0.2, above] {$r(t)$} (sum1);
+			\draw[->] (sum1) -- node[above] {$e(t)$} (gain);
+			\draw[->] (gain) -- node[above] {$u(t)$} (sum2);
+			\draw[->] (sum2) -- node[above] {$a(t)$} (system);
+			
+			% --- Dodanie zakłócenia d(t) ---
+			\draw[->] (sum2.north) ++(0,1.2cm) node[above] {$d(t)$} -- node[pos=0.4, right] {$+$} (sum2);
+			
+			% --- Pętla sprzężenia zwrotnego i wyjście ---
+			\draw[-] (system.east) -- ++(0.75,0) coordinate (branch_point);
+			\draw[->] (branch_point) -- node[pos=0.5, above] {$c(t)$} (output);
+			\draw[->] (branch_point) |- ++(0,-2cm) -| node[pos=0.95, right] {$-$} (sum1.south);
+			
+		\end{tikzpicture}
+		\caption{Schemat blokowy układu regulacji z zakłóceniem.}
+	\end{figure}
+	
+	\subsection{Układ A}
+		
+		\begin{figure}[H]
+			\centering
+		%	\includegraphics[width=1\linewidth]{zdjecia/odp_skok_2.png}
+		%	\capcion{Odpowiedź na skok układu (b) prz różnych wartościach wzmocnienia $k_c$.}
+			\label{fig:odp_skok_2}
+		\end{figure}
+	
+	\subsection{Układ B}
+	
+		\begin{figure}[H]
+		\centering
+		%	\includegraphics[width=1\linewidth]{zdjecia/odp_skok_3.png}
+		%	\capcion{Odpowiedź na skok układu (d) prz różnych wartościach wzmocnienia $k_c$.}
+		\label{fig:odp_skok_3}
+	\end{figure}
+	
+	\subsection{Układ D}
+	
+		\begin{figure}[H]
+		\centering
+		%	\includegraphics[width=1\linewidth]{zdjecia/odp_skok_1.png}
+		%	\capcion{Odpowiedź na skok układu (a) prz różnych wartościach wzmocnienia $k_c$.}
+		\label{fig:odp_skok_1}
+	\end{figure}
+	
+	
+\end{document}
