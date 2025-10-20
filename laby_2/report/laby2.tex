@@ -220,7 +220,7 @@
 	Na podstawie identyfikacji przeprowadzonej w ćwiczeniu 1, przyjęto następujące parametry modeli:
 	\begin{itemize}
 		\item Człon całkujący: $G(s) = \frac{1}{sT_i}$, gdzie $T_i = 1,33 \text{ ms}$.
-		\item Człon 2 rzędu: $G(s) = \frac{1}{1 + sa_1 + s^2a_2} = \frac{1}{1+s 2\zeta \tau + s^2 \tau^2} = \frac{w_n^2}{w_n^2 + s 2 \zeta w_n + s^2}$, gdzie wyznaczone parametry to $\zeta = 0,37$ i $\omega_n = 2330 \text{ rad/s}$.
+		\item Człon 2 rzędu: $G(s) = \frac{1}{1 + sa_1 + s^2a_2} = \frac{1}{1+s 2\zeta \tau + s^2 \tau^2} = \frac{w_n^2}{w_n^2 + s 2 \zeta w_n + s^2}$, gdzie wyznaczone parametry to $\zeta = 0,336$ i $\omega_n = 2560 \text{ rad/s}$.
 	\end{itemize}
 	
 	Badania przeprowadzono dla trzech różnych wartości wzmocnienia \(k_c\), obliczonych ze wzoru \(k_c = 0,47 + n/2\):
@@ -236,25 +236,23 @@
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=1\linewidth]{zdjecia/OdpSkokA.png}
-		\caption{Odpowiedź skokowa układu (A) przy różnych wartościach wzmocnienia \(k_c\).}
+		\caption{Odpowiedź skokowa układu (A) przy różnych wartościach wzmocnienia \(k_c\) wykreślona z pliku CSV.}
 		\label{fig:OdpSkokA}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ - np:
-	% Z wykresu widać, że... Wzrost wzmocnienia kc powoduje...
+	Analiza odpowiedzi skokowych Układu A pokazuje, że zwiększanie wzmocnienia $k_c$ skraca czas narastania, ale jednocześnie znacząco zwiększa przeregulowanie i oscylacyjność odpowiedzi. Niezależnie od wzmocnienia, uchyb ustalony wynosi zero, co jest zasługą członu całkującego w obiekcie sterowania.
 	
 	\subsubsection{Linie pierwiastkowe}
 	Wykres linii pierwiastkowych dla układu otwartego \(G_o(s) = k_c \cdot \frac{1}{sT_i} \cdot \frac{w_n^2}{w_n^2 + s 2 \zeta w_n + s^2}\) przedstawiono poniżej. Zaznaczono na nim położenie biegunów układu zamkniętego dla badanych wzmocnień \(k_{c1}\), \(k_{c2}\) i \(k_{c3}\).
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=0.8\linewidth]{zdjecia/rlocus_A.png}
+		\includegraphics[width=0.8\linewidth]{zdjecia/LP_ukladA.png}
 		\caption{Linie pierwiastkowe układu otwartego (A).}
-		\label{fig:rlocus_A}
+		\label{fig:LP_ukladA}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ - np:
-	% Linie pierwiastkowe pokazują, że... Dla wzmocnienia k=... układ staje się niestabilny. 
+	Wykres linii pierwiastkowych pokazuje, że wraz ze wzrostem $k_c$ bieguny układu zamkniętego zbliżają się do osi urojonej. Powoduje to spadek tłumienia, co bezpośrednio przekłada się na większe oscylacje widoczne na odpowiedziach skokowych. Linie pierwiastkowe wskazują również, że zbyt duże wzmocnienie $k_c$ doprowadzi do niestabilności systemu, ponieważ gałęzie zmierzają w kierunku prawej półpłaszczyzny. 
 	
 	\subsubsection{Charakterystyki Bodego}
 	Poniższy wykres przedstawia charakterystyki Bodego układu zamkniętego dla badanych wartości \(k_c\).
