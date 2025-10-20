@@ -41,9 +41,12 @@ end
 if true
     figure;
     rlocus(Go*Gc);
-    title('Linie pieriwastkowe ukladu 2 rzedu');
+    %title('Linie pieriwastkowe ukladu A');
+    xlim([-3000 2000]);
+    ylim([-5000 5000]);
     
-    [r,k] = rlocus(Go*Gc);
+  %[k_graniczne, bieguny] = rlocfind(Go*Gc);
+   %disp(k_graniczne);
    % crosscut = find(real(r(:,1)) >= 0, 1,'first');
    % disp(crosscut);
 end
