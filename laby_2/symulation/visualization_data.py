@@ -64,9 +64,9 @@ start_time = df1['Time'].iloc[0]
 end_time = df1['Time'].iloc[range_time-1]
 
 plt.plot(signal['Time'],signal['input'],label='Sygnał wejściowy', color='blue',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
-plt.plot(df1['Time'],df1['CH2'],label='Sygnał wyjściowy k1 = ...',color = 'green',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
-plt.plot(df2['Time'],df2['CH2'],label='Sygnał wyjściowy k2 = ...',color = 'orange',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
-plt.plot(df3['Time'],df3['CH2'],label='Sygnał wyjściowy k3 = ...',color='red',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
+plt.plot(df1['Time'],df1['CH2'],label='Sygnał wyjściowy k1 = 0,52',color = 'green',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
+plt.plot(df2['Time'],df2['CH2'],label='Sygnał wyjściowy k2 = 1,12',color = 'orange',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
+plt.plot(df3['Time'],df3['CH2'],label='Sygnał wyjściowy k3 = 1,67',color='red',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
 
 plt.xlim(start_time,end_time)
 
