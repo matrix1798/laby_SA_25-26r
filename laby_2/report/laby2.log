@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  19 OCT 2025 19:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  20 OCT 2025 15:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1065,19 +1065,26 @@ File: zdjecia/OdpSkokA.png Graphic file (type png)
 <use zdjecia/OdpSkokA.png>
 Package pdftex.def Info: zdjecia/OdpSkokA.png  used on input line 238.
 (pdftex.def)             Requested size: 455.24411pt x 229.2779pt.
- [4 <./zdjecia/OdpSkokA.png>] [5]
-<zdjecia/OdpSkokB.png, id=145, 1387.584pt x 698.8509pt>
+ [4 <./zdjecia/OdpSkokA.png>]
+<zdjecia/LP_ukladA.png, id=138, 978.65625pt x 568.37344pt>
+File: zdjecia/LP_ukladA.png Graphic file (type png)
+<use zdjecia/LP_ukladA.png>
+Package pdftex.def Info: zdjecia/LP_ukladA.png  used on input line 250.
+(pdftex.def)             Requested size: 364.19667pt x 211.51773pt.
+ [5 <./zdjecia/LP_ukladA.png (PNG copy)>] [6]
+<zdjecia/OdpSkokB.png, id=151, 1387.584pt x 698.8509pt>
 File: zdjecia/OdpSkokB.png Graphic file (type png)
 <use zdjecia/OdpSkokB.png>
-Package pdftex.def Info: zdjecia/OdpSkokB.png  used on input line 309.
+Package pdftex.def Info: zdjecia/OdpSkokB.png  used on input line 307.
 (pdftex.def)             Requested size: 455.24411pt x 229.2779pt.
- [6 <./zdjecia/OdpSkokB.png>] [7]
-<zdjecia/OdpSkokD.png, id=160, 1387.584pt x 698.8509pt>
+ [7 <./zdjecia/OdpSkokB.png>] [8]
+<zdjecia/OdpSkokD.png, id=165, 1387.584pt x 698.8509pt>
 File: zdjecia/OdpSkokD.png Graphic file (type png)
 <use zdjecia/OdpSkokD.png>
-Package pdftex.def Info: zdjecia/OdpSkokD.png  used on input line 375.
+Package pdftex.def Info: zdjecia/OdpSkokD.png  used on input line 373.
 (pdftex.def)             Requested size: 455.24411pt x 229.2779pt.
- [8 <./zdjecia/OdpSkokD.png>] [9] (laby2.aux)
+ [9 <./zdjecia/OdpSkokD.png>]
+[10] (laby2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1086,10 +1093,10 @@ Package rerunfilecheck Info: File `laby2.out' has not changed.
 (rerunfilecheck)             Checksum: D7AAEBDDF315E3C1AD29CA457713D2E9;3030.
  ) 
 Here is how much of TeX's memory you used:
- 35944 strings out of 474486
- 847510 string characters out of 5743754
+ 35952 strings out of 474486
+ 847623 string characters out of 5743754
  1941542 words of memory out of 5000000
- 57614 multiletter control sequences out of 15000+600000
+ 57621 multiletter control sequences out of 15000+600000
  575722 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,107p,724b,800s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1112,9 +1119,9 @@ onts/cm/cmr6.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmr8.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on laby2.pdf (10 pages, 1634597 bytes).
+Output written on laby2.pdf (11 pages, 1679054 bytes).
 PDF statistics:
- 498 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 208 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 504 PDF objects out of 1000 (max. 8388607)
+ 47 named destinations out of 1000 (max. 500000)
+ 213 words of extra memory for PDF output out of 10000 (max. 10000000)
 
