@@ -45,8 +45,8 @@ if true
     xlim([-3000 2000]);
     ylim([-5000 5000]);
     
-  %[k_graniczne, bieguny] = rlocfind(Go*Gc);
-   %disp(k_graniczne);
+  [k_graniczne, bieguny] = rlocfind(Go*Gc);
+  disp(k_graniczne);
    % crosscut = find(real(r(:,1)) >= 0, 1,'first');
    % disp(crosscut);
 end
