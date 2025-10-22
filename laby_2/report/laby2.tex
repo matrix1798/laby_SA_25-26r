@@ -259,28 +259,24 @@
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=1\linewidth]{zdjecia/bode_A.png}
+		\includegraphics[width=1\linewidth]{zdjecia/Bode_ukladA.png}
 		\caption{Charakterystyki Bodego układu zamkniętego (A).}
-		\label{fig:bode_A}
+		\label{fig:Bode_ukladA}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ - np:
-	% Wraz ze wzrostem wzmocnienia... pasmo przenoszenia...
+	Charakterystyki Bodego układu zamkniętego (Rysunek 7) pokazują, jak wzmocnienie $k_c$ wpływa na odpowiedź częstotliwościową. Wzrost $k_c$ powoduje pojawienie się i wzrost piku rezonansowego, oraz lekkie poszerzenie pasma przenoszenia. Wyższy pik rezonansowy jest bezpośrednio skorelowany z mniejszym tłumieniem i większym przeregulowaniem, co jest w pełni zgodne z analizą odpowiedzi skokowych (Rysunek 5).
 	
 	\subsubsection{Charakterystyki Nyquista}
 	Na wykresie Nyquista układu otwartego można zbadać stabilność układu zamkniętego.
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=0.8\linewidth]{zdjecia/nyquist_A.png}
+		\includegraphics[width=0.8\linewidth]{zdjecia/NQ_ukladA.png}
 		\caption{Charakterystyka Nyquista układu otwartego (A).}
-		\label{fig:nyquist_A}
+		\label{fig:NQ_ukladA}
 	\end{figure}
-	
-	% TUTAJ WPISZ ANALIZĘ - np:
-	% Wykres...
-	
-	\newpage % Wymuszenie nowej strony dla następnego układu
+
+	Wykres Nyquist układu otwartego (Rysunek 8) służy do oceny stabilności układu zamkniętego. Wzrost $k_c$ powoduje proporcjonalne skalowanie wykresu. Dla małego wzmocnienia ($k_{c1}=0.52$), wykres jest daleko od punktu krytycznego (-1, 0j), co oznacza duży zapas stabilności. W miarę wzrostu $k_c$ do 1.67, wykres niebezpiecznie zbliża się do punktu (-1, 0j), co sygnalizuje mały zapas fazy i wzmocnienia oraz, co za tym idzie, silne oscylacje widoczne na odpowiedzi skokowej.
 	
 	\subsection{Układ B}
 	
@@ -309,8 +305,7 @@
 	\label{fig:OdpSkokB}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ - np:
-	% Charakterystyczne dla układu nieminimalnofazowego jest...
+	Odpowiedzi skokowe Układu B (Rys. 9) wykazują cechy charakterystyczne dla układu nieminimalnofazowego, co jest zgodne z jego modelem. Kluczowym elementem jest sygnał wyjściowy, który początkowo podąża w kierunku przeciwnym do wartości zadanej. Wzrost wzmocnienia $k_c$ skraca czas narastania, ale jednocześnie drastycznie pogłębia początkowe zanurkowanie oraz zwiększa przeregulowanie i oscylacyjność. Dla $k_{c3}=1.87$ układ jest już na granicy stabilności. Podobnie jak w Układzie A, obecność członu całkującego zapewnia zerowy uchyb ustalony.
 	
 	\subsubsection{Linie pierwiastkowe}
 	Wykres linii pierwiastkowych dla układu otwartego \(G_o(s) = k_c \cdot \frac{1}{sT_i} \cdot
@@ -318,36 +313,34 @@
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=0.8\linewidth]{zdjecia/rlocus_B.png}
+		\includegraphics[width=0.8\linewidth]{zdjecia/LP_ukladB.png}
 		\caption{Linie pierwiastkowe układu otwartego (B).}
-		\label{fig:rlocus_B}
+		\label{fig:LP_ukladB}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ...
+	Wykres linii pierwiastkowych dla Układu B (Rys. 10) jest zdominowany przez obecność zera w prawej półpłaszczyźnie (wynikającego z członu nieminimalnofazowego). To zero przyciąga do siebie jedną z gałęzi linii pierwiastkowych, powodując, że bieguny układu zamkniętego bardzo szybko przekraczają oś urojoną i przechodzą do strefy niestabilnej. Wyjaśnia to, dlaczego już stosunkowo niewielki wzrost $k_c$ prowadzi do tak silnych oscylacji i szybkiej utraty stabilności, co zaobserwowano na odpowiedzi skokowej (Rys. 9).
 	
 	\subsubsection{Charakterystyki Bodego}
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=1\linewidth]{zdjecia/bode_B.png}
+		\includegraphics[width=1\linewidth]{zdjecia/Bode_ukladB.png}
 		\caption{Charakterystyki Bodego układu zamkniętego (B).}
-		\label{fig:bode_B}
+		\label{fig:Bode_ukladB}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ...
+	Charakterystyki Bodego układu zamkniętego (Rys. 11) potwierdzają analizę. Wzrost $k_c$ podnosi pik rezonansowy. Jednak kluczowa jest charakterystyka fazowa – człon nieminimalnofazowy wprowadza dodatkowe, nieliniowe opóźnienie fazowe. Faza spada znacznie poniżej -180°, co drastycznie redukuje zapas fazy i jest główną przyczyną niestabilności układu.
 	
 	\subsubsection{Charakterystyki Nyquista}
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=0.8\linewidth]{zdjecia/nyquist_B.png}
+		\includegraphics[width=0.8\linewidth]{zdjecia/NQ_ukladB.png}
 		\caption{Charakterystyka Nyquista układu otwartego (B).}
-		\label{fig:nyquist_B}
+		\label{fig:NQ_ukladB}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ...
-	
-	\newpage % Wymuszenie nowej strony dla następnego układu
+	Wykresy Nyquista układu otwartego (Rys. 12) ilustrują problem stabilności układu. Z powodu dodatkowego opóźnienia fazowego, wykres zawija się i dla rosnącego $k_c$ bardzo szybko zbliża się do punktu krytycznego (-1, 0j). Potwierdza to wnioski z linii pierwiastkowych: układ ma bardzo mały margines wzmocnienia i staje się niestabilny już przy niewielkich wartościach $k_c$.
 	
 	\subsection{Układ D}
 	
@@ -375,41 +368,40 @@
 	\label{fig:OdpSkokD}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ - np:
-	% Układ jest astatyczny rzędu zero... Uchyb ustalony...
+	Odpowiedzi skokowe dla Układu D (Rys. 13) są typowe dla układu inercyjnego pierwszego rzędu w pętli sprzężenia zwrotnego. Układ jest stabilny i nie wykazuje żadnych oscylacji ani przeregulowań, niezależnie od wartości $k_c$. Zwiększanie wzmocnienia $k_c$ przynosi dwa efekty: po pierwsze, skraca czas odpowiedzi (system staje się szybszy), a po drugie, zmniejsza uchyb ustalony. Ze względu na brak członu całkującego w pętli, uchyb ten nigdy nie jest zredukowany do zera, ale staje się mniejszy dla wyższych $k_c$.
 	
 	\subsubsection{Linie pierwiastkowe}
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=0.8\linewidth]{zdjecia/rlocus_D.png}
+		\includegraphics[width=0.8\linewidth]{zdjecia/LP_ukladD.png}
 		\caption{Linie pierwiastkowe układu otwartego (D).}
-		\label{fig:rlocus_D}
+		\label{fig:LP_ukladD}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ...
+	Linie pierwiastkowe dla Układu D (Rys. 14) są najprostsze z analizowanych. Układ otwarty ma tylko jeden biegun na ujemnej osi rzeczywistej (w punkcie $-1/T_p$). W rezultacie, linia pierwiastkowa to pojedyncza gałąź biegnąca od tego bieguna w lewo, w kierunku $-\infty$. Ponieważ biegun układu zamkniętego zawsze pozostaje na ujemnej osi rzeczywistej i nigdy nie zbliża się do osi urojonej, system jest bezwarunkowo stabilny i nieoscylacyjny dla każdej dodatniej wartości $k_c$.
 	
 	\subsubsection{Charakterystyki Bodego}
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=1\linewidth]{zdjecia/bode_D.png}
+		\includegraphics[width=1\linewidth]{zdjecia/Bode_ukladD.png}
 		\caption{Charakterystyki Bodego układu zamkniętego (D).}
-		\label{fig:bode_D}
+		\label{fig:Bode_ukladD}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ...
+	Charakterystyki Bodego układu zamkniętego (Rys. 15) pokazują, że układ działa jak filtr dolnoprzepustowy. Zwiększanie $k_c$ przesuwa całą charakterystykę amplitudową w górę i poszerza pasmo przenoszenia. Szersze pasmo oznacza, że układ szybciej reaguje na zmiany, co jest w pełni zgodne z szybszym czasem narastania widocznym na odpowiedziach skokowych (Rys. 13). Charakterystyka fazowa pokazuje maksymalne przesunięcie -90°, co potwierdza brak oscylacji.
 	
 	\subsubsection{Charakterystyki Nyquista}
 	
 	\begin{figure}[H]
 		\centering
-		% \includegraphics[width=0.8\linewidth]{zdjecia/nyquist_D.png}
+		\includegraphics[width=0.8\linewidth]{zdjecia/NQ_ukladD.png}
 		\caption{Charakterystyka Nyquista układu otwartego (D).}
-		\label{fig:nyquist_D}
+		\label{fig:NQ_ukladD}
 	\end{figure}
 	
-	% TUTAJ WPISZ ANALIZĘ...
+	Wykres Nyquista dla układu otwartego (Rys. 16) to prosty półokrąg leżący w całości w prawej półpłaszczyźnie (przesunięty o wartość wzmocnienia $k_c \cdot k_p$). Wzrost $k_c$ jedynie powiększa ten półokrąg. Wykres ten nigdy, nawet dla nieskończonego wzmocnienia, nie zbliży się do punktu krytycznego (-1, 0j). Oznacza to, że układ posiada nieskończony zapas wzmocnienia i fazy, co czyni go bezwarunkowo stabilnym, co potwierdzają wszystkie pozostałe analizy.
 	
 	\section{Wnioski}
 	Tutaj wnioski
