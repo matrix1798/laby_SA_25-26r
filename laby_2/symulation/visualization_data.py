@@ -22,7 +22,7 @@ def load_data(file_path):
     return dane_df
 
 # load data
-file_path = ['../data/NewFile2.csv','../data/NewFile3.csv','../data/NewFile4.csv']
+file_path = ['../data/NewFile5.csv','../data/NewFile6.csv','../data/NewFile8.csv']
 
 try:
     df1 = load_data(file_path[0])
@@ -63,10 +63,12 @@ range_time = int(df1['Time'].count() * chart_width)
 start_time = df1['Time'].iloc[0]
 end_time = df1['Time'].iloc[range_time-1]
 
-plt.plot(signal['Time'],signal['input'],label='Sygnał wejściowy', color='blue',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
-plt.plot(df1['Time'],df1['CH2'],label='Sygnał wyjściowy k1 = 0,52',color = 'green',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
-plt.plot(df2['Time'],df2['CH2'],label='Sygnał wyjściowy k2 = 1,12',color = 'orange',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
-plt.plot(df3['Time'],df3['CH2'],label='Sygnał wyjściowy k3 = 1,67',color='red',marker='o',markevery = 50,markersize=10,markerfacecolor='none')
+# --- MODYFIKACJA TUTAJ (usunięto argumenty marker, itp.) ---
+plt.plot(signal['Time'],signal['input'],label='Sygnał wejściowy', color='blue')
+plt.plot(df1['Time'],df1['CH2'],label='Sygnał wyjściowy k1 = 0,72',color = 'green')
+plt.plot(df2['Time'],df2['CH2'],label='Sygnał wyjściowy k2 = 1,22',color = 'orange')
+plt.plot(df3['Time'],df3['CH2'],label='Sygnał wyjściowy k3 = 1,87',color='red')
+# --- KONIEC MODYFIKACJI ---
 
 plt.xlim(start_time,end_time)
 
