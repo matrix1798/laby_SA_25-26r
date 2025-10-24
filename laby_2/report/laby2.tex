@@ -370,6 +370,11 @@
 	
 	Odpowiedzi skokowe dla Układu D (Rys. 13) są typowe dla układu inercyjnego pierwszego rzędu w pętli sprzężenia zwrotnego. Układ jest stabilny i nie wykazuje żadnych oscylacji ani przeregulowań, niezależnie od wartości $k_c$. Zwiększanie wzmocnienia $k_c$ przynosi dwa efekty: po pierwsze, skraca czas odpowiedzi (system staje się szybszy), a po drugie, zmniejsza uchyb ustalony. Ze względu na brak członu całkującego w pętli, uchyb ten nigdy nie jest zredukowany do zera, ale staje się mniejszy dla wyższych $k_c$.
 	
+	\subsubsection{Wpływ zakłóceń na wartość sygnału wyjściowego}
+	
+		Tu trzeba zasymulowac
+		
+	
 	\subsubsection{Linie pierwiastkowe}
 	
 	\begin{figure}[H]
@@ -403,6 +408,19 @@
 	
 	Wykres Nyquista dla układu otwartego (Rys. 16) to prosty półokrąg leżący w całości w prawej półpłaszczyźnie (przesunięty o wartość wzmocnienia $k_c \cdot k_p$). Wzrost $k_c$ jedynie powiększa ten półokrąg. Wykres ten nigdy, nawet dla nieskończonego wzmocnienia, nie zbliży się do punktu krytycznego (-1, 0j). Oznacza to, że układ posiada nieskończony zapas wzmocnienia i fazy, co czyni go bezwarunkowo stabilnym, co potwierdzają wszystkie pozostałe analizy.
 	
+	\subsubsection{Charakterystyki amplitudowe}
+		
+		Do przeprowadzenia symulacji dobraliśmy wzmocnienie układu o wartości $k_c = 1.22$.
+				
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.8\linewidth]{zdjecia/char_czest_ukladu_D.png}
+			\caption{Charakterystyka Nyquista układu otwartego (D).}
+			\label{fig:char_czest_ukladu_D}
+		\end{figure}
+		
+		Analiza przedstawionych charakterystyk amplitudowych pozwala stwierdzić, że zaprojektowany układ z regulatorem proporcjonalnym (P) wykazuje uchyb ustalony – wzmocnienie $|G_{re}(j\omega)|$ (linia niebieska) dla niskich częstotliwości stabilizuje się na poziomie ok. 0.5, a nie dąży do zera. Oznacza to, że układ nie jest w stanie idealnie śledzić wolnozmiennych sygnałów zadanych $r(t)$. Zdolność ta dodatkowo pogarsza się wraz ze wzrostem częstotliwości, a dla $\omega > 10^4$ rad/s system praktycznie przestaje nadążać za wartością zadaną ($|G_{re}(j\omega)| \approx 1$). Podobnie, system wykazuje ograniczoną zdolność do tłumienia zakłóceń $d(t)$ w paśmie niskich częstotliwości, co obrazuje charakterystyka $|G_{de}(j\omega)|$| (linia żółta, która odpowiada również $|G_{dc}(j\omega)|$), mająca wzmocnienie ok. 0.43. Wskazuje to na niezerowy wpływ stałych lub wolnozmiennych zakłóceń na sygnał wyjściowy $c(t)$. Zaletą układu jest natomiast skuteczne filtrowanie zakłóceń o wysokich częstotliwościach, gdzie wzmocnienie $|G_{de}(j\omega)|$ wyraźnie spada do zera. Charakterystyki sygnału sterującego $u(t)$ ($|G_{ru}(j\omega)|$ i $|G_{ud}(j\omega)|$) pokazują, że regulator najaktywniej działa w paśmie niskich i średnich częstotliwości, aby przeciwdziałać błędom i zakłóceniom, jednocześnie (co jest korzystne) ignorując szumy o wysokiej częstotliwości.
+			
 	\section{Wnioski}
 	Tutaj wnioski
 	
