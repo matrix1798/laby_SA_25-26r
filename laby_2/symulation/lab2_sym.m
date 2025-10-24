@@ -677,6 +677,8 @@ end
 
 
 %% uklad D
+close all;
+clear;
 
 %co rysowac
 odpowiedz_skokowa = false;
@@ -684,6 +686,7 @@ linie_pierwiastkowe = false;
 char_bodego_z_pomiarami = false;
 char_bodego = false;
 char_nyquista = false;
+char_czest = true;
 
 K_c = [1.02, 2.47, 4.47]; % 
 Kp = 0.871;
@@ -929,4 +932,43 @@ if char_nyquista
     title('Charakterystyka Nyquista (układ D)');
     legend(legend_entries,'Location','Best');
     hold off;
+end
+
+%symulacja rozncych transmitancji i ich charajterystyk
+if char_czest
+    %wybrane wzmocnienie:
+    K_c = 1.22;
+    P = tf(K_c);
+
+    %policzone transmitanjce;
+    EoverR = feedback(1,P*Go);
+    UoverR = feedback(P,Go);
+    EoverD = -feedback(Go,P);
+    UoverD = -feedback(P*Go,1);
+
+    % lista transmitancji do analizy:
+    systems = {EoverR, UoverR, EoverD, UoverD};
+    labels = {'|E/R|', '|U/R|', '|E/D|', '|U/D|'};
+
+    % przygotowanie zakresu częstotliwości (logarytmiczny)
+    w = logspace(2, 5, 500);   % od 0.01 do 1000 rad/s
+
+    figure;
+    hold on;
+    grid on;
+    title('Charakterystyki amplitudowe');
+    xlabel('Częstotliwość \omega [rad/s]');
+    ylabel('Wzmocnienie |G(j\omega)|');
+
+    % pętla po transmitancjach
+    for i = 1:length(systems)
+        [mag, phase, wout] = bode(systems{i});
+        mag = squeeze(mag);%zmienienia z macierzy na wektor
+        plot(wout, mag, 'DisplayName', labels{i});
+    end
+
+    set(gca, 'XScale', 'log');   % logarytmiczna oś częstotliwości
+    legend show;
+    hold off;
+
 end
