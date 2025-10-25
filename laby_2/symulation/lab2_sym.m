@@ -182,10 +182,6 @@ if char_bodego_z_pomiarami
     ylabel('Faza [°]');
     xlabel('Częstotliwość [Hz]');
     
-    % +++ POPRAWKA: Inicjalizacja śledzenia limitów +++
-    min_annotation_y_pm = 0; % Zaczynamy od 0, będziemy szukać minimum
-    max_annotation_y_gm = 0; % Zaczynamy od 0, będziemy szukać maksimum
-
     % --- Pętla po wszystkich wartościach K_c ---
     for i = 1 : length(K_c)
         currentColor = colors(i, :); % kolor danej charakterystyki
@@ -224,18 +220,6 @@ if char_bodego_z_pomiarami
         fprintf('---------------------------------------------\n');
         % ===========================================================
         
-        % --- Marginesy stabilności (na układzie zamkniętym) ---
-        [Gm, Pm, Wcg, Wcp] = margin(system_closed);
-        Gm_dB = 20*log10(Gm);
-        % Przesunięcia opisów (dla czytelności)
-        y_offset_gm = 3 + (i-1)*3; % 3, 6, 9
-        y_offset_pm = -165 - (i-1)*10; % -165, -175, -185
-        
-        % +++ POPRAWKA: Śledzenie limitów W KAŻDEJ pętli +++
-        % Dodajemy mały margines (np. 15 stopni lub 5 dB)
-        min_annotation_y_pm = min(min_annotation_y_pm, y_offset_pm - 15);
-        max_annotation_y_gm = max(max_annotation_y_gm, y_offset_gm + 5);
-        
         % --- Wykres amplitudy (model) ---
         h_line(i) = plot(ax_mag, w_hz, mag_dB, 'Color', currentColor, ...
             'LineWidth', 1.5, 'DisplayName', sprintf('K_c = %.2f', K_c(i)));
@@ -244,44 +228,24 @@ if char_bodego_z_pomiarami
         'MarkerEdgeColor', 'k', 'MarkerFaceColor', currentColor, ...
         'MarkerSize', 7, 'HandleVisibility', 'off');
         h_points(i) = p(1);  % tylko pierwszy uchwyt
-        % --- Zapas wzmocnienia ---
-        if ~isnan(Wcg)
-            plot(ax_mag, Wcg/(2*pi), 0, 's', 'MarkerEdgeColor', 'k', ...
-                'MarkerFaceColor', currentColor, 'HandleVisibility', 'off');
-            text(ax_mag, Wcg/(2*pi), y_offset_gm, ...
-                sprintf('Gm (Kc=%.2f) = %.1f dB', K_c(i), Gm_dB), ...
-                'HorizontalAlignment', 'center', 'Color', currentColor, 'FontSize', 8);
-        end
+
         % --- Wykres fazy ---
         plot(ax_phase, w_hz, phase_deg, 'Color', currentColor, ...
             'LineWidth', 1.5, 'HandleVisibility', 'off');
         plot(ax_phase, f_meas, phi, 'o', 'MarkerEdgeColor', 'k', ...
             'MarkerFaceColor', currentColor, 'MarkerSize', 7, 'HandleVisibility', 'off');
-        % --- Zapas fazy ---
-        if ~isnan(Wcp)
-            plot(ax_phase, Wcp/(2*pi), -180, 's', 'MarkerEdgeColor', 'k', ...
-                'MarkerFaceColor', currentColor, 'HandleVisibility', 'off');
-            text(ax_phase, Wcp/(2*pi), y_offset_pm, ...
-                sprintf('Pm (Kc=%.2f) = %.1f°', K_c(i), Pm), ...
-                'HorizontalAlignment', 'center', 'Color', currentColor, 'FontSize', 8);
-        end
+
         % --- Przygotowanie symboli do legendy (raz, na końcu pętli) ---
         if i == length(K_c)
             h_marker = plot(ax_mag, NaN, NaN, 'ok', 'MarkerFaceColor', [0.7 0.7 0.7], ...
                 'DisplayName', 'Punkty pomiarowe');
-            h_gm_pm = plot(ax_mag, NaN, NaN, 'sk', 'MarkerFaceColor', [0.7 0.7 0.7], ...
-                'DisplayName', 'Zapas fazy i wzmocnienia');
+            % Usunięto linię dla h_gm_pm
         end
     end
     % --- Legenda i ustawienia końcowe ---
-    legend(ax_mag, [h_line h_marker h_gm_pm], 'Location', 'Best');
+    legend(ax_mag, [h_line h_marker], 'Location', 'Best'); % Usunięto h_gm_pm z legendy
     
-    % --- POPRAWKA: Dynamiczne ustawianie YLim PO narysowaniu ---
-    current_ylim_pm = ylim(ax_phase); 
-    ylim(ax_phase, [min(current_ylim_pm(1), min_annotation_y_pm), current_ylim_pm(2)]);
-    
-    current_ylim_gm = ylim(ax_mag); 
-    ylim(ax_mag, [current_ylim_gm(1), max(current_ylim_gm(2), max_annotation_y_gm)]);
+    % --- Usunięto dynamiczne ustawianie YLim ---
     
     set(ax_mag, 'XScale', 'log');
     set(ax_phase, 'XScale', 'log');
@@ -521,8 +485,7 @@ if char_bodego_z_pomiarami
     xlabel('Częstotliwość [Hz]');
     
     % --- Pętla po wszystkich wartościach K_c ---
-    min_annotation_y = -165; % Zmienna do śledzenia najniższej adnotacji
-
+    % Usunięto: min_annotation_y = -165;
     for i = 1 : length(K_c)
         currentColor = colors(i, :); % kolor danej charakterystyki
         % --- Tworzenie transmitancji ---
@@ -584,17 +547,8 @@ if char_bodego_z_pomiarami
         fprintf('---------------------------------------------\n');
         % ===========================================================
         
-        % --- Marginesy stabilności (na układzie zamkniętym) ---
-        [Gm, Pm, Wcg, Wcp] = margin(system_closed);
-        Gm_dB = 20*log10(Gm);
-        % Przesunięcia opisów (dla czytelności)
-        y_offset_gm = 3 + (i-1)*3;
-        y_offset_pm = -165 - (i-1)*10; % -165, -175, -185
-        
-        % --- Śledź najniższą pozycję Y tekstu ---
-        if i == length(K_c)
-             min_annotation_y = y_offset_pm - 15; % Ostatni tekst (-185) + 15 stopni marginesu
-        end
+        % --- Usunięto blok obliczający marginesy stabilności ---
+        % --- Usunięto blok śledzący 'min_annotation_y' ---
 
         % --- Wykres amplitudy (model) ---
         h_line(i) = plot(ax_mag, w_hz, mag_dB, 'Color', currentColor, ...
@@ -604,42 +558,28 @@ if char_bodego_z_pomiarami
         'MarkerEdgeColor', 'k', 'MarkerFaceColor', currentColor, ...
         'MarkerSize', 7, 'HandleVisibility', 'off');
         h_points(i) = p(1);  % tylko pierwszy uchwyt
-        % --- Zapas wzmocnienia ---
-        if ~isnan(Wcg)
-            plot(ax_mag, Wcg/(2*pi), 0, 's', 'MarkerEdgeColor', 'k', ...
-                'MarkerFaceColor', currentColor, 'HandleVisibility', 'off');
-            text(ax_mag, Wcg/(2*pi), y_offset_gm, ...
-                sprintf('Gm (Kc=%.2f) = %.1f dB', K_c(i), Gm_dB), ...
-                'HorizontalAlignment', 'center', 'Color', currentColor, 'FontSize', 8);
-        end
+        
+        % --- Usunięto blok rysujący zapas wzmocnienia ---
+
         % --- Wykres fazy ---
         plot(ax_phase, w_hz, phase_deg, 'Color', currentColor, ...
             'LineWidth', 1.5, 'HandleVisibility', 'off');
         plot(ax_phase, f_meas, phi, 'o', 'MarkerEdgeColor', 'k', ...
             'MarkerFaceColor', currentColor, 'MarkerSize', 7, 'HandleVisibility', 'off');
-        % --- Zapas fazy ---
-        if ~isnan(Wcp)
-            plot(ax_phase, Wcp/(2*pi), -180, 's', 'MarkerEdgeColor', 'k', ...
-                'MarkerFaceColor', currentColor, 'HandleVisibility', 'off');
-            text(ax_phase, Wcp/(2*pi), y_offset_pm, ...
-                sprintf('Pm (Kc=%.2f) = %.1f°', K_c(i), Pm), ...
-                'HorizontalAlignment', 'center', 'Color', currentColor, 'FontSize', 8);
-        end
+        
+        % --- Usunięto blok rysujący zapas fazy ---
+
         % --- Przygotowanie symboli do legendy (raz, na końcu pętli) ---
         if i == length(K_c)
             h_marker = plot(ax_mag, NaN, NaN, 'ok', 'MarkerFaceColor', [0.7 0.7 0.7], ...
                 'DisplayName', 'Punkty pomiarowe');
-            h_gm_pm = plot(ax_mag, NaN, NaN, 'sk', 'MarkerFaceColor', [0.7 0.7 0.7], ...
-                'DisplayName', 'Zapas fazy i wzmocnienia');
+            % Usunięto: h_gm_pm = plot(...)
         end
     end
     % --- Legenda i ustawienia końcowe ---
-    legend(ax_mag, [h_line h_marker h_gm_pm], 'Location', 'Best');
+    legend(ax_mag, [h_line h_marker], 'Location', 'Best'); % Zaktualizowano legendę
     
-    % --- POPRAWKA: Dynamiczne ustawianie YLim PO narysowaniu ---
-    current_ylim = ylim(ax_phase); % Pobierz obecne limity
-    % Ustaw nowe limity: [minimum(obecne_min, najniższa_adnotacja), obecne_max]
-    ylim(ax_phase, [min(current_ylim(1), min_annotation_y), current_ylim(2)]);
+    % --- Usunięto POPRAWKĘ: Dynamiczne ustawianie YLim ---
     
     set(ax_mag, 'XScale', 'log');
     set(ax_phase, 'XScale', 'log');
@@ -683,10 +623,10 @@ clear;
 %co rysowac
 odpowiedz_skokowa = false;
 linie_pierwiastkowe = false;
-char_bodego_z_pomiarami = false;
+char_bodego_z_pomiarami = true;
 char_bodego = false;
 char_nyquista = false;
-char_czest = true;
+char_czest = false;
 
 K_c = [1.02, 2.47, 4.47]; % 
 Kp = 0.871;
@@ -870,12 +810,10 @@ if char_bodego_z_pomiarami
         end
         fprintf('---------------------------------------------\n');
         % ===========================================================
-        % --- Marginesy stabilności (na układzie zamkniętym) ---
-        [Gm, Pm, Wcg, Wcp] = margin(system_closed);
-        Gm_dB = 20*log10(Gm);
-        % Przesunięcia opisów (dla czytelności)
-        y_offset_gm = 3 + (i-1)*3;
-        y_offset_pm = -165 - (i-1)*10;
+        
+        % --- Usunięto blok obliczający marginesy stabilności ---
+        % --- Usunięto przesunięcia opisów (y_offset_gm, y_offset_pm) ---
+        
         % --- Wykres amplitudy (model) ---
         h_line(i) = plot(ax_mag, w_hz, mag_dB, 'Color', currentColor, ...
             'LineWidth', 1.5, 'DisplayName', sprintf('K_c = %.2f', K_c(i)));
@@ -884,37 +822,26 @@ if char_bodego_z_pomiarami
         'MarkerEdgeColor', 'k', 'MarkerFaceColor', currentColor, ...
         'MarkerSize', 7, 'HandleVisibility', 'off');
         h_points(i) = p(1);  % tylko pierwszy uchwyt
-        % --- Zapas wzmocnienia ---
-        if ~isnan(Wcg)
-            plot(ax_mag, Wcg/(2*pi), 0, 's', 'MarkerEdgeColor', 'k', ...
-                'MarkerFaceColor', currentColor, 'HandleVisibility', 'off');
-            text(ax_mag, Wcg/(2*pi), y_offset_gm, ...
-                sprintf('Gm (Kc=%.2f) = %.1f dB', K_c(i), Gm_dB), ...
-                'HorizontalAlignment', 'center', 'Color', currentColor, 'FontSize', 8);
-        end
+        
+        % --- Usunięto blok rysujący zapas wzmocnienia ---
+
         % --- Wykres fazy ---
         plot(ax_phase, w_hz, phase_deg, 'Color', currentColor, ...
             'LineWidth', 1.5, 'HandleVisibility', 'off');
         plot(ax_phase, f_meas, phi, 'o', 'MarkerEdgeColor', 'k', ...
             'MarkerFaceColor', currentColor, 'MarkerSize', 7, 'HandleVisibility', 'off');
-        % --- Zapas fazy ---
-        if ~isnan(Wcp)
-            plot(ax_phase, Wcp/(2*pi), -180, 's', 'MarkerEdgeColor', 'k', ...
-                'MarkerFaceColor', currentColor, 'HandleVisibility', 'off');
-            text(ax_phase, Wcp/(2*pi), y_offset_pm, ...
-                sprintf('Pm (Kc=%.2f) = %.1f°', K_c(i), Pm), ...
-                'HorizontalAlignment', 'center', 'Color', currentColor, 'FontSize', 8);
-        end
+        
+        % --- Usunięto blok rysujący zapas fazy ---
+
         % --- Przygotowanie symboli do legendy (raz, na końcu pętli) ---
         if i == length(K_c)
             h_marker = plot(ax_mag, NaN, NaN, 'ok', 'MarkerFaceColor', [0.7 0.7 0.7], ...
                 'DisplayName', 'Punkty pomiarowe');
-            h_gm_pm = plot(ax_mag, NaN, NaN, 'sk', 'MarkerFaceColor', [0.7 0.7 0.7], ...
-                'DisplayName', 'Zapas fazy i wzmocnienia');
+            % Usunięto linię dla h_gm_pm
         end
     end
     % --- Legenda i ustawienia końcowe ---
-    legend(ax_mag, [h_line h_marker h_gm_pm], 'Location', 'Best');
+    legend(ax_mag, [h_line h_marker], 'Location', 'Best'); % Usunięto h_gm_pm z legendy
     set(ax_mag, 'XScale', 'log');
     set(ax_phase, 'XScale', 'log');
 end
