@@ -681,38 +681,28 @@ close all;
 clear;
 
 %co rysowac
-odpowiedz_skokowa = false;
+odpowiedz_skokowa = true;
 linie_pierwiastkowe = false;
 char_bodego_z_pomiarami = false;
 char_bodego = false;
 char_nyquista = false;
-char_czest = true;
+char_czest = false;
 
-K_c = [1.02, 2.47, 4.47]; % 
+K_c = [1.02, 2.47, 4.47]; 
 Kp = 0.871;
 Tp = 0.00078;
 Go = tf(Kp, [Tp 1]);
 
 if odpowiedz_skokowa
     t = 0:0.001:0.1;
-    %sygnal zadany
+    % sygnał zadany
     r = zeros(size(t));
     r(t >= 0.01) = 2;
     
-    %sygnal zakłócenia
+    % sygnał zakłócenia
     f = 50;
-    A = 0;
+    A = 1;
     d = A * sin(2*pi*f*t);
-
-    % --- Pomiary z oscyloskopu dla trzech wzmocnień ---
-    t_pomiar_k1 = [0.01 0.02 0.03 0.04 0.05];
-    y_pomiar_k1 = [0.1  0.8  1.2  1.1  1.0];
-    
-    t_pomiar_k2 = [0.01 0.02 0.03 0.04 0.05];
-    y_pomiar_k2 = [0.2  1.0  1.4  1.25 1.1];
-    
-    t_pomiar_k3 = [0.01 0.02 0.03 0.04 0.05];
-    y_pomiar_k3 = [0.3  1.1  1.5  1.35 1.2];
 
     % --- Wykres ---
     figure;
@@ -720,7 +710,7 @@ if odpowiedz_skokowa
     grid on;
     legend_entries = {};
 
-    % --- Pętla po wzmocnieniach K_p ---
+    % --- Pętla po wzmocnieniach K_c ---
     for Kc = K_c
         % 1. Definicja regulatora
         P = tf(Kc);
@@ -742,23 +732,16 @@ if odpowiedz_skokowa
 
     % --- Sygnał wejściowy ---
     plot(t, r, 'k--');
-    legend_entries{end+1} = 'Sygnał odniesienia (skok)';
-    
-    % --- Dodanie punktów pomiarowych ---
-    plot(t_pomiar_k1, y_pomiar_k1, 'bo', 'MarkerSize', 6);
-    legend_entries{end+1} = 'Punkty pomiarowe K_p(1)';
-    plot(t_pomiar_k2, y_pomiar_k2, 'ro', 'MarkerSize', 6);
-    legend_entries{end+1} = 'Punkty pomiarowe K_p(2)';
-    plot(t_pomiar_k3, y_pomiar_k3, 'o', 'Color', [1 0.65 0], 'MarkerSize', 6);
-    legend_entries{end+1} = 'Punkty pomiarowe K_p(3)';
+    legend_entries{end+1} = 'Sygnał wejściowy)';
 
     % --- Ustawienia wykresu ---
     hold off;
-    title('Symulacja układu D dla różnych wartości K_p z zakłóceniem');
+   % title('Symulacja układu D dla różnych wartości K_c z zakłóceniem');
     xlabel('Czas [s]');
-    ylabel('Odpowiedź układu');
+    %ylabel('Odpowiedź układu');
     legend(legend_entries, 'Location', 'Best');
 end
+
 
 %linie pierwiastkowe
 if linie_pierwiastkowe

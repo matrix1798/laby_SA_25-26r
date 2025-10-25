@@ -372,7 +372,19 @@
 	
 	\subsubsection{Wpływ zakłóceń na wartość sygnału wyjściowego}
 	
-		Tu trzeba zasymulowac
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{zdjecia/symOdpSkokD.png}
+		\caption{Symulacja wpływu zakłóceń na odpowiedź skokową układu (D).}
+		\label{fig:odp_ukladu_D_z_zakloceniami}
+	\end{figure}
+	
+	Na podstawie przedstawionego wykresu można sformułować kluczowe wnioski dotyczące wpływu wzmocnienia regulatora proporcjonalnego $k_c$ na zachowanie układu poddanego zakłóceniu sinusoidalnemu 50 Hz. Najważniejszą obserwacją jest to, że wzrost wzmocnienia $k_c$ znacząco poprawia zdolność układu do tłumienia zakłóceń. Jest to ewidentne, gdy porównamy amplitudę oscylacji sygnału wyjściowego $c(t)$ dla różnych wartości $k_c$: 
+	
+	\begin{itemize}
+		\item Dla najmniejszego wzmocnienia $k_c = 1.02$ (linia niebieska), amplituda oscylacji wywołanych zakłóceniem jest największa.
+		\item Dla największego wzmocnienia $k_c = 4.47$ (linia żółta), oscylacje te są najskuteczniej tłumione i mają najmniejszą amplitudę.
+	\end{itemize}
 		
 	
 	\subsubsection{Linie pierwiastkowe}
