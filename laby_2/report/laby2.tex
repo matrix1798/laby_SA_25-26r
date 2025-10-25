@@ -28,7 +28,7 @@
 	linkcolor=black,
 	filecolor=black,
 	urlcolor=blue,
-	pdftitle={Sprawozdanie SA - Cw 1},
+	pdftitle={Sprawozdanie SA - Cw 2},
 	pdfpagemode=FullScreen,
 }
 
@@ -48,7 +48,7 @@
 				Kewin Kisiel 197866\\
 			\end{tabular} \\ \hline
 			\textbf{Data pomiarów:} & 16.10.2025 \\ \hline
-			\textbf{Data oddania:} & 22.10.2025 \\ \hline
+			\textbf{Data oddania:} & 25.10.2025 \\ \hline
 			\textbf{Ocena:} & \\ \hline
 		\end{tabular}\\[2cm]
 		
@@ -210,10 +210,10 @@
 			
 		\end{tikzpicture}
 		\caption{Schemat blokowy układu regulacji z zakłóceniem.}
-	\end{figure}
+	\end{figure}	
 	
 	\newpage
-	\subsection{Układ A}
+	\section{Układ A}
 	
 	Pierwszy badany układ składa się ze sterownika proporcjonalnego (P) oraz obiektu sterowanego w pętli ujemnego sprzężenia zwrotnego. Obiekt sterowany jest szeregowym połączeniem członu całkującego i członu inercyjnego drugiego rzędu. 
 	
@@ -230,7 +230,7 @@
 		\item Dla \(n_3 = 2,4\): $k_{c3} = 0,47 + 2,4 / 2 = 0,47 + 1,20 = \textbf{1,67}$
 	\end{itemize}
 	
-	\subsubsection{Odpowiedzi skokowe}
+	\subsection{Odpowiedzi skokowe}
 	Na poniższym wykresie przedstawiono zarejestrowane odpowiedzi skokowe układu (A) dla trzech wyznaczonych wzmocnień \(k_c\).
 	
 	\begin{figure}[H]
@@ -242,7 +242,7 @@
 	
 	Analiza odpowiedzi skokowych Układu A pokazuje, że zwiększanie wzmocnienia $k_c$ skraca czas narastania, ale jednocześnie znacząco zwiększa przeregulowanie i oscylacyjność odpowiedzi. Niezależnie od wzmocnienia, uchyb ustalony wynosi zero, co jest zasługą członu całkującego w obiekcie sterowania.
 	
-	\subsubsection{Linie pierwiastkowe}
+	\subsection{Linie pierwiastkowe}
 	Wykres linii pierwiastkowych dla układu otwartego \(G_o(s) = k_c \cdot \frac{1}{sT_i} \cdot \frac{w_n^2}{w_n^2 + s 2 \zeta w_n + s^2}\) przedstawiono poniżej. Zaznaczono na nim położenie biegunów układu zamkniętego dla badanych wzmocnień \(k_{c1}\), \(k_{c2}\) i \(k_{c3}\).
 	
 	\begin{figure}[H]
@@ -254,7 +254,7 @@
 	
 	Wykres linii pierwiastkowych pokazuje, że wraz ze wzrostem $k_c$ bieguny układu zamkniętego zbliżają się do osi urojonej. Powoduje to spadek tłumienia, co bezpośrednio przekłada się na większe oscylacje widoczne na odpowiedziach skokowych. Linie pierwiastkowe wskazują również, że zbyt duże wzmocnienie $k_c$ doprowadzi do niestabilności systemu, ponieważ gałęzie zmierzają w kierunku prawej półpłaszczyzny. 
 	
-	\subsubsection{Charakterystyki Bodego}
+	\subsection{Charakterystyki Bodego}
 	Poniższy wykres przedstawia charakterystyki Bodego układu zamkniętego dla badanych wartości \(k_c\).
 	
 	\begin{figure}[H]
@@ -266,7 +266,7 @@
 	
 	Charakterystyki Bodego układu zamkniętego (Rysunek 7) pokazują, jak wzmocnienie $k_c$ wpływa na odpowiedź częstotliwościową. Wzrost $k_c$ powoduje pojawienie się i wzrost piku rezonansowego, oraz lekkie poszerzenie pasma przenoszenia. Wyższy pik rezonansowy jest bezpośrednio skorelowany z mniejszym tłumieniem i większym przeregulowaniem, co jest w pełni zgodne z analizą odpowiedzi skokowych (Rysunek 5).
 	
-	\subsubsection{Charakterystyki Nyquista}
+	\subsection{Charakterystyki Nyquista}
 	Na wykresie Nyquista układu otwartego można zbadać stabilność układu zamkniętego.
 	
 	\begin{figure}[H]
@@ -278,7 +278,54 @@
 
 	Wykres Nyquist układu otwartego (Rysunek 8) służy do oceny stabilności układu zamkniętego. Wzrost $k_c$ powoduje proporcjonalne skalowanie wykresu. Dla małego wzmocnienia ($k_{c1}=0.52$), wykres jest daleko od punktu krytycznego (-1, 0j), co oznacza duży zapas stabilności. W miarę wzrostu $k_c$ do 1.67, wykres niebezpiecznie zbliża się do punktu (-1, 0j), co sygnalizuje mały zapas fazy i wzmocnienia oraz, co za tym idzie, silne oscylacje widoczne na odpowiedzi skokowej.
 	
-	\subsection{Układ B}
+	\subsection{Analityczne uzasadnienie wyników dla układu A (Obiekt całkująco-inercyjny II rzędu)}
+	
+	\textbf{Model obiektu:} $G_p(s) = \frac{1}{sT_i} \cdot \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2}$. \\
+	\textbf{Transmitancja układu otwartego:} $G_o(s) = k_c \cdot G_p(s) = \frac{k_c \omega_n^2}{sT_i(s^2 + 2\zeta\omega_n s + \omega_n^2)}$.
+	
+	\subsubsection{Dokładność sterowania (Uchyb ustalony)}
+	\begin{itemize}
+		\item \textbf{Uzasadnienie analityczne:} Układ otwarty $G_o(s)$ posiada biegun w początku układu współrzędnych (człon całkujący $1/sT_i$). Czyni to system \textbf{układem typu 1}. Zgodnie z twierdzeniem o wartości końcowej, uchyb ustalony $e$ dla pobudzenia skokowego $R(s) = 1/s$ wynosi:
+		\[
+		e = \lim_{s \to 0} s \cdot E(s) = \lim_{s \to 0} s \cdot \frac{R(s)}{1 + G_o(s)} = \lim_{s \to 0} \frac{1}{1 + G_o(s)}
+		\]
+		\[
+		e = \lim_{s \to 0} \frac{1}{1 + \frac{k_c \omega_n^2}{sT_i(s^2 + 2\zeta\omega_n s + \omega_n^2)}} = \frac{1}{1 + \infty} = 0
+		\]
+		\item \textbf{Zgodność z pomiarami:} Analiza potwierdza obserwacje pomiarowe (Rysunek \ref{fig:OdpSkokA}), że \textbf{uchyb ustalony wynosi zero niezależnie od wartości $k_c$}. Jest to bezpośrednia konsekwencja obecności członu całkującego w obiekcie.
+	\end{itemize}
+	
+	\subsubsection{Jakość odpowiedzi skokowej i stabilność}
+	\begin{itemize}
+		\item \textbf{Uzasadnienie analityczne:} Transmitancja układu zamkniętego $G_z(s) = \frac{G_o(s)}{1 + G_o(s)}$ posiada równanie charakterystyczne:
+		\[
+		1 + G_o(s) = 0 \implies sT_i(s^2 + 2\zeta\omega_n s + \omega_n^2) + k_c \omega_n^2 = 0
+		\]
+		\[
+		s^3 T_i + 2\zeta\omega_n T_i s^2 + \omega_n^2 T_i s + k_c \omega_n^2 = 0
+		\]
+		Jest to układ \textbf{trzeciego rzędu}. Stabilność takiego układu można zbadać kryterium Routha-Hurwitza. Warunkiem stabilności (poza dodatniością współczynników $T_i, 2\zeta\omega_n T_i, \omega_n^2 T_i, k_c \omega_n^2 > 0$) jest:
+		\[
+		(2\zeta\omega_n T_i) \cdot (\omega_n^2 T_i) > (T_i) \cdot (k_c \omega_n^2)
+		\]
+		\[
+		2\zeta\omega_n T_i^2 \omega_n^2 > k_c T_i \omega_n^2 \implies 2\zeta\omega_n T_i > k_c
+		\]
+		Istnieje więc wzmocnienie graniczne $k_{gr} = 2\zeta\omega_n T_i$, powyżej którego układ staje się niestabilny. Wzrost $k_c$ przesuwa bieguny dominujące układu zamkniętego w kierunku osi urojonej $j\omega$.
+		
+		\item \textbf{Zgodność z pomiarami:} Model analityczny w pełni tłumaczy wyniki pomiarów. Jak widać na Rysunku \ref{fig:OdpSkokA}, zwiększanie $k_c$ \textbf{skraca czas narastania, ale jednocześnie zwiększa przeregulowanie i oscylacyjność}. Dzieje się tak, ponieważ bieguny zbliżają się do osi $j\omega$ (co widać na Rysunku \ref{fig:LP_ukladA}), zmniejszając tłumienie systemu. Wykres Nyquista (Rysunek \ref{fig:NQ_ukladA}), skalowany przez $k_c$, potwierdza, że dla większych wzmocnień pętla $G_o(j\omega)$ zbliża się do punktu krytycznego (-1, 0j), co sygnalizuje spadek zapasu fazy i wzmocnienia oraz wzrost oscylacji.
+	\end{itemize}
+	
+	\subsection{Wpływ wzmocnienia sterownika typu P na postać wszystkich procesów przejściowych w układzie A}
+	\begin{itemize}
+		\item Sygnał wyjściowy $c(t)$: Zwiększanie wzmocnienia $k_c$ skraca czas narastania odpowiedzi. Jednocześnie jednak, układ staje się bardziej oscylacyjny – rośnie zarówno przeregulowanie, jak i czas ustalania (z powodu dłuższego tłumienia oscylacji). Analiza linii pierwiastkowych potwierdziła, że wzrost $k_c$ przesuwa bieguny układu zamkniętego bliżej osi urojonej, co powoduje spadek tłumienia.
+		\item Uchyb $e(t)$: Wzrost $k_c$ powoduje, że uchyb szybciej maleje do zera, ale robi to w sposób bardziej oscylacyjny, z większym przeregulowaniem w kierunku wartości ujemnych. Należy zaznaczyć, że dzięki obecności członu całkującego w obiekcie, uchyb ustalony zawsze dąży do zera, niezależnie od wartości $k_c$.
+		\item Sygnał sterujący $u(t)$: Dla skokowej zmiany $r(t)$, uchyb początkowy $e(0)$ jest stały. Wzrost $k_c$ powoduje więc proporcjonalnie większą początkową wartość sygnału sterującego $u(0)$. Ta silniejsza, bardziej agresywna reakcja sterownika jest przyczyną skrócenia czasu narastania. W trakcie stanu przejściowego, oscylacje obecne w $e(t)$ są wzmacniane przez $k_c$, co skutkuje również silnie oscylacyjnym sygnałem $u(t)$.
+	\end{itemize}
+	
+	\bigskip \hrule \bigskip
+	
+	\section{Układ B}
 	
 	Drugi badany układ składa się ze sterownika proporcjonalnego (P) oraz obiektu będącego szeregowym połączeniem członu całkującego i członu nieminimalnofazowego.
 	
@@ -295,7 +342,7 @@
 		\item Dla \(n_3 = 2,8\): $k_{c3} = 0,47 + 2,8 / 2 = 0,47 + 1,40 = \textbf{1,87}$
 	\end{itemize}
 	
-	\subsubsection{Odpowiedzi skokowe}
+	\subsection{Odpowiedzi skokowe}
 	Na poniższym wykresie przedstawiono zarejestrowane odpowiedzi skokowe układu (B) dla trzech wyznaczonych wzmocnień \(k_c\).
 	
 	\begin{figure}[H]
@@ -307,7 +354,7 @@
 	
 	Odpowiedzi skokowe Układu B (Rys. 9) wykazują cechy charakterystyczne dla układu nieminimalnofazowego, co jest zgodne z jego modelem. Kluczowym elementem jest sygnał wyjściowy, który początkowo podąża w kierunku przeciwnym do wartości zadanej. Wzrost wzmocnienia $k_c$ skraca czas narastania, ale jednocześnie drastycznie pogłębia początkowe zanurkowanie oraz zwiększa przeregulowanie i oscylacyjność. Dla $k_{c3}=1.87$ układ jest już na granicy stabilności. Podobnie jak w Układzie A, obecność członu całkującego zapewnia zerowy uchyb ustalony.
 	
-	\subsubsection{Linie pierwiastkowe}
+	\subsection{Linie pierwiastkowe}
 	Wykres linii pierwiastkowych dla układu otwartego \(G_o(s) = k_c \cdot \frac{1}{sT_i} \cdot
 	\frac{1-sT_x}{1+sT_y}\) przedstawiono poniżej. Zaznaczono na nim położenie biegunów układu zamkniętego dla badanych wzmocnień \(k_{c1}\), \(k_{c2}\) i \(k_{c3}\).
 	
@@ -320,7 +367,7 @@
 	
 	Wykres linii pierwiastkowych dla Układu B (Rys. 10) jest zdominowany przez obecność zera w prawej półpłaszczyźnie (wynikającego z członu nieminimalnofazowego). To zero przyciąga do siebie jedną z gałęzi linii pierwiastkowych, powodując, że bieguny układu zamkniętego bardzo szybko przekraczają oś urojoną i przechodzą do strefy niestabilnej. Wyjaśnia to, dlaczego już stosunkowo niewielki wzrost $k_c$ prowadzi do tak silnych oscylacji i szybkiej utraty stabilności, co zaobserwowano na odpowiedzi skokowej (Rys. 9).
 	
-	\subsubsection{Charakterystyki Bodego}
+	\subsection{Charakterystyki Bodego}
 	
 	\begin{figure}[H]
 		\centering
@@ -331,7 +378,7 @@
 	
 	Charakterystyki Bodego układu zamkniętego (Rys. 11) potwierdzają analizę. Wzrost $k_c$ podnosi pik rezonansowy. Jednak kluczowa jest charakterystyka fazowa – człon nieminimalnofazowy wprowadza dodatkowe, nieliniowe opóźnienie fazowe. Faza spada znacznie poniżej -180°, co drastycznie redukuje zapas fazy i jest główną przyczyną niestabilności układu.
 	
-	\subsubsection{Charakterystyki Nyquista}
+	\subsection{Charakterystyki Nyquista}
 	
 	\begin{figure}[H]
 		\centering
@@ -342,7 +389,48 @@
 	
 	Wykresy Nyquista układu otwartego (Rys. 12) ilustrują problem stabilności układu. Z powodu dodatkowego opóźnienia fazowego, wykres zawija się i dla rosnącego $k_c$ bardzo szybko zbliża się do punktu krytycznego (-1, 0j). Potwierdza to wnioski z linii pierwiastkowych: układ ma bardzo mały margines wzmocnienia i staje się niestabilny już przy niewielkich wartościach $k_c$.
 	
-	\subsection{Układ D}
+	\subsection{Analityczne uzasadnienie wyników dla układu B (Obiekt całkujący z członem nieminimalnofazowym)}
+	
+	\textbf{Model obiektu:} $G_p(s) = \frac{1}{sT_i} \cdot \frac{1 - sT_x}{1 + sT_y}$. \\
+	\textbf{Transmitancja układu otwartego:} $G_o(s) = k_c \cdot G_p(s) = \frac{k_c (1 - sT_x)}{sT_i (1 + sT_y)}$.
+	
+	\subsubsection{Dokładność sterowania (Uchyb ustalony)}
+	\begin{itemize}
+		\item \textbf{Uzasadnienie analityczne:} Podobnie jak w Układzie A, obecność członu całkującego $1/sT_i$ w pętli otwartej sprawia, że jest to \textbf{układ typu 1}. Z tego samego powodu (twierdzenie o wartości końcowej), \textbf{uchyb ustalony dla pobudzenia skokowego jest równy zero}.
+		\[
+		e_{ss} = \lim_{s \to 0} \frac{1}{1 + G_o(s)} = \lim_{s \to 0} \frac{1}{1 + \frac{k_c(1 - 0)}{sT_i(1 + 0)}} = \frac{1}{1 + \infty} = 0
+		\]
+		\item \textbf{Zgodność z pomiarami:} Pomiary (Rysunek \ref{fig:OdpSkokB}) potwierdziły, że \textbf{uchyb ustalony wynosił zero} dla każdej wartości $k_c$.
+	\end{itemize}
+	
+	\subsubsection{Jakość odpowiedzi skokowej i stabilność}
+	\begin{itemize}
+		\item \textbf{Uzasadnienie analityczne:} Układ ten jest \textbf{nieminimalnofazowy} z powodu obecności zera $z = +1/T_x$ w prawej półpłaszczyźnie zespolonej. Równanie charakterystyczne układu zamkniętego:
+		\[
+		1 + G_o(s) = 0 \implies sT_i(1 + sT_y) + k_c(1 - sT_x) = 0
+		\]
+		\[
+		s^2(T_i T_y) + s(T_i - k_c T_x) + k_c = 0
+		\]
+		Jest to układ \textbf{drugiego rzędu}. Z kryterium Routha-Hurwitza, dla stabilności wszystkie współczynniki muszą być dodatnie. O ile $T_i T_y > 0$ i $k_c > 0$, krytycznym warunkiem jest:
+		\[
+		T_i - k_c T_x > 0 \implies k_c < \frac{T_i}{T_x}
+		\]
+		Układ jest \textbf{warunkowo stabilny}, z wzmocnieniem granicznym $k_{gr} = T_i / T_x$. Zero w prawej półpłaszczyźnie przyciąga do siebie jedną z gałęzi linii pierwiastkowych (Rysunek \ref{fig:LP_ukladB}), powodując szybką utratę stabilności. W dziedzinie czasu, zero jest analityczną przyczyną obserwowanego \textbf{początkowego zanurkowania} (odpowiedź w kierunku przeciwnym do zadanego).
+		
+		\item \textbf{Zgodność z pomiarami:} Model analityczny idealnie wyjaśnia zachowanie układu. Pomiary na Rysunku \ref{fig:OdpSkokB} wykazały charakterystyczne zanurkowanie sygnału wyjściowego. Zwiększanie $k_c$ nie tylko pogłębiało to zanurkowanie, ale też gwałtownie zwiększało oscylacje (dla $k_{c3}=1.87$ układ był na granicy stabilności), co jest zgodne z istnieniem niskiego wzmocnienia granicznego $k_{gr}$.
+	\end{itemize}
+	
+	\subsection{Wpływ wzmocnienia sterownika typu P na postać wszystkich procesów przejściowych w układzie B}
+	\begin{itemize}
+		\item Sygnał wyjściowy $c(t)$: Najbardziej charakterystyczną cechą jest początkowe zanurkowanie sygnału $c(t)$ w kierunku przeciwnym do wartości zadanej. Zwiększanie wzmocnienia $k_c$ ma dwojaki negatywny skutek: drastycznie pogłębia to początkowe zanurkowanie oraz znacząco zwiększa przeregulowanie i oscylacyjność. Jak pokazała analiza linii pierwiastkowych i Nyquista, układ ten bardzo szybko traci stabilność wraz ze wzrostem $k_c$.
+		\item Uchyb $e(t)$: Z powodu zanurkowania $c(t)$, uchyb $e(t)$ początkowo rośnie (błąd się powiększa), zanim zacznie maleć. Wzrost $k_c$ pogłębia ten niekorzystny efekt. Proces przejściowy $e(t)$ jest silnie oscylacyjny. Podobnie jak w Układzie A, człon całkujący zapewnia jednak zerowy uchyb ustalony.
+		\item Sygnał sterujący $u(t)$: Wzrost $k_c$ prowadzi do bardzo agresywnego sygnału $u(t)$. Sterownik, reagując na rosnący błąd (spowodowany zanurkowaniem), generuje bardzo duży sygnał sterujący, który następnie prowadzi do gwałtownego przeregulowania.
+	\end{itemize}
+	
+	\bigskip \hrule \bigskip
+	
+	\section{Układ D}
 	
 	Ostatni badany układ to układ regulacji z zakłóceniem, składający się ze sterownika proporcjonalnego (P) i obiektu inercyjnego pierwszego rzędu.
 	
@@ -358,7 +446,7 @@
 		\item Dla \(n_3 = 8,0\): $k_{c3} = 0,47 + 8,0 / 2 = 0,47 + 4,00 = \textbf{4,47}$
 	\end{itemize}
 	
-	\subsubsection{Odpowiedzi skokowe}
+	\subsection{Odpowiedzi skokowe}
 	Na poniższym wykresie przedstawiono zarejestrowane odpowiedzi skokowe układu (D) dla trzech wyznaczonych wzmocnień \(k_c\).
 	
 	\begin{figure}[H]
@@ -370,12 +458,12 @@
 	
 	Odpowiedzi skokowe dla Układu D (Rys. 13) są typowe dla układu inercyjnego pierwszego rzędu w pętli sprzężenia zwrotnego. Układ jest stabilny i nie wykazuje żadnych oscylacji ani przeregulowań, niezależnie od wartości $k_c$. Zwiększanie wzmocnienia $k_c$ przynosi dwa efekty: po pierwsze, skraca czas odpowiedzi (system staje się szybszy), a po drugie, zmniejsza uchyb ustalony. Ze względu na brak członu całkującego w pętli, uchyb ten nigdy nie jest zredukowany do zera, ale staje się mniejszy dla wyższych $k_c$.
 	
-	\subsubsection{Wpływ zakłóceń na wartość sygnału wyjściowego}
+	\subsection{Wpływ zakłóceń na wartość sygnału wyjściowego}
 	
 		Tu trzeba zasymulowac
 		
 	
-	\subsubsection{Linie pierwiastkowe}
+	\subsection{Linie pierwiastkowe}
 	
 	\begin{figure}[H]
 		\centering
@@ -386,7 +474,7 @@
 	
 	Linie pierwiastkowe dla Układu D (Rys. 14) są najprostsze z analizowanych. Układ otwarty ma tylko jeden biegun na ujemnej osi rzeczywistej (w punkcie $-1/T_p$). W rezultacie, linia pierwiastkowa to pojedyncza gałąź biegnąca od tego bieguna w lewo, w kierunku $-\infty$. Ponieważ biegun układu zamkniętego zawsze pozostaje na ujemnej osi rzeczywistej i nigdy nie zbliża się do osi urojonej, system jest bezwarunkowo stabilny i nieoscylacyjny dla każdej dodatniej wartości $k_c$.
 	
-	\subsubsection{Charakterystyki Bodego}
+	\subsection{Charakterystyki Bodego}
 	
 	\begin{figure}[H]
 		\centering
@@ -397,7 +485,7 @@
 	
 	Charakterystyki Bodego układu zamkniętego (Rys. 15) pokazują, że układ działa jak filtr dolnoprzepustowy. Zwiększanie $k_c$ przesuwa całą charakterystykę amplitudową w górę i poszerza pasmo przenoszenia. Szersze pasmo oznacza, że układ szybciej reaguje na zmiany, co jest w pełni zgodne z szybszym czasem narastania widocznym na odpowiedziach skokowych (Rys. 13). Charakterystyka fazowa pokazuje maksymalne przesunięcie -90°, co potwierdza brak oscylacji.
 	
-	\subsubsection{Charakterystyki Nyquista}
+	\subsection{Charakterystyki Nyquista}
 	
 	\begin{figure}[H]
 		\centering
@@ -408,7 +496,42 @@
 	
 	Wykres Nyquista dla układu otwartego (Rys. 16) to prosty półokrąg leżący w całości w prawej półpłaszczyźnie (przesunięty o wartość wzmocnienia $k_c \cdot k_p$). Wzrost $k_c$ jedynie powiększa ten półokrąg. Wykres ten nigdy, nawet dla nieskończonego wzmocnienia, nie zbliży się do punktu krytycznego (-1, 0j). Oznacza to, że układ posiada nieskończony zapas wzmocnienia i fazy, co czyni go bezwarunkowo stabilnym, co potwierdzają wszystkie pozostałe analizy.
 	
-	\subsubsection{Charakterystyki amplitudowe}
+	\subsection{Analityczne uzasadnienie wyników dla układu D (Obiekt inercyjny I rzędu)}
+	
+	\textbf{Model obiektu:} $G_p(s) = \frac{k_p}{1 + sT_p}$. \\
+	\textbf{Transmitancja układu otwartego:} $G_o(s) = k_c \cdot G_p(s) = \frac{k_c k_p}{1 + sT_p}$.
+	
+	\subsubsection{Dokładność sterowania (Uchyb ustalony)}
+	\begin{itemize}
+		\item \textbf{Uzasadnienie analityczne:} Układ otwarty $G_o(s)$ nie posiada bieguna w początku układu (brak członu całkującego). Jest to \textbf{układ typu 0}. Uchyb ustalony dla pobudzenia skokowego wynosi:
+		\[
+		e_{ss} = \lim_{s \to 0} \frac{1}{1 + G_o(s)} = \frac{1}{1 + \lim_{s \to 0} \frac{k_c k_p}{1 + sT_p}} = \frac{1}{1 + k_c k_p}
+		\]
+		Uchyb jest \textbf{niezerowy}, a jego wartość jest odwrotnie proporcjonalna do wzmocnienia pętli $k_c k_p$. Zwiększanie $k_c$ powoduje \textbf{zmniejszenie uchybu ustalonego}.
+		
+		\item \textbf{Zgodność z pomiarami:} Pomiary (Rysunek \ref{fig:OdpSkokD}) w pełni to potwierdzają. Zaobserwowano, że uchyb ustalony \textbf{nigdy nie osiąga zera}, ale jego wartość \textbf{maleje wraz ze wzrostem $k_c$}.
+	\end{itemize}
+	
+	\subsubsection{Jakość odpowiedzi skokowej i stabilność}
+	\begin{itemize}
+		\item \textbf{Uzasadnienie analityczne:} Transmitancja układu zamkniętego $G_z(s) = \frac{G_o(s)}{1 + G_o(s)}$ ma postać:
+		\[
+		G_z(s) = \frac{\frac{k_c k_p}{1 + sT_p}}{1 + \frac{k_c k_p}{1 + sT_p}} = \frac{k_c k_p}{1 + sT_p + k_c k_p} = \frac{\frac{k_c k_p}{1 + k_c k_p}}{1 + s \frac{T_p}{1 + k_c k_p}}
+		\]
+		Jest to \textbf{obiekt inercyjny pierwszego rzędu} o wzmocnieniu $K_z = \frac{k_c k_p}{1 + k_c k_p}$ i stałej czasowej $T_z = \frac{T_p}{1 + k_c k_p}$. Układ posiada tylko jeden, rzeczywisty biegun ujemny $s = -1/T_z$. Taki układ jest \textbf{zawsze stabilny (bezwarunkowo)} i z natury \textbf{nie może wykazywać oscylacji ani przeregulowań}. Wzrost $k_c$ powoduje zmniejszenie stałej czasowej $T_z$, co oznacza \textbf{przyspieszenie odpowiedzi} systemu.
+		
+		\item \textbf{Zgodność z pomiarami:} Wyniki pomiarów (Rysunek \ref{fig:OdpSkokD}) są w idealnej zgodzie z modelem. Stwierdzono, że układ \textbf{nie wykazuje żadnych oscylacji ani przeregulowań niezależnie od $k_c$}. Zaobserwowano również, że \textbf{zwiększanie $k_c$ skraca czas odpowiedzi}. Analiza linii pierwiastkowych (Rys. \ref{fig:LP_ukladD}) i Nyquista (Rys. \ref{fig:NQ_ukladD}) również potwierdza bezwarunkową stabilność.
+	\end{itemize}
+	
+	\subsection{Wpływ wzmocnienia sterownika typu P na postać wszystkich procesów przejściowych w układzie D}
+	\begin{itemize}
+		\item Sygnał wyjściowy $c(t)$: Zwiększanie $k_c$ przynosi wyłącznie pozytywne efekty dla procesu przejściowego: skraca czas odpowiedzi (system staje się szybszy). Co kluczowe, w tym układzie wzrost $k_c$ nie powoduje żadnych przeregulowań ani oscylacji. Analiza linii pierwiastkowych potwierdziła, że biegun układu zamkniętego zawsze pozostaje na ujemnej osi rzeczywistej, co gwarantuje bezwarunkową stabilność i aperiodyczność odpowiedzi.
+		\item Uchyb $e(t)$: Proces przejściowy $e(t)$ również staje się szybszy – uchyb szybciej stabilizuje się na swojej wartości ustalonej. W przeciwieństwie do układów A i B, układ ten posiada niezerowy uchyb ustalony. Zwiększanie $k_c$ ma jednak korzystny wpływ na dokładność, zmniejszając wartość tego uchybu.
+		\item Sygnał sterujący $u(t)$: Wzrost $k_c$ skutkuje silniejszą reakcją początkową (większe $u(0)$), co przekłada się na szybsze narastanie $c(t)$. Proces przejściowy $u(t)$ jest, podobnie jak $e(t)$, aperiodyczny i stabilizuje się na niezerowej wartości.
+		\item Sygnał $a(t)$: W schemacie układu sygnał $a(t)$ jest sumą sygnału sterującego $u(t)$ i zakłócenia $d(t)$. W analizie odpowiedzi skokowej (gdzie $d(t)=0$), proces przejściowy $a(t)$ jest tożsamy z procesem przejściowym $u(t)$.
+	\end{itemize}
+	
+	\subsection{Charakterystyki amplitudowe}
 		
 		Do przeprowadzenia symulacji dobraliśmy wzmocnienie układu o wartości $k_c = 1.22$.
 				
