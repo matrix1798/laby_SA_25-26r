@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  25 OCT 2025 13:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.10.11)  25 OCT 2025 13:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1134,38 +1134,50 @@ File: zdjecia/OdpSkokD.png Graphic file (type png)
 Package pdftex.def Info: zdjecia/OdpSkokD.png  used on input line 454.
 (pdftex.def)             Requested size: 455.24411pt x 229.2779pt.
  [13]
-<zdjecia/LP_ukladD.png, id=255, 1306.6416pt x 580.569pt>
+<zdjecia/symOdpSkokD.png, id=255, 811.53188pt x 462.22687pt>
+File: zdjecia/symOdpSkokD.png Graphic file (type png)
+<use zdjecia/symOdpSkokD.png>
+Package pdftex.def Info: zdjecia/symOdpSkokD.png  used on input line 465.
+(pdftex.def)             Requested size: 364.19667pt x 207.44298pt.
+ [14 <./zdjecia/OdpSkokD.png>]
+<zdjecia/LP_ukladD.png, id=262, 1306.6416pt x 580.569pt>
 File: zdjecia/LP_ukladD.png Graphic file (type png)
 <use zdjecia/LP_ukladD.png>
-Package pdftex.def Info: zdjecia/LP_ukladD.png  used on input line 470.
+Package pdftex.def Info: zdjecia/LP_ukladD.png  used on input line 481.
 (pdftex.def)             Requested size: 364.19667pt x 161.81407pt.
- [14 <./zdjecia/OdpSkokD.png>]
-<zdjecia/Bode_ukladD.png, id=262, 1163.0652pt x 577.1964pt>
+ [15 <./zdjecia/symOdpSkokD.png (PNG copy)> <./zdjecia/LP_ukladD.png (PNG copy)
+>]
+<zdjecia/Bode_ukladD.png, id=269, 1163.0652pt x 577.1964pt>
 File: zdjecia/Bode_ukladD.png Graphic file (type png)
 <use zdjecia/Bode_ukladD.png>
-Package pdftex.def Info: zdjecia/Bode_ukladD.png  used on input line 481.
+Package pdftex.def Info: zdjecia/Bode_ukladD.png  used on input line 492.
 (pdftex.def)             Requested size: 455.24411pt x 225.92476pt.
- [15 <./zdjecia/LP_ukladD.png (PNG copy)> <./zdjecia/Bode_ukladD.png (PNG copy)
->]
-<zdjecia/NQ_ukladD.png, id=269, 1297.9692pt x 591.1686pt>
+<zdjecia/NQ_ukladD.png, id=270, 1297.9692pt x 591.1686pt>
 File: zdjecia/NQ_ukladD.png Graphic file (type png)
 <use zdjecia/NQ_ukladD.png>
-Package pdftex.def Info: zdjecia/NQ_ukladD.png  used on input line 492.
+Package pdftex.def Info: zdjecia/NQ_ukladD.png  used on input line 503.
 (pdftex.def)             Requested size: 364.19667pt x 165.87787pt.
- [16 <./zdjecia/NQ_ukladD.png (PNG copy)>] [17]
-<zdjecia/char_czest_ukladu_D.png, id=283, 797.22844pt x 446.41782pt>
+ [16 <./zdjecia/Bode_ukladD.png (PNG copy)>] [17 <./zdjecia/NQ_ukladD.png (PNG 
+copy)>]
+<zdjecia/char_czest_ukladu_D.png, id=285, 797.22844pt x 446.41782pt>
 File: zdjecia/char_czest_ukladu_D.png Graphic file (type png)
 <use zdjecia/char_czest_ukladu_D.png>
-Package pdftex.def Info: zdjecia/char_czest_ukladu_D.png  used on input line 54
-0.
+Package pdftex.def Info: zdjecia/char_czest_ukladu_D.png  used on input line 55
+1.
 (pdftex.def)             Requested size: 364.19667pt x 203.93784pt.
-
-Overfull \hbox (4.45682pt too wide) in paragraph at lines 545--546
+ [18]
+Overfull \hbox (4.45682pt too wide) in paragraph at lines 556--557
 \T1/cmr/m/n/12 pro-jek-to-wany ukªad z re-gu-la-to-rem pro-por-cjo-nal-nym (P) 
 wy-ka-zuje uchyb usta-lony ^^U wzmoc-
  []
 
-[18 <./zdjecia/char_czest_ukladu_D.png (PNG copy)>] [19] (laby2.aux)
+
+Overfull \hbox (6.8798pt too wide) in paragraph at lines 563--564
+\T1/cmr/bx/n/12 kom-pro-mis mi¦-dzy szyb-ko-±ci¡ a sta-bil-no-±ci¡\T1/cmr/m/n/1
+2 . Zwi¦k-sza-nie $\OML/cmm/m/it/12 k[]$ \T1/cmr/m/n/12 skra-caªo co prawda
+ []
+
+[19 <./zdjecia/char_czest_ukladu_D.png (PNG copy)>] [20] (laby2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -1174,10 +1186,10 @@ Package rerunfilecheck Info: File `laby2.out' has not changed.
 (rerunfilecheck)             Checksum: A231A14C0205C3DDEBFD087DB136E0BD;8360.
  ) 
 Here is how much of TeX's memory you used:
- 36057 strings out of 474486
- 850017 string characters out of 5743754
+ 36067 strings out of 474486
+ 850283 string characters out of 5743754
  1941542 words of memory out of 5000000
- 57702 multiletter control sequences out of 15000+600000
+ 57710 multiletter control sequences out of 15000+600000
  575722 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,107p,1471b,800s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1200,9 +1212,9 @@ onts/cm/cmr6.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/amsfonts/cm/cmr8.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmsy10.pfb><C:/Users/turbi/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on laby2.pdf (20 pages, 2837285 bytes).
+Output written on laby2.pdf (21 pages, 2890832 bytes).
 PDF statistics:
- 692 PDF objects out of 1000 (max. 8388607)
- 71 named destinations out of 1000 (max. 500000)
- 370 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 702 PDF objects out of 1000 (max. 8388607)
+ 73 named destinations out of 1000 (max. 500000)
+ 375 words of extra memory for PDF output out of 10000 (max. 10000000)
 

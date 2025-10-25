@@ -460,8 +460,19 @@
 	
 	\subsection{Wpływ zakłóceń na wartość sygnału wyjściowego}
 	
-		Tu trzeba zasymulowac
-		
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{zdjecia/symOdpSkokD.png}
+		\caption{Symulacja wpływu zakłóceń na odpowiedź skokową układu (D).}
+		\label{fig:odp_ukladu_D_z_zakloceniami}
+	\end{figure}
+	
+	Na podstawie przedstawionego wykresu można wywnioskować, że wzrost wzmocnienia $k_c$ znacząco poprawia zdolność układu do tłumienia zakłóceń. Jest to ewidentne, gdy porównamy amplitudę oscylacji sygnału wyjściowego $c(t)$ dla różnych wartości $k_c$: 
+	
+	\begin{itemize}
+		\item Dla najmniejszego wzmocnienia $k_c = 1.02$ (linia niebieska), amplituda oscylacji wywołanych zakłóceniem jest największa.
+		\item Dla największego wzmocnienia $k_c = 4.47$ (linia żółta), oscylacje te są najskuteczniej tłumione i mają najmniejszą amplitudę.
+	\end{itemize}
 	
 	\subsection{Linie pierwiastkowe}
 	
@@ -545,6 +556,18 @@
 		Analiza przedstawionych charakterystyk amplitudowych pozwala stwierdzić, że zaprojektowany układ z regulatorem proporcjonalnym (P) wykazuje uchyb ustalony – wzmocnienie $|G_{re}(j\omega)|$ (linia niebieska) dla niskich częstotliwości stabilizuje się na poziomie ok. 0.5, a nie dąży do zera. Oznacza to, że układ nie jest w stanie idealnie śledzić wolnozmiennych sygnałów zadanych $r(t)$. Zdolność ta dodatkowo pogarsza się wraz ze wzrostem częstotliwości, a dla $\omega > 10^4$ rad/s system praktycznie przestaje nadążać za wartością zadaną ($|G_{re}(j\omega)| \approx 1$). Podobnie, system wykazuje ograniczoną zdolność do tłumienia zakłóceń $d(t)$ w paśmie niskich częstotliwości, co obrazuje charakterystyka $|G_{de}(j\omega)|$| (linia żółta, która odpowiada również $|G_{dc}(j\omega)|$), mająca wzmocnienie ok. 0.43. Wskazuje to na niezerowy wpływ stałych lub wolnozmiennych zakłóceń na sygnał wyjściowy $c(t)$. Zaletą układu jest natomiast skuteczne filtrowanie zakłóceń o wysokich częstotliwościach, gdzie wzmocnienie $|G_{de}(j\omega)|$ wyraźnie spada do zera. Charakterystyki sygnału sterującego $u(t)$ ($|G_{ru}(j\omega)|$ i $|G_{ud}(j\omega)|$) pokazują, że regulator najaktywniej działa w paśmie niskich i średnich częstotliwości, aby przeciwdziałać błędom i zakłóceniom, jednocześnie (co jest korzystne) ignorując szumy o wysokiej częstotliwości.
 			
 	\section{Wnioski}
-	Tutaj wnioski
+	Przeprowadzone ćwiczenie pozwoliło na praktyczną weryfikację wpływu wzmocnienia $k_c$ sterownika proporcjonalnego na jakość i dokładność sterowania. Kluczowym wnioskiem jest fakt, że ten sam regulator (P) prowadzi do drastycznie różnych wyników, które są ściśle uzależnione od dynamiki sterowanego obiektu.
+	
+	\begin{itemize}
+		
+		\item \textbf{Dla Układu A} (obiekt II rzędu z członem całkującym), zaobserwowano klasyczny \textbf{kompromis między szybkością a stabilnością}. Zwiększanie $k_c$ skracało co prawda czas narastania, ale odbywało się to kosztem znaczącego wzrostu przeregulowania i oscylacyjności. Analiza linii pierwiastkowych i Nyquista potwierdziła, że układ jest \textbf{warunkowo stabilny}, a wzrost $k_c$ niebezpiecznie zmniejsza zapas stabilności. Niewątpliwą zaletą, wynikającą z obecności integratora w obiekcie, był zerowy uchyb ustalony niezależnie od wzmocnienia.
+		
+		\item \textbf{Dla Układu B} (obiekt nieminimalnofazowy z z członem całkującym), badanie wykazało fundamentalne ograniczenia sterowania. Obecność zera w prawej półpłaszczyźnie powodowała nie tylko charakterystyczne zanurkowanie odpowiedzi, ale także \textbf{bardzo szybką utratę stabilności}. Zwiększanie $k_c$ drastycznie pogłębiało wszystkie negatywne aspekty odpowiedzi. Układ ten ma bardzo mały margines wzmocnienia.
+		
+		\item \textbf{Dla Układu D} (obiekt inercyjny I rzędu), zwiększanie wzmocnienia $k_c$ przynosiło niemal wyłącznie korzyści: skracało czas odpowiedzi (system stawał się szybszy) oraz, co kluczowe dla układu typu 0, zmniejszało uchyb ustalony. Co najważniejsze, układ ten, jest \textbf{bezwarunkowo stabilny} i nie wykazuje żadnych przeregulowań ani oscylacji, niezależnie od wartości $k_c$. Zwiększenie $k_c$ poprawiło również zdolność tłumienia zakłóceń.
+		
+	\end{itemize}
+	
+	Podsumowując, sterownik proporcjonalny jest prostym i skutecznym regulatorem, ale tylko dla prostych obiektów inercyjnych (jak Układ D). W przypadku obiektów wyższych rzędów (jak Układ A) jego stosowanie jest ograniczone przez niestabilność i wymaga kompromisu. Natomiast dla obiektów nieminimalnofazowych (jak Układ B) regulator P jest w praktyce niezalecany, gdyż wzmacnianie sygnału sterującego prowadzi głównie do pogorszenia jakości odpowiedzi i silnej destabilizacji systemu.
 	
 \end{document}
